@@ -200,3 +200,6 @@
 06/07/2024 20:59:13: entra: condori
 06/07/2024 20:59:26: entra: condori-Genesis2024
 06/07/2024 22:25:22: entra: condori-Genesis2024
+07/07/2024 11:20:45: intento de ingreso: condori44
+07/07/2024 11:20:50: entra: condori
+07/07/2024 11:20:56: entra: condori-Genesis2024

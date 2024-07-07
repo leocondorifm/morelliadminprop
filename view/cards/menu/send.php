@@ -26,31 +26,31 @@
                                     <a class="nav-item nav-link active" id="wizard1-tab" href="wizard.html#wizard1" data-bs-toggle="tab" role="tab" aria-controls="wizard1" aria-selected="true">
                                         <div class="wizard-step-icon">1</div>
                                         <div class="wizard-step-text">
-                                            <div class="wizard-step-text-name">Propiedad</div>
-                                            <div class="wizard-step-text-details">Basic details and information</div>
+                                            <div class="wizard-step-text-name"><i class="far fa-building"></i> Propiedad</div>
+                                            <div class="wizard-step-text-details">Seleccione la propiedad</div>
                                         </div>
                                     </a>
                                     <!-- Wizard navigation item 2-->
                                     <a class="nav-item nav-link" id="wizard2-tab" href="wizard.html#wizard2" data-bs-toggle="tab" role="tab" aria-controls="wizard2" aria-selected="true">
                                         <div class="wizard-step-icon">2</div>
                                         <div class="wizard-step-text">
-                                            <div class="wizard-step-text-name">Lista de distribución</div>
-                                            <div class="wizard-step-text-details">Credit card information</div>
+                                            <div class="wizard-step-text-name"><i class="fas fa-newspaper"></i> Lista de distribución</div>
+                                            <div class="wizard-step-text-details">Seleccioná la lista de distribución</div>
                                         </div>
                                     </a>
                                     <!-- Wizard navigation item 3-->
                                     <a class="nav-item nav-link" id="wizard3-tab" href="wizard.html#wizard3" data-bs-toggle="tab" role="tab" aria-controls="wizard3" aria-selected="true">
                                         <div class="wizard-step-icon">3</div>
                                         <div class="wizard-step-text">
-                                            <div class="wizard-step-text-name">Archivos</div>
-                                            <div class="wizard-step-text-details">Notification and account options</div>
+                                            <div class="wizard-step-text-name"><i class="fas fa-folder-plus"></i> Archivos</div>
+                                            <div class="wizard-step-text-details">Seleccioná los archivos</div>
                                         </div>
                                     </a>
                                     <!-- Wizard navigation item 4-->
                                     <a class="nav-item nav-link" id="wizard4-tab" href="wizard.html#wizard4" data-bs-toggle="tab" role="tab" aria-controls="wizard4" aria-selected="true">
                                         <div class="wizard-step-icon">4</div>
                                         <div class="wizard-step-text">
-                                            <div class="wizard-step-text-name">Revisión &amp; envío</div>
+                                            <div class="wizard-step-text-name"><i class="fas fa-paper-plane"></i> Revisión &amp; envío</div>
                                             <div class="wizard-step-text-details">Review and submit changes</div>
                                         </div>
                                     </a>
@@ -62,53 +62,31 @@
                                     <div class="tab-pane py-5 py-xl-10 fade show active" id="wizard1" role="tabpanel" aria-labelledby="wizard1-tab">
                                         <div class="row justify-content-center">
                                             <div class="col-xxl-6 col-xl-8">
-                                                <h3 class="text-primary">Step 1</h3>
-                                                <h5 class="card-title mb-4">Enter your account information</h5>
+                                                <h3 class="text-primary"><i class="far fa-building"></i> Paso 1</h3>
+                                                <h5 class="card-title mb-4">Seleccione la propiedad</h5>
+                                                
                                                 <form>
-                                                    <div class="mb-3">
-                                                        <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
-                                                        <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" />
+                                                    <div class="mb-4">
+                                                        <label for="typeproperty">
+                                                            <a href="property" 
+                                                            style="text-decoration:none"
+                                                            >
+                                                            <i 
+                                                            class="fas fa-plus-circle fa-1x" 
+                                                            > 
+                                                        </i> Agregar propiedad</a></label>
+                                                        <select class="form-control" id="typeproperty">
+                                                            <option>No hay propiedades</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="row gx-3">
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputFirstName">First name</label>
-                                                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie" />
-                                                        </div>
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputLastName">Last name</label>
-                                                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row gx-3">
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputOrgName">Organization name</label>
-                                                            <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap" />
-                                                        </div>
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputLocation">Location</label>
-                                                            <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com" />
-                                                    </div>
-                                                    <div class="row gx-3">
-                                                        <div class="col-md-6 mb-md-0">
-                                                            <label class="small mb-1" for="inputPhone">Phone number</label>
-                                                            <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567" />
-                                                        </div>
-                                                        <div class="col-md-6 mb-0">
-                                                            <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                                            <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
-                                                        </div>
-                                                    </div>
+
                                                     <hr class="my-4" />
                                                     <div class="d-flex justify-content-between">
-                                                        <button class="btn btn-light disabled" type="button" disabled="">Previous</button>
-                                                        <button class="btn btn-primary" type="button">Next</button>
+                                                        <button class="btn btn-light disabled" type="button" disabled="">Atrás</button>
+                                                        <button class="btn btn-primary" type="button">Siguiente</button>
                                                     </div>
                                                 </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -116,37 +94,70 @@
                                     <div class="tab-pane py-5 py-xl-10 fade" id="wizard2" role="tabpanel" aria-labelledby="wizard2-tab">
                                         <div class="row justify-content-center">
                                             <div class="col-xxl-6 col-xl-8">
-                                                <h3 class="text-primary">Step 2</h3>
-                                                <h5 class="card-title mb-4">Enter your billing details</h5>
+                                                <h3 class="text-primary"><i class="fas fa-newspaper"></i>  Paso 2</h3>
+                                                <h5 class="card-title mb-4">Seleccione la lista de distribución</h5>
                                                 <form>
-                                                    <div class="row gx-3">
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputBillingName">Name on card</label>
-                                                            <input class="form-control" id="inputBillingName" type="text" placeholder="Enter the name as it appears on your card" value="Valerie Luna" />
-                                                        </div>
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="small mb-1" for="inputBillingCCNumber">Card number</label>
-                                                            <input class="form-control" id="inputBillingCCNumber" type="text" placeholder="Enter your credit card number" value="4444 3333 2222 1111" />
-                                                        </div>
+
+                                                    <div class="mb-4">
+                                                        <label for="typeproperty">
+                                                            <a href="newsletter" 
+                                                            style="text-decoration:none"
+                                                            >
+                                                            <i 
+                                                            class="fas fa-plus-circle fa-1x" 
+                                                            > 
+                                                        </i> Agregar newsletter</a></label>
+                                                        <select class="form-control" id="typeproperty">
+                                                            <option>No hay lista de distribución</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="row gx-3">
-                                                        <div class="col-md-4 mb-4 mb-md-0">
-                                                            <label class="small mb-1" for="inputOrgName">Card expiry month</label>
-                                                            <input class="form-control" id="inputOrgName" type="text" placeholder="Enter expiry month" value="06" />
-                                                        </div>
-                                                        <div class="col-md-4 mb-4 mb-md-0">
-                                                            <label class="small mb-1" for="inputLocation">Card expiry year</label>
-                                                            <input class="form-control" id="inputLocation" type="text" placeholder="Enter expiry year" value="2024" />
-                                                        </div>
-                                                        <div class="col-md-4 mb-0">
-                                                            <label class="small mb-1" for="inputLocation">CVV Number</label>
-                                                            <input class="form-control" id="inputLocation" type="password" placeholder="Enter CVV number" value="111" />
+                                                    <div class="mb-4">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">First</th>
+                                                                <th scope="col">Last</th>
+                                                                <th scope="col">Handle</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>Mark</td>
+                                                                <td>Otto</td>
+                                                                <td>@mdo</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>Jacob</td>
+                                                                <td>Thornton</td>
+                                                                <td>@fat</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <th scope="row">3</th>
+                                                                <td colspan="2">Larry the Bird</td>
+                                                                <td>@twitter</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <div class="container overflow-hidden text-center">
+                                                            <div class="row gx-5">
+                                                                <div class="col">
+                                                                    <div class="p-3 text-success"><i class="fas fa-check-square"></i> Cantidad correctos: 453</div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="p-3 text-danger"><i class="fas fa-exclamation-triangle"></i> Cantidad incorrectos: 4</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <hr class="my-4" />
                                                     <div class="d-flex justify-content-between">
-                                                        <button class="btn btn-light" type="button">Previous</button>
-                                                        <button class="btn btn-primary" type="button">Next</button>
+                                                        <button class="btn btn-light" type="button">Atrás</button>
+                                                        <button class="btn btn-primary" type="button">Siguiente</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -156,8 +167,8 @@
                                     <div class="tab-pane py-5 py-xl-10 fade" id="wizard3" role="tabpanel" aria-labelledby="wizard3-tab">
                                         <div class="row justify-content-center">
                                             <div class="col-xxl-6 col-xl-8">
-                                                <h3 class="text-primary">Step 3</h3>
-                                                <h5 class="card-title mb-4">Choose when you want to receive email notifications</h5>
+                                                <h3 class="text-primary"><i class="fas fa-folder-plus"></i>  Paso 3</h3>
+                                                <h5 class="card-title mb-4">Seleccione los archivos que se van adjuntar.</h5>
                                                 <form>
                                                     <div class="form-check mb-2">
                                                         <input class="form-check-input" id="checkAccountChanges" type="checkbox" checked="" />
@@ -196,7 +207,7 @@
                                     <div class="tab-pane py-5 py-xl-10 fade" id="wizard4" role="tabpanel" aria-labelledby="wizard4-tab">
                                         <div class="row justify-content-center">
                                             <div class="col-xxl-6 col-xl-8">
-                                                <h3 class="text-primary">Step 4</h3>
+                                                <h3 class="text-primary"><i class="fas fa-paper-plane"></i> Paso 4</h3>
                                                 <h5 class="card-title mb-4">Review the following information and submit</h5>
                                                 <div class="row small text-muted">
                                                     <div class="col-sm-3 text-truncate"><em>Username:</em></div>
