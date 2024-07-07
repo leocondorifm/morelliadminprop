@@ -21,25 +21,25 @@
                                     </div>
                                     <form class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="emaillogin" aria-describedby="emailHelp"
-                                                placeholder="Ingrese su email...">
+                                            <input type="text" onchange="checkUser()" class="form-control form-control-user"
+                                                id="usuariologin" aria-describedby="userHelp"
+                                                placeholder="Ingrese su usuario..." value="" autocomplete="off">
+                                                <label class="custom-label-danger" for="userHelp" id="userHelp"></label>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="asswordlogin" placeholder="Contraseña">
+                                            <input type="password" class="form-control form-control-user" id="passlogin" placeholder="Contraseña" value="" onclick="showPass()" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Recordar en este navegador
-                                                    </label>
+                                                <input type="checkbox" class="custom-control-input" id="loginCheck">
+                                                <label class="custom-control-label" for="loginCheck">Recordar en este navegador</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a id="btn-in" onclick="login()"class="btn btn-primary btn-user btn-block">
                                             <i class="fas fa-sign-in-alt"></i> Ingresar 
                                         </a>
                                     </form>
+                                    <label class="custom-label-danger" for="txthelp" id="txthelp"></label>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot"><i class="fas fa-exclamation-circle"></i> ¿Olvidó su contraseña?</a>
@@ -57,3 +57,19 @@
     </div>
 
 </body>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log(window.localStorage.getItem('remember'));
+        if(window.localStorage.getItem('remember')===null){
+            console.log('No quiere que lo recuerde');
+        }else{
+            console.log('Quisiera que me recuerden');
+            $("#usuariologin").val(window.localStorage.getItem('user'));
+            $("#passlogin").val(window.localStorage.getItem('pass'));
+            $("#loginCheck").prop("checked", true);
+        }
+    });
+
+</script>

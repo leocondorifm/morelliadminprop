@@ -25,11 +25,14 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="emailreset" aria-describedby="emailHelp"
-                                                placeholder="Ingrese su email...">
+                                                placeholder="Ingrese su email..." onchange="resetPass()">
+                                                <label class="custom-label-danger" for="emailreset" id="emailresetHelp"></label>
+                                                <p id="procesing" style="display:none"><i class="fas fa-spinner fa-spin"></i></p>
                                         </div>
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="javascript:changePass()" class="btn btn-primary btn-user btn-block" id="getReset" style="display:none">
                                             <i class="fas fa-unlock-alt"></i> Cambiar contraseña
                                         </a>
+                                        
                                     </form>
                                     <hr>
                                     <div class="text-center">

@@ -1,0 +1,202 @@
+
+04/07/2024 23:28:24: gestion
+04/07/2024 23:28:26: gestionw
+04/07/2024 23:29:00: leocondori
+04/07/2024 23:29:05: leocondoridd
+04/07/2024 23:30:40: intento de ingreso: gestion
+04/07/2024 23:30:42: intento de ingreso: dfsdf
+04/07/2024 23:30:44: intento de ingreso: lcondori
+04/07/2024 23:30:47: entra: morelli
+04/07/2024 18:32:14: intento de ingreso: gestion
+04/07/2024 18:32:17: intento de ingreso: gestionsasa
+04/07/2024 18:37:27: intento de ingreso: gestion
+04/07/2024 18:39:43: intento de ingreso: gestion
+04/07/2024 18:41:51: intento de ingreso: gestion
+04/07/2024 18:41:53: intento de ingreso: gestionsdfsdf
+04/07/2024 18:41:59: entra: morelli
+04/07/2024 18:44:41: intento de ingreso: gestion
+04/07/2024 18:58:13: intento de ingreso: gestion
+04/07/2024 18:58:24: entra: morelli
+04/07/2024 18:58:53: intento de ingreso: gestion
+04/07/2024 18:58:59: entra: morelli
+04/07/2024 18:59:25: intento de ingreso: gestion
+04/07/2024 18:59:29: entra: morelli
+04/07/2024 19:01:12: intento de ingreso: gestion
+04/07/2024 19:01:15: entra: morelli
+04/07/2024 19:01:55: intento de ingreso: gestion
+04/07/2024 19:01:56: entra: morelli
+04/07/2024 19:03:07: intento de ingreso: gestion
+04/07/2024 19:03:10: entra: morelli
+04/07/2024 19:03:14: No entra: -Generisi
+04/07/2024 19:03:24: No entra: -Genesis2023
+04/07/2024 19:04:19: intento de ingreso: gestion
+04/07/2024 19:04:21: entra: morelli
+04/07/2024 19:04:23: No entra: morelli-fsdfsdfsdf
+04/07/2024 19:05:03: intento de ingreso: gestion
+04/07/2024 19:05:10: entra: morelli
+04/07/2024 19:05:17: No entra: morelli-Mandioca
+04/07/2024 19:05:20: No entra: morelli-Mandiocaee
+04/07/2024 19:05:52: intento de ingreso: gestion
+04/07/2024 19:05:58: intento de ingreso: gestion
+04/07/2024 19:06:02: entra: morelli
+04/07/2024 19:06:03: No entra: morelli-Mandioca
+04/07/2024 19:06:19: intento de ingreso: gestion
+04/07/2024 19:06:22: entra: morelli
+04/07/2024 19:06:23: No entra: morelli-Mandioca
+04/07/2024 19:07:18: intento de ingreso: gestion
+04/07/2024 19:07:19: entra: morelli
+04/07/2024 19:07:23: No entra: morelli-Mandioca
+04/07/2024 19:07:28: intento de ingreso: gestion
+04/07/2024 19:07:29: entra: morelli
+04/07/2024 19:07:31: No entra: morelli-Mandioca
+04/07/2024 19:11:01: intento de ingreso: gestion
+04/07/2024 19:11:04: entra: morelli
+04/07/2024 19:11:07: entra: morelli-Admin1234
+04/07/2024 19:11:32: intento de ingreso: gestion
+04/07/2024 19:11:33: entra: morelli
+04/07/2024 19:11:37: entra: morelli-Admin1234
+04/07/2024 19:12:19: intento de ingreso: gestion
+04/07/2024 19:12:33: entra: morelli
+04/07/2024 19:12:36: entra: morelli-Admin1234
+04/07/2024 19:12:52: intento de ingreso: gestion
+04/07/2024 19:12:54: entra: morelli
+04/07/2024 19:12:58: entra: morelli-Admin1234
+04/07/2024 21:25:04: intento de ingreso: gestion
+04/07/2024 21:25:17: intento de ingreso: gestion
+04/07/2024 21:25:19: intento de ingreso: morellli
+04/07/2024 21:25:27: entra: morelli
+04/07/2024 21:25:29: entra: morelli-Admin1234
+04/07/2024 21:25:36: intento de ingreso: gestion
+04/07/2024 21:25:40: entra: morelli
+04/07/2024 21:25:45: entra: morelli-Admin1234
+04/07/2024 21:27:46: intento de ingreso: gestion
+04/07/2024 21:29:55: intento de ingreso: gestion
+04/07/2024 21:31:46: intento de ingreso: gestion
+04/07/2024 21:34:11: intento de ingreso: gestion
+04/07/2024 21:34:18: intento de ingreso: gestion
+04/07/2024 21:34:46: intento de ingreso: dmorelli@gmail.com
+04/07/2024 21:35:01: intento de ingreso: gestion
+04/07/2024 21:36:07: intento de ingreso: gestion
+04/07/2024 21:36:45: intento de ingreso: gestion
+04/07/2024 21:36:50: intento de ingreso: gestion
+04/07/2024 21:37:32: intento de ingreso: gestion
+04/07/2024 21:37:36: entra: morelli
+04/07/2024 21:41:56: intento de ingreso: gestion
+04/07/2024 21:43:13: intento de ingreso: gestion
+04/07/2024 21:46:28: intento de ingreso: gestion
+04/07/2024 21:46:31: entra: morelli
+04/07/2024 21:46:35: entra: morelli-Admin1234
+04/07/2024 21:46:55: intento de ingreso: gestion
+04/07/2024 21:46:57: entra: morelli
+04/07/2024 21:47:02: entra: morelli-Admin1234
+04/07/2024 21:47:09: entra: morelli-Admin1234
+04/07/2024 21:47:27: intento de ingreso: gestion
+04/07/2024 21:47:28: entra: morelli
+04/07/2024 21:47:32: entra: morelli-Admin1234
+04/07/2024 21:47:44: entra: morelli-Admin1234
+04/07/2024 21:49:08: intento de ingreso: gestion
+04/07/2024 21:49:11: entra: morelli
+04/07/2024 21:49:16: entra: morelli-Admin1234
+04/07/2024 21:51:28: intento de ingreso: gestion
+04/07/2024 21:51:36: entra: morelli
+04/07/2024 21:51:40: entra: morelli-Admin1234
+04/07/2024 21:52:03: intento de ingreso: gestion
+04/07/2024 21:52:04: entra: morelli
+04/07/2024 21:52:08: entra: morelli-Admin1234
+04/07/2024 21:52:13: entra: morelli-Admin1234
+05/07/2024 08:50:21: intento de ingreso: gestion
+05/07/2024 08:50:21: No entra: gestion-Mandioca
+05/07/2024 08:50:28: entra: morelli
+05/07/2024 08:50:31: No entra: morelli-Mandioca
+05/07/2024 08:50:39: No entra: morelli-Mandioca
+05/07/2024 08:50:45: entra: morelli-Admin1234
+05/07/2024 08:50:47: entra: morelli-Admin1234
+05/07/2024 08:50:48: entra: morelli-Admin1234
+05/07/2024 08:50:48: entra: morelli-Admin1234
+05/07/2024 08:50:50: entra: morelli-Admin1234
+05/07/2024 08:50:50: entra: morelli-Admin1234
+05/07/2024 08:50:51: entra: morelli-Admin1234
+05/07/2024 08:50:58: intento de ingreso: gestion
+05/07/2024 08:54:19: entra: morelli-Admin1234
+05/07/2024 08:54:31: intento de ingreso: gestion
+05/07/2024 08:55:49: intento de ingreso: gestion
+05/07/2024 08:55:58: intento de ingreso: gestion
+05/07/2024 08:56:54: intento de ingreso: gestion
+05/07/2024 08:58:44: intento de ingreso: gestion
+05/07/2024 08:59:07: intento de ingreso: gestion
+05/07/2024 08:59:51: intento de ingreso: gestion
+05/07/2024 09:00:06: entra: morelli
+05/07/2024 09:01:56: intento de ingreso: gestion
+05/07/2024 09:02:00: entra: morelli
+05/07/2024 09:02:06: entra: morelli-Admin1234
+05/07/2024 10:07:02: intento de ingreso: morellis
+05/07/2024 10:09:36: intento de ingreso: lcondori@gmail.com
+05/07/2024 10:09:45: Intento de reset pass. No: lcondori@gmail.com
+05/07/2024 10:09:51: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:10:13: Intento de reset pass. No: lcondori@gmail.com
+05/07/2024 10:10:19: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:12:16: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:12:24: Intento de reset pass. No: dmorelli@gmail.com.ar
+05/07/2024 10:12:27: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:13:20: Intento de reset pass. No: dmorello@gmail.com
+05/07/2024 10:13:25: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:04: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:09: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:11: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:12: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:12: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:12: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:14:31: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:19:53: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:20:49: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:30:20: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:42:00: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:43:59: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:46:00: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:46:52: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 10:47:19: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 15:45:26: Error en hash para cambiar la contraseña: -
+05/07/2024 15:45:52: Error en hash para cambiar la contraseña: -
+05/07/2024 15:46:40: Error en hash para cambiar la contraseña: 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com.ar
+05/07/2024 15:57:17: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 15:58:13: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 15:59:05: Intento de reset pass. Si: dmorelli@gmail.com
+05/07/2024 16:00:39: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:05:18: Intento de reset pass. Si: lcondori@gmail.com
+05/07/2024 16:06:07: Intento de reset pass. Si: lcondori@gmail.com
+05/07/2024 16:11:07: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:11:39: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:13:32: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:14:51: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:16:44: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:29:10: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:29:37: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:31:47: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:32:57: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:33:48: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:34:36: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:37:14: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:37:42: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:38:16: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 16:38:39: entra: condori
+05/07/2024 16:38:54: entra: condori-Agaces2025!
+05/07/2024 16:40:24: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 17:10:20: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 17:12:08: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 17:12:37: Se cambió la contraseña : 3bda889386478a248f0f57d5d50e14c2-lcondori@gmail.com
+05/07/2024 17:13:06: No entra: condori-Genesis2023
+05/07/2024 17:13:23: entra: condori-Genesis2024
+05/07/2024 17:13:54: entra: condori-Genesis2024
+06/07/2024 19:39:05: Intento de reset pass. Si: lcondori@gmail.com
+06/07/2024 19:39:13: entra: condori-Genesis2024
+06/07/2024 20:51:38: entra: condori-Genesis2024
+06/07/2024 20:51:59: Intento de reset pass. Si: lcondori@gmail.com
+06/07/2024 20:52:17: entra: condori-Genesis2024
+06/07/2024 20:58:07: entra: condori-Genesis2024
+06/07/2024 20:58:33: entra: condori-Genesis2024
+06/07/2024 20:58:46: entra: morelli
+06/07/2024 20:58:52: No entra: morelli-Admins1234
+06/07/2024 20:59:05: entra: morelli-Admin1234
+06/07/2024 20:59:13: entra: condori
+06/07/2024 20:59:26: entra: condori-Genesis2024
+06/07/2024 22:25:22: entra: condori-Genesis2024

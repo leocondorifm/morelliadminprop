@@ -1,0 +1,17 @@
+{
+    "name": "leocondori/morelliadminprop",
+    "autoload": {
+        "psr-4": {
+            "Leocondori\\Morelliadminprop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LeoCondoriFM",
+            "email": "leocondori.fm@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    }
+}
