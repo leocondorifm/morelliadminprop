@@ -63,6 +63,8 @@
                         include_once("menu/payings.php");
                     }else if($ruta==="send"){
                         include_once("menu/send.php");
+                    }else if($ruta==="ficha"){
+                        include_once("menu/ficha.php");
                     }else{
                         include_once("menu/dashboard.php");
                     }

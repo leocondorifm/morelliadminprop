@@ -26,14 +26,14 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-kaaba"></i>
                     <span>Inmobiliaria</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Inmuebles:</h6>
-                        <a class="collapse-item" href="ficha">Ficha</a>
-                        <a class="collapse-item" href="consultas">Consultas</a>
+                        <a class="collapse-item" href="ficha"><i class="fab fa-wpforms"></i> Ficha</a>
+                        <a class="collapse-item" href="consultas"><i class="fas fa-question-circle"></i> Consultas</a>
                     </div>
                 </div>
             </li>

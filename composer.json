@@ -1,8 +1,8 @@
 {
-    "name": "leocondori/morelliadminprop",
+    "name": "root/morelliadminprop",
     "autoload": {
         "psr-4": {
-            "Leocondori\\Morelliadminprop\\": "src/"
+            "Root\\Morelliadminprop\\": "src/"
         }
     },
     "authors": [
@@ -11,7 +11,5 @@
             "email": "leocondori.fm@gmail.com"
         }
     ],
-    "require": {
-        "firebase/php-jwt": "^6.10"
-    }
+    "require": {}
 }

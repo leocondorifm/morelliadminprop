@@ -1,0 +1,9 @@
+#Luego de clonar el repo: ejecuté estos comandos:
+sudo composer init
+
+#Luego quise consultar el estado del repo y me arrojó un error:
+git config --global --add safe.directory /Applications/XAMPP/xamppfiles/htdocs/morelliadminprop
+
+#Luego quise trabajar en el proyeto, me arrojaba [permisos insuficientes] Para dar permisos al VS:
+sudo chown -R leorodriguez /Applications/XAMPP/xamppfiles/htdocs/
+
