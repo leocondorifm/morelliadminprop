@@ -32,8 +32,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Inmuebles:</h6>
-                        <a class="collapse-item" href="ficha"><i class="fab fa-wpforms"></i> Ficha</a>
-                        <a class="collapse-item" href="consultas"><i class="fas fa-question-circle"></i> Consultas</a>
+                        <a class="collapse-item" href="publication"><i class="fab fa-wpforms"></i> Publicación</a>
+                        <a class="collapse-item" href="questions"><i class="fas fa-question-circle"></i> Consultas</a>
                     </div>
                 </div>
             </li>
