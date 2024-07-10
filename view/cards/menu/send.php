@@ -1,5 +1,4 @@
-<div id="layoutSidenav_content">
-    <main>
+
         <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
             <div class="container-xl px-4">
                 <div class="page-header-content pt-4">
@@ -237,17 +236,3 @@
                 </div>
             </div>
         </div>
-    </main>
-    <footer class="footer-admin mt-auto footer-light">
-        <div class="container-xl px-4">
-            <div class="row">
-                <div class="col-md-6 small">Copyright © Your Website 2021</div>
-                <div class="col-md-6 text-md-end small">
-                    <a href="wizard.html#!">Privacy Policy</a>
-                    ·
-                    <a href="wizard.html#!">Terms &amp; Conditions</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>

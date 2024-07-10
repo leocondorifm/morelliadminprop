@@ -204,7 +204,7 @@
                                 </select>
                             </div>
                             <div class="col-md-2 mb-md-0">
-                                <label for="typeproperty">Aire acondicionado</label>
+                                <label for="typeproperty">Aire acond.</label>
                                 <select class="form-control" id="partido">
                                     <option>Si</option>
                                     <option>No</option>
@@ -254,17 +254,6 @@
             
         </div>
     </main>
-    <footer class="footer-admin mt-auto footer-light">
-        <div class="container-xl px-4">
-            <div class="row">
-                <div class="col-md-6 small">Copyright © Your Website 2021</div>
-                <div class="col-md-6 text-md-end small">
-                    <a href="header-breadcrumbs.html#!">Privacy Policy</a>
-                    ·
-                    <a href="header-breadcrumbs.html#!">Terms &amp; Conditions</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+
 </div>
 <!-- /.container-fluid -->

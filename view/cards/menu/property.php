@@ -1,11 +1,11 @@
 <!-- Begin Page Content -->
 <div id="layoutSidenav_content">
     <main>
-        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-5">
             <div class="container-xl px-4">
                 <div class="page-header-content pt-4">
                     <div class="row align-items-center justify-content-between">
-                        <div class="col-auto mt-4">
+                        <div class="col-auto mt-44">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i class="far fa-plus-square"></i></div>
                                 Alta de nueva propiedad
@@ -166,17 +166,6 @@
             
         </div>
     </main>
-    <footer class="footer-admin mt-auto footer-light">
-        <div class="container-xl px-4">
-            <div class="row">
-                <div class="col-md-6 small">Copyright © Your Website 2021</div>
-                <div class="col-md-6 text-md-end small">
-                    <a href="header-breadcrumbs.html#!">Privacy Policy</a>
-                    ·
-                    <a href="header-breadcrumbs.html#!">Terms &amp; Conditions</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+
 </div>
 <!-- /.container-fluid -->
