@@ -53,6 +53,65 @@
         return $response;
     });
 
+    /* LOCATION */
+    $app->get('/province', function (Request $request, Response $response, array $args) use ($conn) {
+        $stmt = $conn->prepare("SELECT * FROM sp_provincias");
+        $stmt->execute();
+        $location = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($location){
+            writeLN('Petición de procincias. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$location)));
+            return $response;
+        }else{
+            writeLN('Petición de procincias. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/province/partido/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $id_provincia = $args['id'];
+        $stmt = $conn->prepare("SELECT * FROM `sp_partidos` WHERE fk_sp_provincias = '".$id_provincia."' ");
+        $stmt->execute();
+        $partido = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($partido){
+            writeLN('Petición de partido. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$partido)));
+            return $response;
+        }else{
+            writeLN('Petición de partido. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/province/partido/localidad/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $id_partido = $args['id'];
+        $stmt = $conn->prepare("SELECT * FROM `sp_localidades` WHERE fk_sp_partidos = '".$id_partido."' ");
+        $stmt->execute();
+        $localidad = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($localidad){
+            writeLN('Petición de partido. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$localidad)));
+            return $response;
+        }else{
+            writeLN('Petición de partido. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+    /* FIN LOCATION */
+
+    /* USUARIO*/
     $app->get('/user/validate/{user}', function (Request $request, Response $response, array $args) use ($conn) {
 
         $user = $args['user'];
@@ -166,6 +225,6 @@
 		$stmt = null;
 
     });
-
+    /* FIN USUARIOS */
     $app->run();
 ?>

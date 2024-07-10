@@ -74,11 +74,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="view/assets/js/scripts.js"></script>
     <script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>
-    <sb-customizer project="sb-admin-pro"></sb-customizer>
+    <!-- Setting Coustom <sb-customizer project="sb-admin-pro"></sb-customizer>-->
     
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 
     <!-- Admin. SESSION -->
     <script src="view/assets/js/login/login.js?v=4.3"></script>
-
+    <script src="view/assets/js/location/getlocation.js?v=1.3"></script>
 </html>

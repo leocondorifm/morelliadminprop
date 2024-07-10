@@ -55,7 +55,7 @@
                                 class="fas fa-plus-circle fa-1x" 
                                > 
                             </i> Agregar tipo de propiedad</a></label>
-                            <select class="form-control" id="typeproperty">
+                            <select class="form-control" id="typepropertyw">
                                 <option>Propiedad horizontal</option>
                                 <option>Edificio</option>
                                 <option>Country</option>
@@ -73,44 +73,35 @@
                         <div class="mb-3">
                             <div class="row g-3 align-items-center">
                                 <div class="col-auto">
-                                    <label for="inputPassword6" class="col-form-label">Número</label>
+                                    <label for="inputPassword7" class="col-form-label">Número</label>
                                 </div>
                                 <div class="col-auto">
-                                    <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="inputPassword7" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="cp" class="col-form-label">CP</label>
+                                    <label for="cp1" class="col-form-label">CP</label>
                                 </div>
                                 <div class="col-auto">
-                                    <input type="number" id="cp" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="cp1" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="street">Provincia</label>
-                            <select class="form-control" id="province">
-                                <option>Ciudad Autónoma de Buenos Aires</option>
-                                <option>Buenos Aires</option>
-                                <option>Catamarca</option>
+                            <label for="province">Provincia</label>
+                            <select class="form-control" id="province" onchange="getPartido()">
                             </select>  
                         </div>
 
                         <div class="mb-3">
-                            <label for="street">Partido</label>
-                            <select class="form-control" id="partido">
-                                <option>Partido</option>
-                                <option>Buenos Aires</option>
-                                <option>Catamarca</option>
+                            <label for="partido">Partido</label>
+                            <select class="form-control" id="partido" onchange="getLocalidad()">
                             </select>  
                         </div>
                         <div class="mb-3">
-                            <label for="street">Localidad</label>
-                            <select class="form-control" id="partido">
-                                <option>Localidad</option>
-                                <option>Buenos Aires</option>
-                                <option>Catamarca</option>
+                            <label for="localidad">Localidad</label>
+                            <select class="form-control" id="localidad">
                             </select>  
                         </div>
                         
@@ -138,16 +129,17 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-auto">
                                     <label for="inputPassword6" class="col-form-label">Cantidad de pisos</label>
-                                </div>
-                                <div class="col-auto">
                                     <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="cp" class="col-form-label">Cant. dep. por piso</label>
+                                <label for="inputPassword6" class="col-form-label">Desde</label>
+                                    <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
+
                                 <div class="col-auto">
-                                    <input type="number" id="cp" class="form-control" aria-describedby="passwordHelpInline">
+                                    <label for="cp" class="col-form-label">Hasta</label>
+                                    <input type="number" id="cp" value="222" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
                             </div>
                         </div>
@@ -169,3 +161,9 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        getProvincias();
+    });
+</script>

@@ -7,3 +7,7 @@ git config --global --add safe.directory /Applications/XAMPP/xamppfiles/htdocs/m
 #Luego quise trabajar en el proyeto, me arrojaba [permisos insuficientes] Para dar permisos al VS:
 sudo chown -R leorodriguez /Applications/XAMPP/xamppfiles/htdocs/
 
+#BBDD
+
+ALTER TABLE `EXP_BUILDING` ADD `fk_sp_provincias` INT NOT NULL AFTER `cp`, ADD `fk_sp_partidos` INT NOT NULL AFTER `fk_sp_provincias`, ADD `fk_sp_localidades` INT NOT NULL AFTER `fk_sp_partidos`;
+ALTER TABLE `EXP_BUILDING` ADD `cp` INT NOT NULL AFTER `number`;
