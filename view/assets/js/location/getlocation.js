@@ -7,7 +7,7 @@ const requestOptions = {
     redirect: "follow"
     };
     
-    fetch("http://localhost/morelliadminprop/api/province", requestOptions)
+    fetch($("#url_base").val()+"api/province", requestOptions)
     .then( resp => resp.json() )
     .then( respObj => {
         if(respObj.status == 0){            
@@ -42,7 +42,7 @@ function getPartido(){
         redirect: "follow"
         };
         
-        fetch("http://localhost/morelliadminprop/api/province/partido/"+idProv, requestOptions)
+        fetch($("#url_base").val()+"api/province/partido/"+idProv, requestOptions)
         .then( resp => resp.json() )
         .then( respObj => {
             if(respObj.status == 0){            
@@ -76,7 +76,7 @@ function getLocalidad(){//OK
     redirect: "follow"
     };
     
-    fetch("http://localhost/morelliadminprop/api/province/partido/localidad/"+idpartido, requestOptions)
+    fetch($("#url_base").val()+"api/province/partido/localidad/"+idpartido, requestOptions)
     .then( resp => resp.json() )
     .then( respObj => {
         if(respObj.status == 0){            

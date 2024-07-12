@@ -174,6 +174,7 @@
             session_start();
             $_SESSION["login"]=true;
             $_SESSION["email_session"]=$user["email"];
+            $_SESSION["fk_exp_admin"]=$user["id"];
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
             return $response;
 

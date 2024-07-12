@@ -38,12 +38,16 @@
 </head>
 <?php
     if(isset($_SESSION["login"]) && $_SESSION["login"]===true){
+
+        $session = $_SESSION["fk_exp_admin"];
         if($ruta==="logout"){
             include_once("cards/logout.php");
         }else{
             include_once("cards/home.php");
         }
     }else{
+
+        $session = "anonymous";
         if($ruta==="forgot"){
             include_once("cards/forgot.php");
         }
@@ -55,10 +59,11 @@
         }
 
     }
+    
 ?>
 
     <input type="hidden" id="url_base" value="<?php echo $data["route"];?>">
-
+    <input type="hidden" id="fk_exp_u" value="<?php echo $session;?>">
     <!-- Bootstrap core JavaScript-->
     <script src="view/assets/vendor/jquery/jquery.min.js"></script>
     <script src="view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -73,7 +78,7 @@
     <script data-cfasync="false" src="view/assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="view/assets/js/scripts.js"></script>
-    <script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>
+    <!--<script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>-->
     <!-- Setting Coustom <sb-customizer project="sb-admin-pro"></sb-customizer>-->
     
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
@@ -81,4 +86,5 @@
     <!-- Admin. SESSION -->
     <script src="view/assets/js/login/login.js?v=4.3"></script>
     <script src="view/assets/js/location/getlocation.js?v=1.3"></script>
+    <script src="view/assets/js/settings/index.js?v=1.3"></script>
 </html>

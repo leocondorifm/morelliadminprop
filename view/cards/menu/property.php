@@ -47,7 +47,7 @@
                         </div>
                         <div class="mb-4">
                             
-                            <label for="typeproperty"><a href="#" 
+                            <label for="newProperty"><a href="#" 
                                 data-toggle="modal" 
                                 data-target="#newProperty"
                                 style="text-decoration:none"
@@ -55,10 +55,8 @@
                                 class="fas fa-plus-circle fa-1x" 
                                > 
                             </i> Agregar tipo de propiedad</a></label>
-                            <select class="form-control" id="typepropertyw">
-                                <option>Propiedad horizontal</option>
-                                <option>Edificio</option>
-                                <option>Country</option>
+                            <select class="form-control" id="typeproperty">
+                                
                             </select>
                         </div>
                         <div class="mb-3">
@@ -73,17 +71,17 @@
                         <div class="mb-3">
                             <div class="row g-3 align-items-center">
                                 <div class="col-auto">
-                                    <label for="inputPassword7" class="col-form-label">Número</label>
+                                    <label for="numberaddress" class="col-form-label">Número</label>
                                 </div>
                                 <div class="col-auto">
-                                    <input type="number" id="inputPassword7" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="numberaddress" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="cp1" class="col-form-label">CP</label>
+                                    <label for="cpaddress" class="col-form-label">CP</label>
                                 </div>
                                 <div class="col-auto">
-                                    <input type="number" id="cp1" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="cpaddress" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
                             </div>
                         </div>
@@ -111,13 +109,13 @@
                             <label for="access_section">Usuario único al sistema</label>
                             <div class="col-md">
                                 <div class="form-floating">
-                                <input type="text" class="form-control" id="userbuild" placeholder="pampa233" value="pampa">
+                                <input type="text" class="form-control" id="userbuild" placeholder="pampa233" >
                                 <label for="userbuild">Usuario</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                <input type="password" class="form-control" id="passbuild" placeholder="Defina una contraseña" value="233">
+                                <input type="password" class="form-control" id="passbuild" placeholder="Defina una contraseña">
                                 <label for="passbuild">Password</label>
                                 </div>
                             </div>
@@ -128,27 +126,30 @@
                         <div class="mb-3">
                             <div class="row g-3 align-items-center">
                                 <div class="col-auto">
-                                    <label for="inputPassword6" class="col-form-label">Cantidad de pisos</label>
-                                    <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                    <label for="num_floors" class="col-form-label">Cantidad de pisos</label>
+                                    <input type="number" id="num_floors" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
 
                                 <div class="col-auto">
-                                <label for="inputPassword6" class="col-form-label">Desde</label>
-                                    <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                <label for="num_dep_start" class="col-form-label">Desde</label>
+                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="cp" class="col-form-label">Hasta</label>
-                                    <input type="number" id="cp" value="222" class="form-control" aria-describedby="passwordHelpInline">
+                                    <label for="num_dep_end" class="col-form-label">Hasta</label>
+                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="passwordHelpInline">
                                 </div>
                             </div>
                         </div>
 
                         <hr class="sidebar-divider d-none d-md-block">
 
-                        <div class="mb-4"><p class="text-end">
-                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
-                    </p></div>
+                        <div class="mb-4 space-alert">
+
+                            <p class="text-end">
+                                <button type="button" onclick="saveData()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                            </p>
+                        </div>
                     </form>
                     
                 </div>
@@ -161,9 +162,18 @@
 
 </div>
 <!-- /.container-fluid -->
-
+<script src="view/assets/js/property/index.js?v=1.9"></script>
 <script>
     window.addEventListener('DOMContentLoaded', event => {
         getProvincias();
+        setGetTipProp();
+        $("#close-mod-prop").click(function(){
+            console.log('intento cerrar modal con trigger.');
+            
+            $("#x-close").trigger('click');
+
+            //$("#newProperty").modal('hide');
+
+        });
     });
 </script>

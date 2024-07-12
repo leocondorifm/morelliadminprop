@@ -66,16 +66,16 @@
                                     
                                     <form>
                                         <div class="mb-4">
-                                            <label for="typeproperty">
-                                                <a href="property" 
+                                            <label for="documentsadd">
+                                                <a href="documents" 
                                                 style="text-decoration:none"
                                                 >
                                                 <i 
                                                 class="fas fa-plus-circle fa-1x" 
                                                 > 
                                             </i> Agregar propiedad</a></label>
-                                            <select class="form-control" id="typeproperty">
-                                                <option>No hay propiedades</option>
+                                            <select class="form-control" id="documentsadd" onchange="getListDist()">
+                                                
                                             </select>
                                         </div>
 
@@ -236,3 +236,11 @@
                 </div>
             </div>
         </div>
+
+        <script src="view/assets/js/send/index.js?v=0.5"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', event => {
+                setGetPropertySend();
+                //setGetPlain();
+            });
+        </script>

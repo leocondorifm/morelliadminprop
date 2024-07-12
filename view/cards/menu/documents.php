@@ -39,16 +39,16 @@
                 <div class="container-fluid">
                     <form>
                         <div class="mb-4">
-                            <label for="docsrar">Nombre de la carpeta del documento</label>
+                            <label for="namefiles">Nombre de la carpeta del documento</label>
                             <input 
                                 class="form-control" 
-                                id="docsrar" 
+                                id="namefiles" 
                                 type="text" 
                                 placeholder="Ejemplo: expensas_agosto24.rar">
                         </div>
                         <div class="mb-4">
                             
-                            <label for="typeproperty">
+                            <label for="propertyfile">
                                 <a href="property" 
                                 style="text-decoration:none"
                                 >
@@ -56,14 +56,14 @@
                                 class="fas fa-plus-circle fa-1x" 
                                 > 
                             </i> Agregar propiedad</a></label>
-                            <select class="form-control" id="typeproperty">
-                                <option>No hay propiedades</option>
+                            <select class="form-control" id="propertyfile">
+
                             </select>
                         </div>
 
                         <div class="mb-4">
                             
-                            <label for="newsletter">
+                            <label for="newsletterplain">
                                 <a href="newsletter" 
                                 style="text-decoration:none"
                                 >
@@ -71,8 +71,7 @@
                                 class="fas fa-plus-circle fa-1x" 
                                 > 
                             </i> Agregar newsletter</a></label>
-                            <select class="form-control" id="newsletter">
-                                <option>No hay newsletter</option>
+                            <select class="form-control" id="newsletterplain">
                             </select>
                         </div>
 
@@ -124,15 +123,15 @@
                         </div>
 
                         <div class="input-group mb-0">
-                            <label class="input-group-text" for="inputGroupFile01">Subir</label>
-                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <label class="input-group-text" for="file">Subir</label>
+                            <input type="file" class="form-control" id="file" name="file" accept=".zip">
                         </div>
 
-                        <hr class="sidebar-divider d-none d-md-block">
+                        <hr class="sidebar-divider d-none d-md-block t">
 
-                        <div class="mb-4">
-                            <p class="text-end">
-                                <button type="button" class="btn btn-outline-primary">
+                        <div class="mb-4 file-save-alert">
+                            <p class="text-end file-save">
+                                <button type="button" onclick="postFileData()" class="btn btn-outline-primary">
                                     <i class="fas fa-save"></i>
                                 </button>
                             </p>
@@ -148,3 +147,11 @@
     </main>
 </div>
 <!-- /.container-fluid -->
+
+<script src="view/assets/js/documents/index.js?v=0.4"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        setGetBuild();
+        setGetPlain();
+    });
+</script>

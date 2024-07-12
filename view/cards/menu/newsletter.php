@@ -41,13 +41,13 @@
                             <label for="shortname">Asunto de correo de distribución</label>
                             <input 
                                 class="form-control" 
-                                id="shortname" 
+                                id="subject" 
                                 type="text" 
                                 placeholder="Ejemplo: Expensas mensuales">
                         </div>
                         <div class="mb-4">
                             
-                            <label for="typeproperty">
+                            <label for="typepropertynews">
                                 <a href="property" 
                                 style="text-decoration:none"
                                 >
@@ -55,28 +55,28 @@
                                 class="fas fa-plus-circle fa-1x" 
                                 > 
                             </i> Agregar propiedad</a></label>
-                            <select class="form-control" id="typeproperty">
-                                <option>No hay propiedades</option>
+                            <select class="form-control" id="typepropertynews">
+                                
                             </select>
                         </div>
 
                         <div class="mb-4">
-                            <label for="destinatarios">Texto del cuerpo del email</label>
-                            <textarea class="form-control" id="destinatarios" rows="3">Estimados vecinos...</textarea>
+                            <label for="body_mail">Texto del cuerpo del email</label>
+                            <textarea class="form-control" id="body_mail" rows="3">Estimados vecinos...</textarea>
                         </div>
                         
                         <hr class="sidebar-divider d-none d-md-block">
 
                         <div class="mb-0">
-                            <label for="destinatarios">Agregar email destinatarios (separados por ;) </label>
-                            <textarea class="form-control" id="destinatarios" rows="3">lcondori@gmail.com;dmorelli@gmail.com</textarea>
+                            <label for="emails">Agregar email destinatarios (separados por ;) </label>
+                            <textarea class="form-control" id="emails" rows="3">lcondori@gmail.com;dmorelli@gmail.com</textarea>
                         </div>
 
                         <hr class="sidebar-divider d-none d-md-block">
 
-                        <div class="mb-4">
+                        <div class="mb-4 save-news">
                             <p class="text-end">
-                                <button type="button" class="btn btn-outline-primary">
+                                <button type="button" onclick="setPostNewsletter()" class="btn btn-outline-primary">
                                     <i class="fas fa-save"></i>
                                 </button>
                             </p>
@@ -93,3 +93,19 @@
 
 </div>
 <!-- /.container-fluid -->
+<script src="view/assets/js/newsletter/index.js?v=0.0"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        setGetBuild();
+        /*getProvincias();
+        setGetTipProp();
+        $("#close-mod-prop").click(function(){
+            console.log('intento cerrar modal con trigger.');
+            
+            $("#x-close").trigger('click');
+
+            //$("#newProperty").modal('hide');
+
+        });*/
+    });
+</script>
