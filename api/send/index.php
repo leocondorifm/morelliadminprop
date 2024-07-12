@@ -68,6 +68,24 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->get('/file/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_admin = $args['id'];
+        $stmt = $conn->prepare("SELECT f.fk_exp_building, b.short_name  FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' GROUP BY f.fk_exp_building");
+
+        if($stmt->execute()){
+            $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            //writeLN('Petición de tip_prop. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$tipProp, "count"=>count($tipProp))));
+            return $response;
+        }else{
+            //writeLN('Petición de tip_prop. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
     $app->run();
 
 ?>

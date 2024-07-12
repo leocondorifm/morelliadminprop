@@ -29,3 +29,7 @@ function setGetPropertySend(){
     })
     .catch((error) => console.error(error));
 }
+
+function getListDist(){
+    console.log('Me traigo la lista de distribución según el id para la tabla');
+}
