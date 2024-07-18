@@ -99,50 +99,22 @@
 
                                         <div class="mb-4">
                                             <label for="typeproperty">
-                                                <a href="newsletter" 
-                                                style="text-decoration:none"
-                                                >
-                                                <i 
-                                                class="fas fa-plus-circle fa-1x" 
-                                                > 
-                                            </i> Agregar newsletter</a></label>
-                                            <select class="form-control" id="typeproperty">
-                                                <option>No hay lista de distribución</option>
+                                                <a href="newsletteradd" style="text-decoration:none">
+                                                <i class="fas fa-plus-circle fa-1x"> 
+                                            </i> Agregar newsletter</a>
+                                        </label>
+                                            <select class="form-control" id="newsletteradd" onchange="getNewsletter()">
                                             </select>
                                         </div>
                                         <div class="mb-4">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">usuario</th>
-                                                    <th scope="col">@</th>
-                                                    <th scope="col">servidor</th>
-                                                    <th scope="col">estado</th>
+                                                        <th scope="col">usuario</th>
+                                                        <th scope="col">estado</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>lcondori</td>
-                                                        <td>@</td>
-                                                        <td>gmail.com</td>
-                                                        <td><span class="badge text-bg-success">Correcto</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td><span class="badge text-bg-danger">Error</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry the Bird</td>
-                                                        <td>@</td>
-                                                        <td>@twitter</td>
-                                                        <td><span class="badge text-bg-danger">Error</span></td>
-                                                    </tr>
+                                                <tbody id="dataRemitente">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -150,10 +122,10 @@
                                             <div class="container overflow-hidden text-center">
                                                 <div class="row gx-5">
                                                     <div class="col">
-                                                        <div class="p-3 text-success"><i class="fas fa-check-square"></i> Cantidad correctos: 1</div>
+                                                        <div class="p-3 text-success" id="countSuccess"></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="p-3 text-danger"><i class="fas fa-exclamation-triangle"></i> Cantidad incorrectos: 2</div>
+                                                        <div class="p-3 text-danger" id="countDanger"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,14 +147,28 @@
                                     <h5 class="card-title mb-4">Seleccione los archivos que se van adjuntar.</h5>
                                     <form>
                                     <div class="mb-4">
-                                        <label for="typeproperty">
+                                        <label for="filedata">
                                             <a href="documents" style="text-decoration:none">
                                             <i class="fas fa-plus-circle fa-1x"> 
                                         </i> Agregar archivos</a></label>
-                                        <select class="form-control" id="typeproperty">
-                                            <option>No hay archivos</option>
+                                        <select class="form-control" id="filedata" onchange="getAllFile()">
                                         </select>
                                     </div>
+                                        <hr class="my-4" />
+                                        <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Extensión</th>
+                                            <th scope="col">Ruta</th>
+                                            <th class="text-center" scope="col">Descargar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="filestorage">
+
+                                        </tbody>
+                                        </table>
                                         <hr class="my-4" />
                                         <div class="d-flex justify-content-between">
                                             <button class="btn btn-light" type="button">Atrás</button>
@@ -236,8 +222,9 @@
                 </div>
             </div>
         </div>
+        <script src="view/assets/js/documents/index.js?v=4.2"></script>
+        <script src="view/assets/js/send/index.js?v=2.5"></script>
 
-        <script src="view/assets/js/send/index.js?v=0.5"></script>
         <script>
             window.addEventListener('DOMContentLoaded', event => {
                 setGetPropertySend();

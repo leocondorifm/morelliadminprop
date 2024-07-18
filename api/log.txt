@@ -421,3 +421,14 @@
 16/07/2024 10:15:26: Petición de procincias. Satisfactorio.
 16/07/2024 10:15:32: Petición de procincias. Satisfactorio.
 16/07/2024 10:17:07: entra: condori-Genesis2024
+17/07/2024 00:13:20: entra: condori-Genesis2024
+17/07/2024 00:24:26: Petición de procincias. Satisfactorio.
+17/07/2024 20:02:11: Petición de procincias. Satisfactorio.
+17/07/2024 20:08:51: Petición de procincias. Satisfactorio.
+17/07/2024 20:09:39: Petición de partido. Satisfactorio.
+17/07/2024 20:09:41: Petición de partido. Satisfactorio.
+17/07/2024 20:09:59: Petición de procincias. Satisfactorio.
+17/07/2024 20:15:10: Petición de procincias. Satisfactorio.
+17/07/2024 20:19:31: entra: condori-Genesis2024
+17/07/2024 20:19:34: Petición de procincias. Satisfactorio.
+17/07/2024 20:21:29: Petición de procincias. Satisfactorio.

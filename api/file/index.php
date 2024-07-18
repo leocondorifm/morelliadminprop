@@ -88,6 +88,14 @@
 
     $app->post('/upload', function (Request $request, Response $response, $args) use ($conn) {
         
+        function getFilenameWithoutExtension($filePath) {
+            // Utiliza pathinfo para obtener la información del archivo
+            $pathInfo = pathinfo($filePath);
+        
+            // Devuelve el nombre del archivo sin la extensión
+            return $pathInfo['filename'];
+        }
+
         $directory = __DIR__ . '/uploads';
         
         // Ensure the uploads directory exists
@@ -109,16 +117,20 @@
             $uploadedFile = $uploadedFiles['file'];
             $fileSize = $uploadedFile->getSize();
             $fileType = $uploadedFile->getClientMediaType();
-    
+            $fileFullName = $uploadedFile->getClientFilename();
+
+
             if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
-                $filename = $uploadedFile->getClientFilename();
-                $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
+                //$fileFullName = $uploadedFile->getClientFilename();
+                $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $fileFullName);
     
                 // Extract ZIP file
                 $zip = new ZipArchive;
-                $zipPath = $directory . DIRECTORY_SEPARATOR . $filename;
+                $zipPath = $directory . DIRECTORY_SEPARATOR . $fileFullName;
+                $filenameWithoutExtension = getFilenameWithoutExtension($zipPath);
+
                 if ($zip->open($zipPath) === TRUE) {
-                    $zip->extractTo($directory);
+                    $zip->extractTo($directory.'/'.$filenameWithoutExtension);
                     $zip->close();
                     unlink($zipPath); // Optionally delete the ZIP file after extraction
                     //$response->getBody()->write("File uploaded and extracted successfully");
@@ -129,13 +141,13 @@
                     $stmt->bindParam(":description", $description, PDO::PARAM_STR);
                     $stmt->bindParam(":fk_exp_building", $fk_exp_building, PDO::PARAM_INT);
                     $stmt->bindParam(":fk_exp_newsletter", $fk_exp_newsletter, PDO::PARAM_INT);
-                    $stmt->bindParam(":patch_file", $zipPath, PDO::PARAM_STR);
+                    $stmt->bindParam(":patch_file", $filenameWithoutExtension, PDO::PARAM_STR);
                     $stmt->bindParam(":month", $month, PDO::PARAM_INT);
                     $stmt->bindParam(":year", $year, PDO::PARAM_INT);
                     $stmt->bindParam(":fk_exp_admin", $fk_exp_admin, PDO::PARAM_INT);//user
 
                     if($stmt->execute()){
-                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Newsletter creado con éxito.")));
+                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Newsletter creado con éxito.".$filenameWithoutExtension)));
                     }else{
                         $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
                     }
@@ -151,6 +163,34 @@
         }
     
         return $response;
+    });
+
+    $app->get('/scan/{folder}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $folder = $args['folder'];
+        // Ruta del directorio que quieres explorar
+        $dir = __DIR__ . '/uploads/'.$folder;
+        
+        // Comprobar si la ruta es un directorio válido
+        if (is_dir($dir)) {
+            $storage = [];
+            // Obtener el contenido del directorio
+            $files = scandir($dir);
+
+            // Recorrer y mostrar el contenido del directorio
+            foreach ($files as $file) {
+                // Omitir los elementos '.' y '..'
+                if ($file != "." && $file != "..") {
+                    array_push($storage, $file);
+                }
+            }
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Acceso correcto", "data"=>$storage, "base"=>$folder, "count"=>count($storage))));
+        } else {
+            $response->getBody()->write(json_encode( array ("status" => 1, "message" => "La ruta especificada no es un directorio válido") ));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
     });
 
     $app->run();

@@ -86,6 +86,65 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->get('/property/newsletter/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_building = $args['id'];
+        $stmt = $conn->prepare("SELECT * FROM `EXP_NEWSLETTER` WHERE fk_exp_building = '".$fk_exp_building."' ");
+
+        if($stmt->execute()){
+            $getData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            //writeLN('Petición de tip_prop. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$getData, "count"=>count($getData))));
+            return $response;
+        }else{
+            //writeLN('Petición de tip_prop. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/property/remitentes/{id}/{idp}/{idu}', function (Request $request, Response $response, array $args) use ($conn) {
+        $id = $args['id'];
+        $idp = $args['idp'];
+        $idu = $args['idu'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_NEWSLETTER` WHERE fk_exp_building = '".$idp."' and id = '".$id."' and fk_exp_admin = '".$idu."' ");
+
+        if($stmt->execute()){
+            $getData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            //writeLN('Petición de tip_prop. Satisfactorio.');
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$getData, "count"=>count($getData))));
+            return $response;
+        }else{
+            //writeLN('Petición de tip_prop. No satisfactorio.');
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/data/{idp}/{idn}/{user}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $idp = $args['idp'];
+        $idn = $args['idn'];
+        $fk_exp_admin = $args['user'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_FILES` WHERE fk_exp_building = '".$idp."' and fk_exp_newsletter = '".$idn."' and fk_exp_admin = '".$fk_exp_admin."' ");
+
+        if($stmt->execute()){
+            $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$tipProp, "count"=>count($tipProp), "query"=>$stmt )));
+
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    }); 
+
     $app->run();
 
 ?>
