@@ -440,3 +440,5 @@
 18/07/2024 10:59:52: Petición de partido. Satisfactorio.
 18/07/2024 10:59:54: Petición de partido. Satisfactorio.
 18/07/2024 11:08:53: Petición de procincias. Satisfactorio.
+20/07/2024 10:56:16: entra: condori-Genesis2024
+20/07/2024 10:57:12: Petición de procincias. Satisfactorio.
