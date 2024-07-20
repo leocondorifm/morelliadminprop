@@ -34,7 +34,7 @@
                         Documentos
                     </p>
                 </div>
-                <div class="card-body">El archivo que vas a subir tiene que estar en formato [.RAR]</div>
+                <div class="card-body">El archivo que vas a subir tiene que estar en formato [.ZIP]</div>
                 
                 <div class="container-fluid">
                     <form>
@@ -44,7 +44,7 @@
                                 class="form-control" 
                                 id="namefiles" 
                                 type="text" 
-                                placeholder="Ejemplo: expensas_agosto24.rar">
+                                placeholder="Ejemplo: expensas_agosto24.zip">
                         </div>
                         <div class="mb-4">
                             

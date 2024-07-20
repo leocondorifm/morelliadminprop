@@ -180,12 +180,43 @@
             // Recorrer y mostrar el contenido del directorio
             foreach ($files as $file) {
                 // Omitir los elementos '.' y '..'
-                if ($file != "." && $file != "..") {
+                if ($file != "." && $file != ".." && $file != "__MACOSX") {
                     array_push($storage, $file);
                 }
             }
 
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Acceso correcto", "data"=>$storage, "base"=>$folder, "count"=>count($storage))));
+        } else {
+            $response->getBody()->write(json_encode( array ("status" => 1, "message" => "La ruta especificada no es un directorio válido") ));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->put('/delete/{folder}/{data}', function (Request $request, Response $response, array $args) use ($conn) {
+        $folder = $args['folder'];
+        $file = $args['data'];
+
+        // Ruta del directorio que quieres explorar
+        $dir = __DIR__ . '/uploads/'.$folder;
+        $fil  = __DIR__ . '/uploads/'.$folder.'/'.$file;
+
+        // Comprobar si la ruta es un directorio válido
+        if (is_dir($dir)) {
+
+            if(file_exists($fil)){//¿Existe el archivo?
+
+                if(unlink($fil)){
+                    $response->getBody()->write(json_encode(array("status" => 0, "message" => "Borrado correcto. ".$fil)));
+                }else{
+                    $response->getBody()->write(json_encode( array ("status" => 1, "message" => "No se pudo borrar el archivo: ".$fil) ));
+                }
+
+                
+            }else{
+                $response->getBody()->write(json_encode( array ("status" => 1, "message" => "No se pudo borrar el directorio") ));
+            }
+
         } else {
             $response->getBody()->write(json_encode( array ("status" => 1, "message" => "La ruta especificada no es un directorio válido") ));
         }

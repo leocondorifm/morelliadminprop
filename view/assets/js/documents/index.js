@@ -193,6 +193,9 @@ function getAllFile(){
                                                     '</a>'+
                                                 '</td>'+
                                             '</tr>');
+                    
+                    $("#file-email").append('<p><a href="http://localhost/morelliadminprop/api/file/uploads/'+label+'/'+respObj.data[i]+'" target="_blank">'+respObj.data[i]+'</a></p>');
+
                 }
             } 
         }else{
@@ -210,4 +213,19 @@ function getAllFile(){
         console.error(error)
     });
 
+}
+
+function stepActive(d,h){
+    //console.log('stepActive');
+}
+
+function stepValidation(d,h){
+    if(h===2){
+       let sel = $("#documentsadd").val(); 
+       if(sel=="none"){
+            return true;
+       }else{
+            return false;
+       }
+    }
 }

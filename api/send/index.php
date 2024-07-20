@@ -52,7 +52,7 @@
     /* OBETENER */
     $app->get('/property/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT f.fk_exp_building, b.short_name  FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' GROUP BY f.fk_exp_building");
+        $stmt = $conn->prepare("SELECT f.*, b.* FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' GROUP BY f.fk_exp_building");
 
         if($stmt->execute()){
             $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);

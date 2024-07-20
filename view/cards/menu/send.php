@@ -30,7 +30,7 @@
                             </div>
                         </a>
                         <!-- Wizard navigation item 2-->
-                        <a class="nav-item nav-link" id="wizard2-tab" href="wizard.html#wizard2" data-bs-toggle="tab" role="tab" aria-controls="wizard2" aria-selected="true">
+                        <a class="nav-item nav-link" id="wizard2-tab" href="wizard.html#wizard2" data-bs-toggle="tab" role="tab" aria-controls="wizard2" aria-selected="false">
                             <div class="wizard-step-icon">2</div>
                             <div class="wizard-step-text">
                                 <div class="wizard-step-text-name"><i class="fas fa-newspaper"></i> Lista de distribución</div>
@@ -38,7 +38,7 @@
                             </div>
                         </a>
                         <!-- Wizard navigation item 3-->
-                        <a class="nav-item nav-link" id="wizard3-tab" href="wizard.html#wizard3" data-bs-toggle="tab" role="tab" aria-controls="wizard3" aria-selected="true">
+                        <a class="nav-item nav-link" id="wizard3-tab" href="wizard.html#wizard3" data-bs-toggle="tab" role="tab" aria-controls="wizard3" aria-selected="false">
                             <div class="wizard-step-icon">3</div>
                             <div class="wizard-step-text">
                                 <div class="wizard-step-text-name"><i class="fas fa-folder-plus"></i> Archivos</div>
@@ -46,7 +46,7 @@
                             </div>
                         </a>
                         <!-- Wizard navigation item 4-->
-                        <a class="nav-item nav-link" id="wizard4-tab" href="wizard.html#wizard4" data-bs-toggle="tab" role="tab" aria-controls="wizard4" aria-selected="true">
+                        <a class="nav-item nav-link" id="wizard4-tab" href="wizard.html#wizard4" onclick="getModelData()" data-bs-toggle="tab" role="tab" aria-controls="wizard4" aria-selected="false">
                             <div class="wizard-step-icon">4</div>
                             <div class="wizard-step-text">
                                 <div class="wizard-step-text-name"><i class="fas fa-paper-plane"></i> Revisión &amp; envío</div>
@@ -78,11 +78,11 @@
                                                 
                                             </select>
                                         </div>
-
+                                        <div id="validation-step"></div>
                                         <hr class="my-4" />
                                         <div class="d-flex justify-content-between">
                                             <button class="btn btn-light disabled" type="button" disabled="">Atrás</button>
-                                            <button class="btn btn-primary" type="button">Siguiente</button>
+                                            <button class="btn btn-primary" id="btn-1" onclick="stepActive(1,2)" type="button">Siguiente</button>
                                         </div>
                                     </form>
 
@@ -132,8 +132,8 @@
                                         </div>
                                         <hr class="my-4" />
                                         <div class="d-flex justify-content-between">
-                                            <button class="btn btn-light" type="button">Atrás</button>
-                                            <button class="btn btn-primary" type="button">Siguiente</button>
+                                            <button class="btn btn-light" id="btn-2-1" type="button">Atrás</button>
+                                            <button class="btn btn-primary" id="btn-2" type="button">Siguiente</button>
                                         </div>
                                     </form>
                                 </div>
@@ -171,8 +171,8 @@
                                         </table>
                                         <hr class="my-4" />
                                         <div class="d-flex justify-content-between">
-                                            <button class="btn btn-light" type="button">Atrás</button>
-                                            <button class="btn btn-primary" type="button">Siguiente</button>
+                                            <button class="btn btn-light" id="btn-3-2" type="button">Atrás</button>
+                                            <button class="btn btn-primary" id="btn-3" type="button">Siguiente</button>
                                         </div>
                                     </form>
                                 </div>
@@ -184,36 +184,15 @@
                                 <div class="col-xxl-6 col-xl-8">
                                     <h3 class="text-primary"><i class="fas fa-paper-plane"></i> Paso 4</h3>
                                     <h5 class="card-title mb-4">Revisa cuidadosamente todos los datos configurados.</h5>
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Propiedad:</em></div>
-                                        <div class="col">Pampa 233</div>
-                                    </div>
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Lista de distribución:</em></div>
-                                        <div class="col">Expensas Agosto 2024</div>
-                                    </div>
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Asunto:</em></div>
-                                        <div class="col">Expensas de Agosto</div>
-                                    </div>
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Archivos:</em></div>
-                                        <div class="col">expensarAgosto.rar</div>
-                                    </div>
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Remitente:</em></div>
-                                        <div class="col">lcondori@gmail.com</div>
-                                    </div>
 
-                                    <div class="row small text-muted">
-                                        <div class="col-sm-3 text-truncate"><em>Destinatarios:</em></div>
-                                        <div class="col">233</div>
-                                    </div>
+                                    <hr class="my-4" />
+
+                                    <?php include('template/notification.php'); ?>
 
                                     <hr class="my-4" />
                                     <div class="d-flex justify-content-between">
-                                        <button class="btn btn-light" type="button">Atrás</button>
-                                        <button class="btn btn-primary" type="button">Enviar</button>
+                                        <button class="btn btn-light" id="btn-4-3" type="button">Atrás</button>
+                                        <button class="btn btn-primary" id="btn-4" type="button">Enviar</button>
                                     </div>
                                 </div>
                             </div>
@@ -222,12 +201,45 @@
                 </div>
             </div>
         </div>
-        <script src="view/assets/js/documents/index.js?v=4.2"></script>
-        <script src="view/assets/js/send/index.js?v=2.5"></script>
+        <script src="view/assets/js/documents/index.js?v=4.5"></script>
+        <script src="view/assets/js/send/index.js?v=3.1"></script>
 
         <script>
             window.addEventListener('DOMContentLoaded', event => {
                 setGetPropertySend();
-                //setGetPlain();
+
+                document.getElementById('btn-1').addEventListener('click', function() {
+                    
+                    if(stepValidation(1,2)){
+                        $("#validation-step").html('');
+                        $("#validation-step").html('<div class="alert alert-warning" role="alert">'+
+                                                        'Debe seleccionar planificación para la propiedad!'+
+                                                    '</div>');
+                    }else{//Pasó las validacione y está ok.
+                        $("#validation-step").html('');
+                        document.getElementById('wizard2-tab').click();
+                    }
+                });
+
+                document.getElementById('btn-2').addEventListener('click', function() {
+                    document.getElementById('wizard3-tab').click();
+                });
+
+                document.getElementById('btn-3').addEventListener('click', function() {
+                    document.getElementById('wizard4-tab').click();
+                });
+
+                document.getElementById('btn-4-3').addEventListener('click', function() {
+                    document.getElementById('wizard3-tab').click();
+                });
+
+                document.getElementById('btn-3-2').addEventListener('click', function() {
+                    document.getElementById('wizard2-tab').click();
+                });
+
+                document.getElementById('btn-2-1').addEventListener('click', function() {
+                    document.getElementById('wizard1-tab').click();
+                });
+                
             });
         </script>

@@ -1,13 +1,13 @@
-//Validar email
+//0: Validar email
 function validarEmail(email) {
     // Expresión regular para validar un correo electrónico
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
 }
 
-//Traigo las propiedades si tiene planificación de archivos adjuntos
+//1: Traigo las propiedades si tiene planificación de archivos adjuntos
 function setGetPropertySend(){
-    
+   
     $("#documentsadd").empty();
 
     const myHeaders = new Headers();
@@ -26,9 +26,9 @@ function setGetPropertySend(){
             if(count===0){
                 $("#documentsadd").append('<option>No hay planificación</option>');
             }else{
-                $("#documentsadd").append('<option>Seleccionar planificación para la propiedad</option>');
+                $("#documentsadd").append('<option value="none">Seleccionar planificación para la propiedad</option>');
                 for(let i=0; i<count; i++){
-                    $("#documentsadd").append('<option value="'+respObj.data[i].fk_exp_building+'">'+respObj.data[i].short_name+'</option>');
+                    $("#documentsadd").append('<option value="'+respObj.data[i].fk_exp_building+'" address-name="'+respObj.data[i].address+'" address-number="'+respObj.data[i].number+'" address-cp="'+respObj.data[i].cp+'">'+respObj.data[i].short_name+'</option>');
                 }
             } 
         }else{
@@ -38,9 +38,10 @@ function setGetPropertySend(){
     .catch((error) => console.error(error));
 }
 
+//2: Traigo el Nesletter
 function getListDist(){
     console.log('Propiedad elegida: ' + $("#documentsadd").val());
-
+    $("#validation-step").html('');
     $("#newsletteradd").empty();
     $("#dataRemitente").empty();
     $("#countSuccess").html('<i class="fas fa-check-square"></i> Cantidad correctos: 0');
@@ -64,7 +65,7 @@ function getListDist(){
             }else{
                 $("#newsletteradd").append('<option>Seleccionar newsletter</option>');
                 for(let i=0; i<count; i++){
-                    $("#newsletteradd").append('<option value="'+respObj.data[i].id+'">'+respObj.data[i].description+'</option>');
+                    $("#newsletteradd").append('<option value="'+respObj.data[i].id+'" body-email="'+respObj.data[i].email+'" subjet-email="'+respObj.data[i].description+'">'+respObj.data[i].description+'</option>');
                 }
             } 
         }else{
@@ -137,3 +138,28 @@ function getNewsletter(){
     //SELECT * FROM `EXP_NEWSLETTER` WHERE fk_exp_building = '9' and id = '10' and fk_exp_admin = '2';
 }
 
+//FIN: Armado de plantilla final
+function getModelData(){
+
+    /*::::: SUBJET :::::::*/
+    let subjetemail = $("#newsletteradd>option:selected").attr("subjet-email");
+    if(subjetemail===undefined){subjetemail = '';}
+    $("#subjetemail").html(subjetemail);
+
+    /*:::::: BODY EMAIL ::::::*/
+    let bodyemail = $("#newsletteradd>option:selected").attr("body-email");
+    if(bodyemail===undefined){bodyemail = '';}
+    $("#bodyemail").html(bodyemail);
+
+    /*:::::: FILE STORAGE ::::::file-email*/
+
+
+    /*:::::: FOOTER ::::::*/
+    let address = $("#documentsadd>option:selected").attr("address-name");
+    let number = $("#documentsadd>option:selected").attr("address-number");
+    let cp = $("#documentsadd>option:selected").attr("address-cp");
+    if(address===undefined){address = '';}
+    if(number===undefined){number = '';}
+    if(cp===undefined){cp = '';}else{cp='('+cp+')';}
+    $("#address-send").html(address + ' '+number +' ' + cp + '');
+}
