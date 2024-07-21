@@ -206,8 +206,32 @@
 
         <script>
             window.addEventListener('DOMContentLoaded', event => {
+
                 setGetPropertySend();
 
+                /*::::::::::::::::::_ HEAD NEXT/BACK _:::::::::::::::::::::::::*/
+                document.getElementById('wizard2-tab').addEventListener('click', function() {
+                    
+                    if(stepValidation(1,2)){
+                        $("#validation-step").html('');
+                        $("#validation-step").html('<div class="alert alert-warning" role="alert">'+
+                                                        'Debe seleccionar planificación para la propiedad!'+
+                                                    '</div>');
+                    return false;
+
+                    }else{//Pasó las validacione y está ok.
+                        $("#validation-step").html('');
+                        document.getElementById('wizard2-tab').click();
+                    }
+                });
+                document.getElementById('wizard3-tab').addEventListener('click', function() {
+                    document.getElementById('wizard3-tab').click();
+                });
+                document.getElementById('wizard4-tab').addEventListener('click', function() {
+                    document.getElementById('wizard4-tab').click();
+                });
+
+                /*::::::::::::::::::_ BUTTON NEXT/BACK _:::::::::::::::::::::::::*/
                 document.getElementById('btn-1').addEventListener('click', function() {
                     
                     if(stepValidation(1,2)){
@@ -220,26 +244,21 @@
                         document.getElementById('wizard2-tab').click();
                     }
                 });
-
                 document.getElementById('btn-2').addEventListener('click', function() {
                     document.getElementById('wizard3-tab').click();
                 });
-
                 document.getElementById('btn-3').addEventListener('click', function() {
                     document.getElementById('wizard4-tab').click();
                 });
-
                 document.getElementById('btn-4-3').addEventListener('click', function() {
                     document.getElementById('wizard3-tab').click();
                 });
-
                 document.getElementById('btn-3-2').addEventListener('click', function() {
                     document.getElementById('wizard2-tab').click();
                 });
-
                 document.getElementById('btn-2-1').addEventListener('click', function() {
                     document.getElementById('wizard1-tab').click();
                 });
-                
+
             });
         </script>
