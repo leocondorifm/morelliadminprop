@@ -50,7 +50,7 @@
                             <div class="wizard-step-icon">4</div>
                             <div class="wizard-step-text">
                                 <div class="wizard-step-text-name"><i class="fas fa-paper-plane"></i> Revisión &amp; envío</div>
-                                <div class="wizard-step-text-details">Review and submit changes</div>
+                                <div class="wizard-step-text-details">Validá los datos, guardalos y envialos</div>
                             </div>
                         </a>
                     </div>
@@ -190,10 +190,33 @@
                                     <?php include('template/notification.php'); ?>
 
                                     <hr class="my-4" />
+                                    <section id="info-validation" style="display:none">
+                                        <div class="alert alert-danger logactivity" role="alert">
+                                            
+                                        </div>
+                                    </section>
+                                    
+                                    <section id="result-envio" style="display:none"></section>
+
                                     <div class="d-flex justify-content-between">
                                         <button class="btn btn-light" id="btn-4-3" type="button">Atrás</button>
-                                        <button class="btn btn-primary" id="btn-4" type="button">Enviar</button>
+                                        <button class="btn btn-info" id="test-send" onclick="saveNeswLetterAndSend('test')"  style="display:none" type="button"><i class="fas fa-paper-plane"></i> Test</button>
+                                        <button class="btn btn-light" id="btn-4" onclick="validateDataAndSave()" type="button"><i class="fas fa-check"></i> Validar</button>
+                                        <button class="btn btn-success" id="save-send" style="display:none" onclick="saveNeswLetterAndSend('prod')" type="button"><i class="fas fa-save"></i> Enviar</button>
                                     </div>
+
+                                    <hr class="my-4" />
+
+                                    <div class="alert alert-light" id="help-info" role="alert">
+                                        <i class="fas fa-check"></i> Realiza todas las validaciones necesarias para que el envío de notificación sea todo correcto.
+                                    </div>
+                                    <div class="alert alert-info" id="help-send" style="display:none" role="alert">
+                                        <i class="fas fa-paper-plane"></i> Usando esta función podés enviarte un email para chequear que todo está correcto.
+                                    </div>
+                                    <div class="alert alert-success" id="help-save" style="display:none" role="alert">
+                                        <i class="fas fa-save"></i> Guardar y enviar newsletter.
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -201,8 +224,8 @@
                 </div>
             </div>
         </div>
-        <script src="view/assets/js/documents/index.js?v=4.5"></script>
-        <script src="view/assets/js/send/index.js?v=3.1"></script>
+        <script src="view/assets/js/documents/index.js?v=4.6"></script>
+        <script src="view/assets/js/send/index.js?v=3.6"></script>
 
         <script>
             window.addEventListener('DOMContentLoaded', event => {

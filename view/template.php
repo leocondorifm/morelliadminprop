@@ -40,6 +40,7 @@
     if(isset($_SESSION["login"]) && $_SESSION["login"]===true){
 
         $session = $_SESSION["fk_exp_admin"];
+        $usermail = $_SESSION["email_session"];
         if($ruta==="logout"){
             include_once("cards/logout.php");
         }else{
@@ -48,6 +49,7 @@
     }else{
 
         $session = "anonymous";
+        $usermail = "unknow";
         if($ruta==="forgot"){
             include_once("cards/forgot.php");
         }
@@ -64,6 +66,8 @@
 
     <input type="hidden" id="url_base" value="<?php echo $data["route"];?>">
     <input type="hidden" id="fk_exp_u" value="<?php echo $session;?>">
+    <input type="hidden" id="usermail" value="<?php echo $usermail;?>">
+    
     <!-- Bootstrap core JavaScript-->
     <script src="view/assets/vendor/jquery/jquery.min.js"></script>
     <script src="view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

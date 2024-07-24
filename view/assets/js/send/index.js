@@ -40,7 +40,7 @@ function setGetPropertySend(){
 
 //2: Traigo el Nesletter
 function getListDist(){
-    console.log('Propiedad elegida: ' + $("#documentsadd").val());
+    //console.log('Propiedad elegida: ' + $("#documentsadd").val());
     $("#validation-step").html('');
     $("#newsletteradd").empty();
     $("#dataRemitente").empty();
@@ -162,4 +162,97 @@ function getModelData(){
     if(number===undefined){number = '';}
     if(cp===undefined){cp = '';}else{cp='('+cp+')';}
     $("#address-send").html(address + ' '+number +' ' + cp + '');
+}
+
+//::::::::::::: VALIDAR DATOS Y GUARDAR :::::::::::::
+function validateDataAndSave(){
+    
+    $(".logactivity").empty();
+    let isok=0;
+
+    //Verifico si tiene un valor y si lo tiene y es entero
+    let prop = parseInt($("#documentsadd").val());
+    if(!Number.isInteger(prop)){
+        $(".logactivity").append('<p>Revisá la selección de la propiedad. En el paso 1.</p>');
+    }else{
+        isok=isok+25;
+    }
+
+    let news = parseInt($("#newsletteradd").val());
+    if(!Number.isInteger(news)){
+        $(".logactivity").append('<p>Revisá la selección de la lista de distribución. En el paso 2.</p>');
+    }else{
+        isok=isok+25;
+    }
+
+    let file = parseInt($("#filedata").val());
+    if(!Number.isInteger(file)){
+        $(".logactivity").append('<p>Revisá la selección de archivos. En el paso 3.</p>');
+    }else{
+        isok=isok+50;
+    }
+
+    if(isok===100){
+        $(".logactivity").hide();
+        $("#btn-4").hide();
+        $("#help-info").hide();
+        
+        $("#save-send").show();
+        $("#test-send").show();
+        $("#help-send").show();
+        $("#help-save").show();
+    }else{
+        $("#info-validation").show();
+    }
+
+}
+
+
+/*::::::::: ENVIAR TEST :::::::::*/
+function sendTest(){
+
+}
+
+/*::::::::: GUARDAR Y ENVIAR :::::::::*/
+function saveNeswLetterAndSend(method){
+    $("#result-envio").empty();
+
+    let property = $("#documentsadd").val();
+    let newsletter = $("#newsletteradd").val();
+    let filedata = $("#filedata").val();
+
+    const formdata = new FormData();
+    formdata.append("to", $("#usermail").val());
+    formdata.append("method", method);
+    formdata.append("property", property);
+    formdata.append("newsletter", newsletter);
+    formdata.append("filedata", filedata);
+    formdata.append("fk_exp_admin", $("#fk_exp_u").val());
+    
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow"
+    };
+    
+    $("#result-envio").show();
+
+    fetch("https://www.morelliadminprop.com.ar/mailing/send", requestOptions)
+    .then( resp => resp.json() )
+    .then( respObj => {
+        if(respObj.status == 0){
+            
+            $("#result-envio").html(respObj.message);
+            console.log(respObj.message);
+            window.setInterval(function(){
+                location.href = 'send';
+            },4000);
+
+        }else{
+            $("#result-envio").html(respObj.message);
+            console.log(respObj.message);
+        }
+     })
+      .catch((error) => console.error(error));
+
 }

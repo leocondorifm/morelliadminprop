@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-07-2024 a las 02:02:07
+-- Tiempo de generación: 24-07-2024 a las 00:17:45
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -253,6 +253,21 @@ CREATE TABLE `EXP_PAY` (
 
 INSERT INTO `EXP_PAY` (`id`, `month`, `year`, `fk_exp_building`, `pay_method`, `num_floor`, `num_dep`, `patch_file`, `verified`, `last_modify`) VALUES
 (1, 3, 2024, 1, 0, 'PB', '1', '/upload/paying/032024-0_PB_1.pdf', 0, '2024-07-01 03:16:26');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EXP_PLANING`
+--
+
+CREATE TABLE `EXP_PLANING` (
+  `id` int(11) NOT NULL,
+  `fk_exp_property` int(11) NOT NULL,
+  `fk_exp_newsletter` int(11) NOT NULL,
+  `fk_exp_files` int(11) NOT NULL,
+  `fk_exp_admin` int(11) NOT NULL,
+  `last_modify` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -22709,6 +22724,12 @@ ALTER TABLE `EXP_PAY`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `EXP_PLANING`
+--
+ALTER TABLE `EXP_PLANING`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `EXP_PROPERTY`
 --
 ALTER TABLE `EXP_PROPERTY`
@@ -22783,6 +22804,12 @@ ALTER TABLE `EXP_OWNER_ADMIN`
 --
 ALTER TABLE `EXP_PAY`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `EXP_PLANING`
+--
+ALTER TABLE `EXP_PLANING`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `EXP_PROPERTY`

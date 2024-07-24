@@ -68,7 +68,7 @@ function postFileData(){
     
     const myHeaders = new Headers();
     
-    console.log(file);
+    //console.log(file);
 
     const formdata = new FormData();
     formdata.append("file", file);
@@ -112,7 +112,7 @@ function postFileData(){
 
 function getFile(){
     //SELECT * FROM `EXP_FILES` WHERE fk_exp_building = '9' and fk_exp_newsletter = '15' and fk_exp_admin = '2';
-    console.log("limpio sección archivos...");
+    //console.log("limpio sección archivos...");
     $("#filedata").empty();
     $("#filestorage").empty();
     
@@ -132,7 +132,7 @@ function getFile(){
     .then( respObj => {
         if(respObj.status == 0){
             let count = respObj.data.length;
-            console.log(respObj.query);
+            //console.log(respObj.query);
             if(count===0){
                 $("#filedata").append('<option>No hay colección de archivo</option>');
             }else{
@@ -155,7 +155,7 @@ function getAllFile(){
     $("#filestorage").empty();
 
     let label = $("#filedata>option:selected").attr("base");
-    console.log($("#filedata>option:selected").attr("base"));
+    //console.log($("#filedata>option:selected").attr("base"));
 
     const myHeaders = new Headers();
     const requestOptions = {
@@ -169,7 +169,7 @@ function getAllFile(){
     .then( respObj => {
         if(respObj.status == 0){
             let count = respObj.data.length;
-            console.log(count);
+            //console.log(count);
             if(count===0){
                 $("#filestorage").append('<tr>'+
                                             '<th scope="row">0</th>'+

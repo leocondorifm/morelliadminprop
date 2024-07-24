@@ -51,7 +51,7 @@ function setPostNewsletter(){
       .then( respObj => {
   
           if(respObj.status == 0){
-            console.log(respObj.message);
+            //console.log(respObj.message);
             $(".text-end").hide();
             $(".save-news").html('<div class="alert alert-success" role="alert">'+respObj.message+'</div>');
             setTimeout(function(){
