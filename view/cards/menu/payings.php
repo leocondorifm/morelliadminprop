@@ -40,18 +40,18 @@
                     <form>
 
                         <div class="mb-4">  
-                            <label for="typeproperty">Propiedad</label>
-                            <select class="form-control" id="typeproperty" disabled>
-                                <option>Pampa 233</option>
+                            <label for="payproperty">Propiedad</label>
+                            <select class="form-control" id="payproperty" onchange="setFloors()" disabled>
                             </select>
                         </div>
 
                         <div class="mb-4">  
                             <label for="typeproperty">Dato sobre el pago</label>
-                            <select class="form-control" id="month">
-                                        <option>Pagué el total</option>
-                                        <option>Pagué de menos</option>
-                                        <option>Pagué de más</option>
+                            <select class="form-control" id="paydata">
+                                        <option value="none">Seleccione aviso</option>
+                                        <option value="100">Pagué el total</option>
+                                        <option value="0">Pagué de menos</option>
+                                        <option value="200">Pagué de más</option>
                                     </select>
                         </div>
                         <div class="mb-3">
@@ -62,41 +62,33 @@
                                 </div>
                                 <div class="col-auto">
                                     <select class="form-control" id="month">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option selected>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
+                                        <option value="0">Mes</option>    
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
                                     </select>
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="anio" class="col-form-label">Año</label>
+                                    <label for="year" class="col-form-label">Año</label>
                                 </div>
                                 <div class="col-auto">
                                 <select class="form-control" id="year">
-                                        <option>2010</option>
-                                        <option>2011</option>
-                                        <option>2012</option>
-                                        <option>2013</option>
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        <option>2020</option>
-                                        <option>2021</option>
-                                        <option>2022</option>
-                                        <option>2023</option>
-                                        <option selected>2024</option>
+                                        <option value="0">Año</option>        
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,54 +98,27 @@
                             <label for="typeproperty">Indique su unidad</label>
                             <div class="row g-3 align-items-center">
                                 <div class="col-auto">
-                                    <label for="month" class="col-form-label">Piso</label>
+                                    <label for="floors" class="col-form-label">Piso</label>
                                 </div>
                                 <div class="col-auto">
-                                    <select class="form-control" id="month">
-                                        <option selected>PB</option>    
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
+                                    <select class="form-control" id="floors">
+                                       <option>0</option>
                                     </select>
                                 </div>
 
                                 <div class="col-auto">
-                                    <label for="anio" class="col-form-label">Unidad</label>
+                                    <label for="depto" class="col-form-label">Depto</label>
                                 </div>
-                                <div class="col-auto">
-                                <select class="form-control" id="year">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option selected>15</option>
-                                    </select>
+                                <div class="col-1">
+                                    <input type="text" class="form-control" id="depto" placeholder="A">
                                 </div>
                             </div>
                         </div>
 
+
                         <div class="input-group mb-4">
-                            <label class="input-group-text" for="inputGroupFile01">Subir</label>
-                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <label class="input-group-text" for="filepay">Subir</label>
+                            <input type="file" class="form-control" id="filepay">
                         </div>
 
                         <div class="mb-4">
@@ -166,10 +131,10 @@
                         </div>
 
                         <hr class="sidebar-divider d-none d-md-block">
-
+                        <section id="save-pay"></section>
                         <div class="mb-4">
                             <p class="text-end">
-                                <button type="button" class="btn btn-outline-primary">
+                                <button type="button" onclick="savePay()" class="btn btn-outline-primary">
                                     <i class="fas fa-save"></i>
                                 </button>
                             </p>
@@ -186,3 +151,17 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<script src="view/assets/js/pay/index.js?v=1.3"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        
+        let owner = $("#owner").val();
+        let id_build = $("#id_build").val();
+        let name = $("#usermail").val();
+
+        getPropertyPay(owner,id_build,name);
+
+    });
+</script>

@@ -9,9 +9,10 @@
             <!-- Sidebar - Brand rotate-n-15 -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="start">
                 <div class="sidebar-brand-icon ">
-                    <i class="fas fa-building"></i>
+                    <!--<i class="fas fa-building"></i>-->
+                    <img src="https://morelliadminprop.com.ar/logo/morelli.png" width="60px">
                 </div>
-                <div class="sidebar-brand-text mx-3">MORELLI <sup>admin</sup></div>
+                
             </a>
 
             <!-- Divider -->

@@ -132,13 +132,14 @@
 
                                 <div class="col-auto">
                                 <label for="num_dep_start" class="col-form-label">Desde</label>
-                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="Desde">
                                 </div>
 
                                 <div class="col-auto">
                                     <label for="num_dep_end" class="col-form-label">Hasta</label>
-                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="Hasta">
                                 </div>
+
                             </div>
                         </div>
 

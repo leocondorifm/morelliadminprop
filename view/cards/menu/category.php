@@ -1,3 +1,4 @@
+
 <!-- Heading -->
 <div class="sidebar-heading">
     <i class="fas fa-fw fa-cog"></i>
@@ -13,15 +14,24 @@
     <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Inmuebles:</h6>
+            <?php 
+                if($_SESSION["admin"]){
+            ?>
             <a class="collapse-item" href="property"><i class="far fa-building"></i> Propiedad</a>
             <a class="collapse-item" href="newsletter"><i class="fas fa-newspaper"></i> Newsletter</a>
             <a class="collapse-item" href="documents"><i class="fas fa-folder-plus"></i> Documentos</a>
             <a class="collapse-item" href="send"><i class="fas fa-paper-plane"></i> Generar envios</a>
             <a class="collapse-item" href="payings"><i class="fas fa-file-invoice-dollar"></i> Gestión de pagos</a>
+            <?php }else{ ?>
+                <a class="collapse-item" href="payings"><i class="fas fa-file-invoice-dollar"></i> Gestión de pagos</a>
+            <?php } ?>
         </div>
     </div>
 </li>
 
+<?php 
+    if($_SESSION["admin"]){
+?>
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -73,3 +83,4 @@
         </div>
     </div>
 </li>
+<?php } ?>

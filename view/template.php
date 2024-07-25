@@ -41,6 +41,15 @@
 
         $session = $_SESSION["fk_exp_admin"];
         $usermail = $_SESSION["email_session"];
+        if($_SESSION["admin"]){
+            $owner = 1;
+            $id_build = "all";
+            $num_floors = "none";
+        }else{
+            $num_floors = $_SESSION["num_floors"];
+            $id_build = $_SESSION["id_building"];
+            $owner = 0;
+        }
         if($ruta==="logout"){
             include_once("cards/logout.php");
         }else{
@@ -50,6 +59,10 @@
 
         $session = "anonymous";
         $usermail = "unknow";
+        $id_build = "unknow";
+        $num_floors = "unknow";
+        $owner = null;
+
         if($ruta==="forgot"){
             include_once("cards/forgot.php");
         }
@@ -67,6 +80,9 @@
     <input type="hidden" id="url_base" value="<?php echo $data["route"];?>">
     <input type="hidden" id="fk_exp_u" value="<?php echo $session;?>">
     <input type="hidden" id="usermail" value="<?php echo $usermail;?>">
+    <input type="hidden" id="owner" value="<?php echo $owner;?>">
+    <input type="hidden" id="id_build" value="<?php echo $id_build;?>">
+    <input type="hidden" id="num_floors" value="<?php echo $num_floors;?>">
     
     <!-- Bootstrap core JavaScript-->
     <script src="view/assets/vendor/jquery/jquery.min.js"></script>

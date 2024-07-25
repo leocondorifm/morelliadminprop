@@ -448,3 +448,69 @@
 23/07/2024 10:54:26: entra: condori-Genesis2024
 23/07/2024 20:46:01: entra: condori-Genesis2024
 23/07/2024 21:53:00: entra: condori-Genesis2024
+23/07/2024 22:08:26: entra: condori-Genesis2024 Cantidad: 10
+23/07/2024 22:11:26: intento de ingreso: condori8
+23/07/2024 22:11:32: entra: condori
+23/07/2024 22:11:34: entra: condori-Genesis2024 Cantidad: 10
+23/07/2024 22:24:18: entra Admin: gestion
+23/07/2024 22:24:33: entra Admin: gestion4
+23/07/2024 22:24:44: entra Admin: gestion4
+23/07/2024 22:26:59: intento de ingreso como consorcio: gestion4
+23/07/2024 22:27:05: entra Consorcio: gestion
+23/07/2024 22:27:12: entra Consorcio: gestion1
+23/07/2024 22:27:31: entra Consorcio: gestion1
+23/07/2024 22:27:35: intento de ingreso como consorcio: gestion1111
+23/07/2024 22:27:48: intento de ingreso como consorcio: gestion223
+23/07/2024 22:27:52: intento de ingreso como consorcio: gestion2
+23/07/2024 22:27:54: entra Consorcio: gestion1
+23/07/2024 22:27:59: No entra: gestion1-Genesis2024
+23/07/2024 22:30:22: entra Consorcio: gestion
+23/07/2024 22:30:25: intento de ingreso como consorcio: gestion4
+23/07/2024 22:30:28: entra Consorcio: gestion1
+23/07/2024 22:39:53: entra: condori-Genesis2024 Cantidad: 10
+23/07/2024 22:40:10: entra Consorcio: gestion
+23/07/2024 22:40:15: intento de ingreso como consorcio: 
+23/07/2024 22:40:31: intento de ingreso como consorcio: 
+23/07/2024 22:40:51: intento de ingreso como consorcio: 
+23/07/2024 22:41:19: intento de ingreso como consorcio: gestion1111
+23/07/2024 22:41:26: entra Consorcio: gestion
+23/07/2024 22:42:55: entra: condori-Genesis2024 Cantidad: 10
+23/07/2024 22:43:05: intento de ingreso como consorcio: 
+23/07/2024 22:43:41: intento de ingreso como consorcio: gestion
+23/07/2024 22:43:50: intento de ingreso como consorcio: gestion
+23/07/2024 22:44:07: intento de ingreso como consorcio: gestion
+23/07/2024 22:45:03: intento de ingreso como consorcio: gestion
+23/07/2024 22:45:05: intento de ingreso como consorcio: gestion
+23/07/2024 22:45:08: intento de ingreso como consorcio: gestion2
+23/07/2024 22:45:12: entra Consorcio: gestion1
+23/07/2024 22:45:17: intento de ingreso como consorcio: gestion1
+23/07/2024 22:45:27: intento de ingreso como consorcio: gestion1
+23/07/2024 22:45:33: intento de ingreso como consorcio: gestion1
+23/07/2024 22:45:49: intento de ingreso como consorcio: gestion1
+23/07/2024 22:47:41: entra Consorcio: gestion
+23/07/2024 22:55:30: entra Admin: condori
+23/07/2024 22:55:34: entra: condori-Genesis2024 Cantidad: 10
+23/07/2024 22:59:49: entra Consorcio: gestion
+23/07/2024 23:00:22: entra Admin: condori
+23/07/2024 23:00:26: entra: condori-Genesis2024 Cantidad: 10
+24/07/2024 07:45:17: entra Consorcio: gestion
+24/07/2024 07:46:11: entra Admin: condori
+24/07/2024 07:46:15: entra: condori-Genesis2024 Cantidad: 10
+24/07/2024 07:53:49: Petición de procincias. Satisfactorio.
+24/07/2024 07:54:32: Petición de procincias. Satisfactorio.
+24/07/2024 07:54:39: entra Consorcio: gestion
+24/07/2024 18:27:51: entra Admin: condori
+24/07/2024 18:27:55: intento de ingreso como consorcio: condori
+24/07/2024 18:28:01: entra: condori-Genesis2024 Cantidad: 10
+24/07/2024 18:28:05: Petición de procincias. Satisfactorio.
+24/07/2024 18:29:01: Petición de procincias. Satisfactorio.
+24/07/2024 18:29:25: Petición de procincias. Satisfactorio.
+24/07/2024 21:04:17: Petición de procincias. Satisfactorio.
+24/07/2024 22:25:39: entra: condori-Genesis2024 Cantidad: 10
+24/07/2024 22:26:13: entra Consorcio: gestion
+24/07/2024 22:39:26: entra Admin: condori
+24/07/2024 22:39:33: entra: condori-Genesis2024 Cantidad: 10
+25/07/2024 01:24:11: entra Consorcio: gestion
+25/07/2024 01:29:40: entra Admin: condori
+25/07/2024 01:29:44: entra: condori-Genesis2024 Cantidad: 10
+25/07/2024 01:39:40: Petición de procincias. Satisfactorio.

@@ -118,16 +118,35 @@
         $stmt = $conn->prepare("SELECT * FROM EXP_ADMIN WHERE admin_user = :admin_user AND validado = '1' ");
         $stmt -> bindParam(":admin_user", $user, PDO::PARAM_STR);
         $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user) {
-            writeLN('entra: '.$args['user']);//Log de evento
-            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
-            return $response;
-        } else {
-            writeLN('intento de ingreso: '.$args['user']);//Log de evento
-            $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario existente o no autorizado.")));
-            return $response;
+        if($stmt->execute()){
+            $users = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($users){
+                writeLN('entra Admin: '.$args['user']);//Log de evento
+                $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario admin existente.")));
+                return $response;
+            }else{//Entro acá porque el admin no lo encontré, quizá sea uno del consorcio.
+                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user");
+                $stmt -> bindParam(":building_user", $user, PDO::PARAM_STR);
+                
+                if($stmt->execute()){
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($user) {
+                        writeLN('entra Consorcio: '.$args['user']);//Log de evento
+                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario final existente.")));
+                        return $response;
+                    }else{
+                        writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
+                        $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario inexistente o no autorizado.")));
+                        return $response;
+                    }
+                
+                }else{//No encontré usuario como admin ni como consorcio.
+                    writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
+                    $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario no autorizado.")));
+                    return $response;
+                }
+            }
         }
         
         return $response->withHeader('Content-Type', 'application/json');
@@ -165,19 +184,41 @@
         $stmt = $conn->prepare("SELECT * FROM EXP_ADMIN WHERE admin_user = :admin_user AND admin_pass = :admin_pass AND validado = '1' ");
         $stmt -> bindParam(":admin_user", $user, PDO::PARAM_STR);
         $stmt -> bindParam(":admin_pass", $pass, PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user) {
-
-            writeLN('entra: '.$data['user'].'-'.$data['pass']);//Log de evento
-            session_start();
-            $_SESSION["login"]=true;
-            $_SESSION["email_session"]=$user["email"];
-            $_SESSION["fk_exp_admin"]=$user["id"];
-            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
-            return $response;
-
+        if ($stmt->execute()) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($user){
+                writeLN('entra: '.$data['user'].'-'.$data['pass'].' Cantidad: '.count($user));//Log de evento
+                session_start();
+                $_SESSION["login"]=true;
+                $_SESSION["email_session"]=$user["email"];
+                $_SESSION["fk_exp_admin"]=$user["id"];
+                $_SESSION["admin"]=true;
+                $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
+                return $response;
+            }else{//Entro acá porque el admin no lo encontré
+                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user and building_pass = :building_pass");
+                $stmt -> bindParam(":building_user", $data['user'], PDO::PARAM_STR);
+                $stmt -> bindParam(":building_pass", $data['pass'], PDO::PARAM_STR);
+                if($stmt->execute()){
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($user){
+                        session_start();
+                        $_SESSION["login"]=true;
+                        $_SESSION["id_building"]=$user["id"];
+                        $_SESSION["email_session"]=$user["short_name"];
+                        $_SESSION["num_floors"]=$user["num_floors"];
+                        $_SESSION["fk_exp_admin"]=$user["fk_exp_admin"];
+                        $_SESSION["admin"]=false;
+                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
+                        return $response;
+                    }else{
+                        writeLN('intento de ingreso como consorcio: '.$data['user']);//Log de evento
+                        $response->getBody()->write(json_encode( array("status" => 1, "message" => "dice Usuario inexistente o no autorizado.")));
+                        return $response;
+                    }
+                }
+            }
         } else {
 
             writeLN('No entra: '.$data['user'].'-'.$data['pass']);//Log de evento
