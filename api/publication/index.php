@@ -191,6 +191,46 @@
 
     });
 
+    /* SERVICES */
+    $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $fk_exp_admin = $args['id'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+
+        if($stmt->execute()){
+            $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $count = count($service);
+            $storage = array();
+            for($i=0;$i<$count;$i++){
+                $dir = __DIR__ . '/public/'.$service[$i]["path"];
+                // Comprobar si la ruta es un directorio válido
+                
+                if (is_dir($dir)){
+                    
+                    // Obtener el contenido del directorio
+                    $files = scandir($dir);
+        
+                    // Recorrer y mostrar el contenido del directorio
+                    foreach ($files as $file) {
+                        
+                        // Omitir los elementos '.' y '..'
+                        if ($file != "." && $file != ".." && $file != "__MACOSX" && $file != ".DS_Store") {
+                            $storage[] = array("id"=>$service[$i]["id"],"file"=>$file);
+                        }
+                    }
+                }
+            }
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$service, "images"=>$storage, "cantidad"=>$count)));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
 
     $app->run();
 
