@@ -99,5 +99,51 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    /* CURRENCY */
+    $app->get('/currency/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $fk_exp_admin = $args['id'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_CURRENCY` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+
+        if($stmt->execute()){
+            $currency = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$currency)));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    /* POST CURRENCY */
+    $app->post('/currency', function (Request $request, Response $response, array $args) use ($conn) {
+            
+        $data = $request->getParsedBody();
+
+        $fk_exp_admin = $data['fk_exp_u'];//User
+        $simbolo = $data['simbolo'];
+        $iso = $data['iso'];
+
+        $stmt = $conn->prepare("INSERT INTO EXP_CURRENCY (simbolo, iso, fk_exp_admin ) VALUES (:simbolo, :iso, :fk_exp_admin )");
+        
+        $stmt->bindParam(":simbolo", $simbolo, PDO::PARAM_STR);
+        $stmt->bindParam(":iso", $iso, PDO::PARAM_STR);
+        $stmt->bindParam(":fk_exp_admin", $fk_exp_admin, PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Currency creada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+        return $response->withHeader('Content-Type', 'application/json');
+
+    });
+
     $app->run();
 ?>

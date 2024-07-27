@@ -43,7 +43,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Inmuebles:</h6>
             <a class="collapse-item" href="publication"><i class="fab fa-wpforms"></i> Publicación</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-question-circle"></i> Consultas</a>
+            <a class="collapse-item" href="services"><i class="fas fa-hospital-symbol"></i> Urgencias</a>
         </div>
     </div>
 </li>
