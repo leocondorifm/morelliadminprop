@@ -70,6 +70,8 @@
                         include_once("menu/questions.php");
                     }else if($ruta==="services"){
                         include_once("menu/services.php");
+                    }else if($ruta==="urgencias"){
+                        include_once("menu/urgencias.php");
                     }else{
                         include_once("menu/dashboard.php");
                     }

@@ -609,3 +609,9 @@
 27/07/2024 19:03:46: Petición de partido. Satisfactorio.
 27/07/2024 19:03:47: Petición de partido. Satisfactorio.
 27/07/2024 19:06:54: Petición de procincias. Satisfactorio.
+29/07/2024 14:48:45: Petición de procincias. Satisfactorio.
+29/07/2024 14:49:09: Petición de procincias. Satisfactorio.
+29/07/2024 14:51:54: Petición de procincias. Satisfactorio.
+29/07/2024 16:12:34: entra Consorcio: gestion
+29/07/2024 16:13:01: entra Admin: condori
+29/07/2024 16:13:04: entra: condori-Genesis2024 Cantidad: 10

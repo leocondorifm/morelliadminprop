@@ -55,7 +55,7 @@
 
         $fk_exp_admin = $args['id'];
 
-        $stmt = $conn->prepare("SELECT * FROM `EXP_SERVICE` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+        $stmt = $conn->prepare("SELECT * FROM `EXP_SERVICE` WHERE fk_exp_admin = '".$fk_exp_admin."' AND status='0' ");
 
         if($stmt->execute()){
             $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -92,6 +92,27 @@
 
         if($stmt->execute()){
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Servicio creado con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+        return $response->withHeader('Content-Type', 'application/json');
+
+    });
+
+    $app->put('/{id}/{fk_exp_admin}', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        //$data = $request->getParsedBody();
+
+        $id = $args['id'];
+        $fk_exp_admin = $args['fk_exp_admin'];
+
+        $stmt = $conn->prepare("UPDATE EXP_SERVICE SET status = '1' WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_admin."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Servicio eliminado con éxito.")));
             return $response;
         }else{
             $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));

@@ -99,7 +99,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/services/index.js?v=2.2"></script>
+<script src="view/assets/js/services/index.js?v=3.3"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

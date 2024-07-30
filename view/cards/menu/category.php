@@ -24,6 +24,7 @@
             <a class="collapse-item" href="payings"><i class="fas fa-file-invoice-dollar"></i> Gestión de pagos</a>
             <?php }else{ ?>
                 <a class="collapse-item" href="payings"><i class="fas fa-file-invoice-dollar"></i> Gestión de pagos</a>
+                <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> Servicios Urgencia</a>
             <?php } ?>
         </div>
     </div>
@@ -63,6 +64,7 @@
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informe de email</a>
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informes de ingresos</a>
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informe inmuebles</a>
+            <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> Servicios urgencia</a>
         </div>
     </div>
 </li>

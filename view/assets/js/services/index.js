@@ -43,6 +43,9 @@ function getService(){
                                 '<p class="card-text">'+respObj.data[i].description+'</p>'+
                                 '<small class="text-body-secondary"><i class="fas fa-phone-square-alt"></i> '+respObj.data[i].telefono+'</small> | '+
                                 '<small class="text-body-secondary"><i class="fas fa-male"></i> '+respObj.data[i].contacto+'</small>'+
+                                '<hr class="sidebar-divider d-none d-md-block">'+
+                                '<button type="button" onclick="editService(\''+respObj.data[i].id+'\')" id="btn-'+respObj.data[i].id+'" class="btn btn-danger">Borrar</button>'+
+                                '<span class="badge rounded-pill text-bg-success" style="display:none" id="success-ser-'+respObj.data[i].id+'"></span>'+
                             '</div>'+
                         '</div>'+
                     '</div>');
@@ -95,4 +98,78 @@ function saveService(){
         }
     })
     .catch((error) => console.error(error));
+}
+
+function editService(idd){
+
+    const formdata = new FormData();
+    
+    const requestOptions = {
+      method: "PUT",
+      body: formdata,
+      redirect: "follow"
+    };
+    
+    fetch($("#url_base").val()+"api/services/"+idd+"/"+$("#fk_exp_u").val()+"", requestOptions)
+    .then( resp => resp.json() )
+    .then( respObj => {
+        if(respObj.status == 0){
+            console.log(respObj.message);
+            $("#btn-"+idd).hide();
+            $("#success-ser-"+idd).show();
+
+            $("#success-ser-"+idd).html(respObj.message);
+
+            setTimeout(function(){
+                getService();
+            }, 2000);
+
+        }else{
+           console.log(respObj.message);
+        }
+    })
+    .catch((error) => console.error(error));
+
+}
+
+function getServicePublic(simpleDatatables){
+
+    $("#datatablesSimple tbody").empty();
+
+    const myHeaders = new Headers();
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+
+    fetch($("#url_base").val()+"api/services/"+$("#fk_exp_u").val(), requestOptions)
+    /*.then(response => response.json())
+    .then(dato => {
+        var count = dato.data.length;
+        for(var i=0; i<count; i++){
+            $("#datatablesSimple tbody").append('<tr><td>'+dato.data[i].title+'</td><td>'+dato.data[i].description+'</td><td>'+dato.data[i].contacto+'</td><td>'+dato.data[i].telefono+'</td></tr>');
+        }
+        simpleDatatables.update();
+
+    })
+    .catch(error => console.error('Error al obtener los datos:', error));*/
+    .then(response => response.json())
+    .then(json => {
+        // Procesar y agregar los datos a la tabla
+        json.data.forEach(item => {
+            var row = '<tr>' +
+                '<td>' + item.title + '</td>' +
+                '<td>' + item.description + '</td>' +
+                '<td>' + item.contacto + '</td>' +
+                '<td>' + item.telefono + '</td>' +
+                '</tr>';
+            $('#datatablesSimple tbody').append(row);
+        });
+        // Actualizar la tabla para mostrar los nuevos datos
+        //$('#datatablesSimple tbody').update();
+    })
+    .catch(error => console.error('Error al obtener los datos:', error));
+
 }
