@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-07-2024 a las 20:54:51
+-- Tiempo de generación: 30-07-2024 a las 17:52:31
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.1.17
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -366,10 +366,7 @@ CREATE TABLE `EXP_PROPERTY` (
 --
 
 INSERT INTO `EXP_PROPERTY` (`id`, `fk_exp_admin`, `description`, `long_description`, `address`, `number`, `street_one`, `street_two`, `fk_sp_provincia`, `fk_sp_partido`, `fk_sp_localidad`, `price`, `currency`, `date_publish`, `count_bedrooms`, `count_bathrooms`, `square_meter`, `amoblado`, `ascensor`, `terraza`, `cocheras`, `laundry`, `pileta`, `mascota`, `bauleras`, `aa`, `ap`, `barrioc`, `sum`, `path`, `last_modify`) VALUES
-(6, 2, 'Monoambiente - Sum Y Pileta - Belgrano - Alquiler', 'Excelente Monoambiente de 30 metros, al lateral.\nMuy luminoso, con una amplia vista.\nCocina y horno eléctricos. Baño completo.\nCalefacción por aire acondicionado frío-calor.\nAgua caliente central.\nSin Muebles.\n\n\nExpensas $58.000\nABL $7.000\nEdificio de 10 pisos.\nCada piso cuenta con 3 unidades.\nSin cochera.\nApto profesional.\nAmenities: Piscina y SUM\n', 'Primera Junta', 9, 'Laferre', 'Santa fe', 1, 1, 1, 10982, 1, '2024-07-25 05:54:10', 1, 1, 54, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Shine', '2024-07-26 15:38:18'),
-(7, 2, 'Monoambiente - Sum Y Pileta - Belgrano - Alquiler', 'Excelente Monoambiente de 30 metros, al lateral.\r\nMuy luminoso, con una amplia vista.\r\nCocina y horno eléctricos. Baño completo.\r\nCalefacción por aire acondicionado frío-calor.\r\nAgua caliente central.\r\nSin Muebles.\r\n\r\n\r\nExpensas $58.000\r\nABL $7.000\r\nEdificio de 10 pisos.\r\nCada piso cuenta con 3 unidades.\r\nSin cochera.\r\nApto profesional.\r\nAmenities: Piscina y SUM\r\n', 'Primera Junta', 9, 'Laferre', 'Santa fe', 1, 1, 1, 10982, 1, '2024-07-25 05:54:10', 1, 1, 54, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'airbnb-vector-logo-seeklogo', '2024-07-26 15:46:51'),
-(8, 2, 'Monoambiente - Sum Y Pileta - Belgrano - Alquiler', 'Excelente Monoambiente de 30 metros, al lateral.\nMuy luminoso, con una amplia vista.\nCocina y horno eléctricos. Baño completo.\nCalefacción por aire acondicionado frío-calor.\nAgua caliente central.\nSin Muebles.\n\n\nExpensas $58.000\nABL $7.000\nEdificio de 10 pisos.\nCada piso cuenta con 3 unidades.\nSin cochera.\nApto profesional.\nAmenities: Piscina y SUM\n', 'Primera Junta', 9, 'Laferre', 'Santa fe', 1, 1, 1, 10982, 1, '2024-07-25 05:54:10', 1, 1, 54, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'startbootstrap-sb-admin-2-gh-pages', '2024-07-26 15:48:55'),
-(9, 2, 'Monoambiente - Sum Y Pileta - Belgrano - Alquiler', 'Excelente Monoambiente de 30 metros, al lateral.\r\nMuy luminoso, con una amplia vista.\r\nCocina y horno eléctricos. Baño completo.\r\nCalefacción por aire acondicionado frío-calor.\r\nAgua caliente central.\r\nSin Muebles.\r\n\r\n\r\nExpensas $58.000\r\nABL $7.000\r\nEdificio de 10 pisos.\r\nCada piso cuenta con 3 unidades.\r\nSin cochera.\r\nApto profesional.\r\nAmenities: Piscina y SUM\r\n', 'Primera Junta', 9, 'Laferre', 'Santa fe', 1, 1, 1, 10982, 1, '2024-07-25 05:54:10', 1, 1, 54, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'airbnb-vector-logo-seeklogo', '2024-07-27 01:23:13');
+(10, 2, 'Monoambiente - Sum Y Pileta - Belgrano - Alquiler', 'Excelente Monoambiente de 30 metros, al lateral.\r\nMuy luminoso, con una amplia vista.\r\nCocina y horno eléctricos. Baño completo.\r\nCalefacción por aire acondicionado frío-calor.\r\nAgua caliente central.\r\nSin Muebles.\r\n\r\n\r\nExpensas $58.000\r\nABL $7.000\r\nEdificio de 10 pisos.\r\nCada piso cuenta con 3 unidades.\r\nSin cochera.\r\nApto profesional.\r\nAmenities: Piscina y SUM\r\n', 'Primera Junta', 9, 'Laferre', 'Santa fe', 1, 1, 1, 10982, 1, '2024-07-25 05:54:10', 1, 1, 54, 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'Si', 'junta3077', '2024-07-27 22:06:50');
 
 -- --------------------------------------------------------
 
@@ -385,6 +382,7 @@ CREATE TABLE `EXP_SERVICE` (
   `contacto` text NOT NULL,
   `telefono` text NOT NULL,
   `fk_exp_admin` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
   `last_modify` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -392,12 +390,18 @@ CREATE TABLE `EXP_SERVICE` (
 -- Volcado de datos para la tabla `EXP_SERVICE`
 --
 
-INSERT INTO `EXP_SERVICE` (`id`, `url_image`, `title`, `description`, `contacto`, `telefono`, `fk_exp_admin`, `last_modify`) VALUES
-(1, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'GASISTA', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, '2024-07-27 03:48:33'),
-(2, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'ELECTRICIDAD', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, '2024-07-27 03:48:33'),
-(3, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'PLOMERO', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, '2024-07-27 03:48:33'),
-(4, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'GASISTEA', 'La inauguración de la cita deportiva transcurrió bajo un diluvio. La delegación argentina pasó por el río al comienzo del evento, ', 'Leo Condori', '1132596136', 2, '2024-07-27 04:07:33'),
-(5, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'DESDE EL ABM', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'MARIANO CONDORI', 'undefined', 2, '2024-07-27 04:15:03');
+INSERT INTO `EXP_SERVICE` (`id`, `url_image`, `title`, `description`, `contacto`, `telefono`, `fk_exp_admin`, `status`, `last_modify`) VALUES
+(1, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'GASISTA', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, 0, '2024-07-27 03:48:33'),
+(2, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'ELECTRICIDAD', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, 0, '2024-07-27 03:48:33'),
+(3, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'PLOMERO', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'Claudio Caniggia', '011-4567-000', 2, 0, '2024-07-27 03:48:33'),
+(4, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'GASISTEA', 'La inauguración de la cita deportiva transcurrió bajo un diluvio. La delegación argentina pasó por el río al comienzo del evento, ', 'Leo Condori', '1132596136', 2, 0, '2024-07-27 04:07:33'),
+(5, 'https://images.unsplash.com/photo-1637193080311-a6e6e11f0e00?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'DESDE EL ABM', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 04:15:03'),
+(6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08'),
+(7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08'),
+(8, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08'),
+(9, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08'),
+(10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08'),
+(11, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNP8yfW-iQxwRQdhnDAIOQgF8ZxNf-U0zN9w&s', 'PLOMERIA', 'Este es un texto de prueba para todos y todas. Este es un texto de prueba para todos y todas', 'MARIANO CONDORI', '1132596136', 2, 0, '2024-07-27 19:03:08');
 
 -- --------------------------------------------------------
 
@@ -22946,13 +22950,13 @@ ALTER TABLE `EXP_PLANING`
 -- AUTO_INCREMENT de la tabla `EXP_PROPERTY`
 --
 ALTER TABLE `EXP_PROPERTY`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `EXP_SERVICE`
 --
 ALTER TABLE `EXP_SERVICE`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `EXP_TIP_PRO`
