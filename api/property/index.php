@@ -23,15 +23,25 @@
 
     $app = AppFactory::create();
 
+
+    if($data["modo"]=="desarrollo"){
+        $servername = $data["dbd.config.host"]; // Nombre del servidor
+        $username = $data["dbd.config.username"]; // Nombre de usuario
+        $password = $data["dbd.config.password"]; // Contraseña
+        $dbname = $data["dbd.config.dbname"]; // Nombre de la base de datos
+        $basepath = "/morelliadminprop/api/property";
+    }else{
+        $servername = $data["db.config.host"]; // Nombre del servidor
+        $username = $data["db.config.username"]; // Nombre de usuario
+        $password = $data["db.config.password"]; // Contraseña
+        $dbname = $data["db.config.dbname"]; // Nombre de la base de datos
+        $basepath = "/api/property";
+    }
+
     // Add Slim routing middleware
     $app->addRoutingMiddleware();
-    $app->setBasePath("/morelliadminprop/api/property");
+    $app->setBasePath($basepath);
     $app->addErrorMiddleware(true, true, true);
-
-    $servername = "localhost"; // Nombre del servidor
-    $username = "root"; // Nombre de usuario
-    $password = ""; // Contraseña
-    $dbname = "MORELLI"; // Nombre de la base de datos
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

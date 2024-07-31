@@ -132,9 +132,9 @@ function editService(idd){
 
 }
 
-function getServicePublic(simpleDatatables){
+function getServicePublic(){
 
-    $("#datatablesSimple tbody").empty();
+    $("table tbody").empty();
 
     const myHeaders = new Headers();
 
@@ -145,30 +145,17 @@ function getServicePublic(simpleDatatables){
     };
 
     fetch($("#url_base").val()+"api/services/"+$("#fk_exp_u").val(), requestOptions)
-    /*.then(response => response.json())
+    .then(response => response.json())
     .then(dato => {
         var count = dato.data.length;
         for(var i=0; i<count; i++){
-            $("#datatablesSimple tbody").append('<tr><td>'+dato.data[i].title+'</td><td>'+dato.data[i].description+'</td><td>'+dato.data[i].contacto+'</td><td>'+dato.data[i].telefono+'</td></tr>');
+            $("table tbody").append('<tr>'+
+                                        '<td>'+dato.data[i].title+'</td>'+
+                                        '<td>'+dato.data[i].description+'</td>'+
+                                        '<td>'+dato.data[i].contacto+'</td>'+
+                                        '<td>'+dato.data[i].telefono+'</td>'+
+                                    '</tr>');
         }
-        simpleDatatables.update();
-
-    })
-    .catch(error => console.error('Error al obtener los datos:', error));*/
-    .then(response => response.json())
-    .then(json => {
-        // Procesar y agregar los datos a la tabla
-        json.data.forEach(item => {
-            var row = '<tr>' +
-                '<td>' + item.title + '</td>' +
-                '<td>' + item.description + '</td>' +
-                '<td>' + item.contacto + '</td>' +
-                '<td>' + item.telefono + '</td>' +
-                '</tr>';
-            $('#datatablesSimple tbody').append(row);
-        });
-        // Actualizar la tabla para mostrar los nuevos datos
-        //$('#datatablesSimple tbody').update();
     })
     .catch(error => console.error('Error al obtener los datos:', error));
 

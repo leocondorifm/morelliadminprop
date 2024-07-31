@@ -18,20 +18,29 @@
     use Slim\Exception\HttpNotFoundException;
     use Slim\Factory\AppFactory;
     use Selective\BasePath\BasePathDetector;
-  //require_once('/var/www/public_html/config.php'); 
+
     require_once('../vendor/autoload.php');
 
     $app = AppFactory::create();
 
+    if($data["modo"]=="desarrollo"){
+        $servername = $data["dbd.config.host"]; // Nombre del servidor
+        $username = $data["dbd.config.username"]; // Nombre de usuario
+        $password = $data["dbd.config.password"]; // Contraseña
+        $dbname = $data["dbd.config.dbname"]; // Nombre de la base de datos
+        $basepath = "/morelliadminprop/api/file";
+    }else{
+        $servername = $data["db.config.host"]; // Nombre del servidor
+        $username = $data["db.config.username"]; // Nombre de usuario
+        $password = $data["db.config.password"]; // Contraseña
+        $dbname = $data["db.config.dbname"]; // Nombre de la base de datos
+        $basepath = "/api/file";
+    }
+
     // Add Slim routing middleware
     $app->addRoutingMiddleware();
-    $app->setBasePath("/morelliadminprop/api/file");
+    $app->setBasePath($basepath);
     $app->addErrorMiddleware(true, true, true);
-
-    $servername = "localhost"; // Nombre del servidor
-    $username = "root"; // Nombre de usuario
-    $password = ""; // Contraseña
-    $dbname = "MORELLI"; // Nombre de la base de datos
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

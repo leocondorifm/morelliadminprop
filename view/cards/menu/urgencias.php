@@ -22,13 +22,13 @@
                     Profesionales y empresas habilitadas
                 </div>
                 <div class="card-body">
-                    <table id="table-urgencias" class="display" style="width:100%">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Rubro</th>
-                                <th>Descripción</th>
-                                <th>Contacto</th>
-                                <th>Teléfono</th>
+                                <th scope="col">Rubro</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Contacto</th>
+                                <th scope="col">Télefono</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,56 +38,16 @@
             </div>
         </div>
        
+<hr>
+
+
 
     </main>
 </div>
-<script src="view/assets/js/services/index.js?v=7.4"></script>
+<script src="view/assets/js/services/index.js?v=7.7"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {
-
-        //const datatablesSimple = document.getElementById('datatablesSimple');
-        //new simpleDatatables.DataTable(datatablesSimple);
-        var tableElement = document.querySelector("#table-urgencias");
-        var dataTable = new simpleDatatables.DataTable(tableElement);
-
-        //getServicePublic(simpleDatatables);
-
-        //$("#datatablesSimple tbody").empty();
-
-        const myHeaders = new Headers();
-
-        const requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow"
-        };
-
-        fetch($("#url_base").val()+"api/services/"+$("#fk_exp_u").val(), requestOptions)
-        .then(response => response.json())
-        .then(dato => {
-            var count = dato.data.length;
-            /*for(var i=0; i<count; i++){
-                console.log(dato.data[i].title);
-                $("#table-urgencias tbody").append('<tr><td>'+dato.data[i].title+'</td><td>'+dato.data[i].description+'</td><td>'+dato.data[i].contacto+'</td><td>'+dato.data[i].telefono+'</td></tr>');
-            }*/
-            $("#table-urgencias tbody").append('<tr><td>leo</td><td>Marino</td><td>Condo</td><td>Dete</td></tr>');
-            dataTable.update();
-            // Procesar y agregar los datos a la tabla
-            /*json.data.forEach(item => {
-                
-                var row = '<tr>' +
-                    '<td>' + item.title + '</td>' +
-                    '<td>' + item.description + '</td>' +
-                    '<td>' + item.contacto + '</td>' +
-                    '<td>' + item.telefono + '</td>' +
-                    '</tr>';
-                $('#exampless tbody').append(row);
-            });*/
-            // Actualizar la tabla para mostrar los nuevos datos
-            //dataTable.update();
-        })
-        .catch(error => console.error('Error al obtener los datos:', error));
-        
+        getServicePublic();       
     });
 </script>

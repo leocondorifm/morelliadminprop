@@ -88,7 +88,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="view/assets/vendor/jquery/jquery.min.js"></script>
     <script src="view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="view/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -102,7 +102,7 @@
     <!--<script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>-->
     <!-- Setting Coustom <sb-customizer project="sb-admin-pro"></sb-customizer>-->
     
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    
 
     <!-- Admin. SESSION -->
     <script src="view/assets/js/login/login.js?v=4.3"></script>
