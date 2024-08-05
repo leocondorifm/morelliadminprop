@@ -10,7 +10,7 @@
     include('../library/app.php');
 
     $data = parse_ini_file('../../_dev.ini');
-    
+
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
     use Selective\BasePath\BasePathMiddleware;
@@ -23,7 +23,7 @@
 
     $app = AppFactory::create();
 
-    if($data["modo"]=="desarrollo"){
+    if($_SERVER['HTTP_HOST']=="localhost"){
         $servername = $data["dbd.config.host"]; // Nombre del servidor
         $username = $data["dbd.config.username"]; // Nombre de usuario
         $password = $data["dbd.config.password"]; // Contraseña
@@ -53,7 +53,7 @@
     //TEST
     $app->get('/hello/{name}', function (Request $request, Response $response, array $args) use ($conn) {
         $name = $args['name'];
-        $response->getBody()->write("Hello, $name");
+        $response->getBody()->write("Hello, ".$name);
         return $response;
     });
     //FIN TEST
