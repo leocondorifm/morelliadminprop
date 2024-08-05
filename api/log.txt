@@ -615,3 +615,6 @@
 29/07/2024 16:12:34: entra Consorcio: gestion
 29/07/2024 16:13:01: entra Admin: condori
 29/07/2024 16:13:04: entra: condori-Genesis2024 Cantidad: 10
+30/07/2024 23:15:53: entra Admin: condori
+30/07/2024 23:15:58: intento de ingreso como consorcio: condori
+31/07/2024 09:16:47: entra: condori-Genesis2024 Cantidad: 10

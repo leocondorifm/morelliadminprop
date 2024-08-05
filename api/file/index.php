@@ -28,13 +28,13 @@
         $username = $data["dbd.config.username"]; // Nombre de usuario
         $password = $data["dbd.config.password"]; // Contraseña
         $dbname = $data["dbd.config.dbname"]; // Nombre de la base de datos
-        $basepath = "/morelliadminprop/api/file";
+        $basepath = $data["api_base_desa"].$data["api_file"];
     }else{
         $servername = $data["db.config.host"]; // Nombre del servidor
         $username = $data["db.config.username"]; // Nombre de usuario
         $password = $data["db.config.password"]; // Contraseña
         $dbname = $data["db.config.dbname"]; // Nombre de la base de datos
-        $basepath = "/api/file";
+        $basepath = $data["api_base_prod"].$data["api_file"];
     }
 
     // Add Slim routing middleware
