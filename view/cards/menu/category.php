@@ -59,12 +59,14 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Inmueble:</h6>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informe de pagos</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informe de email</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informes de ingresos</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> Informe inmuebles</a>
-            <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> Servicios urgencia</a>
+            <h6 class="collapse-header">Informes:</h6>
+            <a class="collapse-item" href="getproperty"><i class="fas fa-chart-pie"></i> /propiedades</a>
+            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /newsletter</a>
+            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /documentos</a>
+            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /envíos</a>
+            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /pagos</a>
+            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /publicaciones</a>
+            <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> /Servicios urgencia</a>
         </div>
     </div>
 </li>

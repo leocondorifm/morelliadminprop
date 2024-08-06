@@ -112,6 +112,14 @@
                                 <div class="col-1">
                                     <input type="text" class="form-control" id="depto" placeholder="A">
                                 </div>
+
+                                <div class="col-auto">
+                                    <label for="ufun" class="col-form-label">Unidad funcional</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="text" class="form-control" id="ufun">
+                                </div>
+
                             </div>
                         </div>
 
@@ -152,7 +160,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/pay/index.js?v=1.3"></script>
+<script src="view/assets/js/pay/index.js?v=1.4"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

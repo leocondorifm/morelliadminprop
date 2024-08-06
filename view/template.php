@@ -9,6 +9,12 @@
         $ruta = "start";
     }
     $data = parse_ini_file('./_dev.ini');
+
+    if($_SERVER['HTTP_HOST']=="localhost"){
+        $ruta_api = $data["routedev"];
+    }else{
+        $ruta_api = $data["route"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +84,7 @@
     
 ?>
 
-    <input type="hidden" id="url_base" value="<?php echo $data["route"];?>">
+    <input type="hidden" id="url_base" value="<?php echo $ruta_api;?>">
     <input type="hidden" id="fk_exp_u" value="<?php echo $session;?>">
     <input type="hidden" id="usermail" value="<?php echo $usermail;?>">
     <input type="hidden" id="owner" value="<?php echo $owner;?>">

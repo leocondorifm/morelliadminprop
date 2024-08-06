@@ -79,6 +79,7 @@ function savePay(){
     formdata.append("year", $("#year").val());
     formdata.append("floors", $("#floors").val());
     formdata.append("depto", $("#depto").val());
+    formdata.append("ufun", $("#ufun").val());
     formdata.append("paynote", $("#paynote").val());
     formdata.append("filepay", file);
     formdata.append("fk_exp_u", $("#fk_exp_u").val());

@@ -618,3 +618,5 @@
 30/07/2024 23:15:53: entra Admin: condori
 30/07/2024 23:15:58: intento de ingreso como consorcio: condori
 31/07/2024 09:16:47: entra: condori-Genesis2024 Cantidad: 10
+06/08/2024 10:38:13: entra: condori-Genesis2024 Cantidad: 10
+06/08/2024 11:28:49: Petición de procincias. Satisfactorio.

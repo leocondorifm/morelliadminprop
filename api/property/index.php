@@ -24,7 +24,7 @@
     $app = AppFactory::create();
 
 
-    if($data["modo"]=="desarrollo"){
+    if($_SERVER['HTTP_HOST']=="localhost"){
         $servername = $data["dbd.config.host"]; // Nombre del servidor
         $username = $data["dbd.config.username"]; // Nombre de usuario
         $password = $data["dbd.config.password"]; // Contraseña
@@ -117,6 +117,23 @@
 
         return $response->withHeader('Content-Type', 'application/json');
 
+    });
+
+    /* OBETENER */
+    $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_admin = $args['id'];
+        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' ORDER BY ID DESC");
+
+        if($stmt->execute()){
+            $getProperty = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$getProperty)));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
     });
 
 

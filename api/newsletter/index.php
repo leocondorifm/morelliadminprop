@@ -23,7 +23,7 @@
 
     $app = AppFactory::create();
 
-    if($data["modo"]=="desarrollo"){
+    if($_SERVER['HTTP_HOST']=="localhost"){
         $servername = $data["dbd.config.host"]; // Nombre del servidor
         $username = $data["dbd.config.username"]; // Nombre de usuario
         $password = $data["dbd.config.password"]; // Contraseña

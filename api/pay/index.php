@@ -23,7 +23,7 @@
 
     $app = AppFactory::create();
 
-    if($data["modo"]=="desarrollo"){
+    if($_SERVER['HTTP_HOST']=="localhost"){
         $servername = $data["dbd.config.host"]; // Nombre del servidor
         $username = $data["dbd.config.username"]; // Nombre de usuario
         $password = $data["dbd.config.password"]; // Contraseña
@@ -63,7 +63,6 @@
     });
     //FIN TEST
 
-
     $app->post('/upload', function (Request $request, Response $response, $args) use ($conn) {
         
         function getFilenameWithoutExtension($filePath) {
@@ -81,6 +80,7 @@
         $year = $data['year'];
         $floors = $data['floors'];
         $depto = $data['depto'];
+        $ufun = $data['ufun'];
         $paynote = $data['paynote'];
         
         $uploadedFiles = $request->getUploadedFiles();
@@ -119,7 +119,7 @@
                         //$response->getBody()->write("File uploaded and extracted successfully");
                         //$response->getBody()->write(json_encode(array("status" => 0, "message" => "Archivo cargado y extraído exitosamente.".$patch_file)));
 
-                        $stmt = $conn->prepare("INSERT INTO EXP_PAY (month, year, fk_exp_building, pay_method, num_floor, num_dep, patch_file, typemime, comment, fk_exp_admin ) VALUES (:month, :year, :fk_exp_building, :pay_method, :num_floor, :num_dep, :patch_file, :typemime, :comment, :fk_exp_admin )");
+                        $stmt = $conn->prepare("INSERT INTO EXP_PAY (month, year, fk_exp_building, pay_method, num_floor, num_dep, ufun, patch_file, typemime, comment, fk_exp_admin ) VALUES (:month, :year, :fk_exp_building, :pay_method, :num_floor, :num_dep, :ufun, :patch_file, :typemime, :comment, :fk_exp_admin )");
             
                         $stmt->bindParam(":month", $month, PDO::PARAM_INT);
                         $stmt->bindParam(":year", $year, PDO::PARAM_INT);
@@ -127,6 +127,7 @@
                         $stmt->bindParam(":pay_method", $paydata, PDO::PARAM_INT);
                         $stmt->bindParam(":num_floor", $floors, PDO::PARAM_STR);
                         $stmt->bindParam(":num_dep", $depto, PDO::PARAM_STR);
+                        $stmt->bindParam(":ufun", $ufun, PDO::PARAM_STR);
                         $stmt->bindParam(":patch_file", $filenameWithoutExtension, PDO::PARAM_STR);
                         $stmt->bindParam(":typemime", $fileType, PDO::PARAM_STR);
                         $stmt->bindParam(":comment", $paynote, PDO::PARAM_STR);
@@ -153,7 +154,7 @@
                     //$response->getBody()->write('File uploaded successfully');
                     //return $response->withStatus(200);
 
-                    $stmt = $conn->prepare("INSERT INTO EXP_PAY (month, year, fk_exp_building, pay_method, num_floor, num_dep, patch_file, typemime, comment, fk_exp_admin ) VALUES (:month, :year, :fk_exp_building, :pay_method, :num_floor, :num_dep, :patch_file, :typemime, :comment, :fk_exp_admin )");
+                    $stmt = $conn->prepare("INSERT INTO EXP_PAY (month, year, fk_exp_building, pay_method, num_floor, num_dep, ufun, patch_file, typemime, comment, fk_exp_admin ) VALUES (:month, :year, :fk_exp_building, :pay_method, :num_floor, :num_dep, :ufun, :patch_file, :typemime, :comment, :fk_exp_admin )");
             
                     $stmt->bindParam(":month", $month, PDO::PARAM_INT);
                     $stmt->bindParam(":year", $year, PDO::PARAM_INT);
@@ -161,6 +162,7 @@
                     $stmt->bindParam(":pay_method", $paydata, PDO::PARAM_INT);
                     $stmt->bindParam(":num_floor", $floors, PDO::PARAM_STR);
                     $stmt->bindParam(":num_dep", $depto, PDO::PARAM_STR);
+                    $stmt->bindParam(":ufun", $ufun, PDO::PARAM_STR);
                     $stmt->bindParam(":patch_file", $uploadFileName, PDO::PARAM_STR);
                     $stmt->bindParam(":typemime", $fileType, PDO::PARAM_STR);
                     $stmt->bindParam(":comment", $paynote, PDO::PARAM_STR);
