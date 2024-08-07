@@ -27,7 +27,6 @@
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Dirección</th>
-
                                 <th scope="col">Editar</th>
                             </tr>
                         </thead>
@@ -50,7 +49,122 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+            <form>
+                        <div class="mb-4">
+                            <label for="shortname">Nombre corto</label>
+                            <input 
+                                class="form-control" 
+                                id="shortname" 
+                                type="text" 
+                                placeholder="Ejemplo: Pampa233">
+                        </div>
+                        <div class="mb-4">
+                            
+                            <label for="newProperty"><a href="#" 
+                                data-toggle="modal" 
+                                data-target="#newProperty"
+                                style="text-decoration:none"
+                                ><i 
+                                class="fas fa-plus-circle fa-1x" 
+                               > 
+                            </i> Agregar tipo de propiedad</a></label>
+                            <select class="form-control" id="typeproperty">
+                                
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="street">Calle</label>
+                            <input 
+                                class="form-control" 
+                                id="street" 
+                                type="text" 
+                                placeholder="Ejemplo: Pampa">
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-auto">
+                                    <label for="numberaddress" class="col-form-label">Número</label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="number" id="numberaddress" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+
+                                <div class="col-auto">
+                                    <label for="cpaddress" class="col-form-label">CP</label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="number" id="cpaddress" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="province">Provincia</label>
+                            <select class="form-control" id="province" onchange="getPartido()">
+                            </select>  
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="partido">Partido</label>
+                            <select class="form-control" id="partido" onchange="getLocalidad()">
+                            </select>  
+                        </div>
+                        <div class="mb-3">
+                            <label for="localidad">Localidad</label>
+                            <select class="form-control" id="localidad">
+                            </select>  
+                        </div>
+                        
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="mb-4 row g-2" id="access_section">
+                            <label for="access_section">Usuario único al sistema</label>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                <input type="text" class="form-control" id="userbuild" placeholder="pampa233" >
+                                <label for="userbuild">Usuario</label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                <input type="password" class="form-control" id="passbuild" placeholder="Defina una contraseña">
+                                <label for="passbuild">Password</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="mb-3">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-auto">
+                                    <label for="num_floors" class="col-form-label">Cantidad de pisos</label>
+                                    <input type="number" id="num_floors" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+
+                                <div class="col-auto">
+                                <label for="num_dep_start" class="col-form-label">Desde</label>
+                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="Desde">
+                                </div>
+
+                                <div class="col-auto">
+                                    <label for="num_dep_end" class="col-form-label">Hasta</label>
+                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="Hasta">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="mb-4 space-alert">
+
+                            <p class="text-end">
+                                <button type="button" onclick="saveData()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                            </p>
+                        </div>
+                    </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -60,7 +174,7 @@
     </div>
 
 </div>
-<script src="view/assets/js/property/getproperty.js?v=1.0"></script>
+<script src="view/assets/js/property/getproperty.js?v=1.3"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

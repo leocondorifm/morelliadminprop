@@ -136,6 +136,24 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    /* OBETENER POR ID */
+    $app->get('/{id}/{idprop}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_admin = $args['id'];
+        $idprop = $args['idprop'];
+        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$idprop."' ORDER BY ID DESC");
+
+        if($stmt->execute()){
+            $getProperty = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$getProperty)));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
 
     $app->run();
 ?>

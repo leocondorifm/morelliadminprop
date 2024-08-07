@@ -70,11 +70,11 @@
         $location = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($location){
-            writeLN('Petición de procincias. Satisfactorio.');
+            //writeLN('Petición de procincias. Satisfactorio.');
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$location)));
             return $response;
         }else{
-            writeLN('Petición de procincias. No satisfactorio.');
+            //writeLN('Petición de procincias. No satisfactorio.');
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
             return $response;
         }
@@ -89,11 +89,11 @@
         $partido = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($partido){
-            writeLN('Petición de partido. Satisfactorio.');
+            //writeLN('Petición de partido. Satisfactorio.');
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$partido)));
             return $response;
         }else{
-            writeLN('Petición de partido. No satisfactorio.');
+            //writeLN('Petición de partido. No satisfactorio.');
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
             return $response;
         }
@@ -108,11 +108,11 @@
         $localidad = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($localidad){
-            writeLN('Petición de partido. Satisfactorio.');
+            //writeLN('Petición de partido. Satisfactorio.');
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$localidad)));
             return $response;
         }else{
-            writeLN('Petición de partido. No satisfactorio.');
+            //writeLN('Petición de partido. No satisfactorio.');
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
             return $response;
         }
@@ -132,7 +132,7 @@
         if($stmt->execute()){
             $users = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($users){
-                writeLN('entra Admin: '.$args['user']);//Log de evento
+                //writeLN('entra Admin: '.$args['user']);//Log de evento
                 $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario admin existente.")));
                 return $response;
             }else{//Entro acá porque el admin no lo encontré, quizá sea uno del consorcio.
@@ -142,17 +142,17 @@
                 if($stmt->execute()){
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
                     if ($user) {
-                        writeLN('entra Consorcio: '.$args['user']);//Log de evento
+                        //writeLN('entra Consorcio: '.$args['user']);//Log de evento
                         $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario final existente.")));
                         return $response;
                     }else{
-                        writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
+                        //writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
                         $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario inexistente o no autorizado.")));
                         return $response;
                     }
                 
                 }else{//No encontré usuario como admin ni como consorcio.
-                    writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
+                    //writeLN('intento de ingreso como consorcio: '.$args['user']);//Log de evento
                     $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario no autorizado.")));
                     return $response;
                 }
@@ -172,11 +172,11 @@
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            writeLN('Intento de reset pass. Si: '.$args['email']);//Log de evento
+            //writeLN('Intento de reset pass. Si: '.$args['email']);//Log de evento
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
             return $response;
         } else {
-            writeLN('Intento de reset pass. No: '.$args['email']);//Log de evento
+            //writeLN('Intento de reset pass. No: '.$args['email']);//Log de evento
             $response->getBody()->write(json_encode( array("status" => 1, "message" => "Usuario existente o no autorizado.")));
             return $response;
         }
@@ -198,7 +198,7 @@
         if ($stmt->execute()) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             if($user){
-                writeLN('entra: '.$data['user'].'-'.$data['pass'].' Cantidad: '.count($user));//Log de evento
+                //writeLN('entra: '.$data['user'].'-'.$data['pass'].' Cantidad: '.count($user));//Log de evento
                 session_start();
                 $_SESSION["login"]=true;
                 $_SESSION["email_session"]=$user["email"];
@@ -223,7 +223,7 @@
                         $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
                         return $response;
                     }else{
-                        writeLN('intento de ingreso como consorcio: '.$data['user']);//Log de evento
+                        //writeLN('intento de ingreso como consorcio: '.$data['user']);//Log de evento
                         $response->getBody()->write(json_encode( array("status" => 1, "message" => "dice Usuario inexistente o no autorizado.")));
                         return $response;
                     }
@@ -231,7 +231,7 @@
             }
         } else {
 
-            writeLN('No entra: '.$data['user'].'-'.$data['pass']);//Log de evento
+            //writeLN('No entra: '.$data['user'].'-'.$data['pass']);//Log de evento
             session_start();
             $_SESSION["login"]=false;
 
@@ -254,7 +254,7 @@
         $md5Has = md5($uri_mail);
 
         if($uri_hash!=$md5Has){
-            writeLN('Error en hash para cambiar la contraseña: '.$uri_hash.'-'.$uri_mail);
+            //writeLN('Error en hash para cambiar la contraseña: '.$uri_hash.'-'.$uri_mail);
             $response->getBody()->write(json_encode(array("status" => 1, "message" => "Existe un problema con la validación de la petición.")));
             return $response;  
         }
@@ -264,11 +264,11 @@
         $stmt->bindParam(":email", $uri_mail, PDO::PARAM_STR);
 
 		if($stmt->execute()){
-            writeLN('Se cambió la contraseña : '.$uri_hash.'-'.$uri_mail);
+            //writeLN('Se cambió la contraseña : '.$uri_hash.'-'.$uri_mail);
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "¡Contraseña actualizada con éxito!")));
             return $response;
 		}else{
-            writeLN('NO se cambió la contraseña : '.$uri_hash.'-'.$uri_mail.'===> '.$stmt->errorInfo());
+            //writeLN('NO se cambió la contraseña : '.$uri_hash.'-'.$uri_mail.'===> '.$stmt->errorInfo());
             $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
             return $response;
 		}
