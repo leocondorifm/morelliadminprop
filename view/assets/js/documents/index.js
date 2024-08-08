@@ -37,11 +37,11 @@ function setGetPlain(){
     const myHeaders = new Headers();
 
     const requestOptions = {
-    method: "GET",
+    method: "POST",
     headers: myHeaders,
     redirect: "follow"
     };
-
+                                
     fetch($("#url_base").val()+"api/newsletter/plain/"+$("#fk_exp_u").val(), requestOptions)
     .then( resp => resp.json() )
     .then( respObj => {

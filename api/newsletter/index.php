@@ -134,7 +134,7 @@
 
         if($stmt->execute()){
             $newsletter = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correctoddddd.", "data"=>$newsletter)));
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$newsletter)));
         }else{
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
         }

@@ -34,4 +34,28 @@ function getData(){
 
 function getDataById(id){
     console.log('getdocuments by ID...' + id);
+
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      
+    fetch($("#url_base").val()+"api/file/edit/"+$("#fk_exp_u").val()+"/"+id, requestOptions)
+    .then( resp => resp.json() )
+    .then( respObj => {
+        console.log(respObj);
+        if(respObj.status == 0){
+
+            $("#namefiles").val(respObj.data.description);
+            $("#propertyfile").val(respObj.data.fk_exp_building).change();
+            $("#month").val(respObj.data.month).change();
+            $("#year").val(respObj.data.year).change();
+            
+            console.log(respObj.message);
+        }else{
+            console.log(respObj.message);
+        }
+    })
+    .catch((error) => console.error(error));
+
 }

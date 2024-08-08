@@ -137,7 +137,6 @@
                             </p>
                         </div>
                     </form>
-                    
                 </div>
 
                 <hr class="sidebar-divider">
