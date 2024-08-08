@@ -74,6 +74,10 @@
                         include_once("menu/urgencias.php");
                     }else if($ruta==="getproperty"){
                         include_once("informes/getproperty.php");
+                    }else if($ruta==="getnewsletter"){
+                        include_once("informes/getnewsletter.php");
+                    }else if($ruta==="getdocuments"){
+                        include_once("informes/getdocuments.php");
                     }else{
                         include_once("menu/dashboard.php");
                     }

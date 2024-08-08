@@ -76,20 +76,38 @@
         
         return $response->withHeader('Content-Type', 'application/json');
     });
+
+    $app->get('/{idadmin}/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_admin = $args['idadmin'];
+        $id = $args['id'];
+
+        $stmt = $conn->prepare("SELECT id, short_name FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$id."' ORDER BY ID ASC");
+        $property = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($stmt->execute()){
+            $property = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$property,"count"=>count($property))));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
  
     /*ALTA*/
     $app->post('/', function (Request $request, Response $response, array $args) use ($conn) {
         
         $data = $request->getParsedBody();
 
-        
         $description = $data['description'];
         $fk_exp_building = $data['fk_exp_building'];
         $body_mail = $data['body_mail'];
         $email = $data['email'];
         $fk_exp_admin = $data['fk_exp_u'];//User
 
-		$stmt = $conn->prepare("INSERT INTO EXP_NEWSLETTER (description, fk_exp_building, body_mail, email, fk_exp_admin ) VALUES (:description, :fk_exp_building, :email, :body_mail, :fk_exp_admin )");
+		$stmt = $conn->prepare("INSERT INTO EXP_NEWSLETTER (description, fk_exp_building, body_mail, email, fk_exp_admin ) VALUES (:description, :fk_exp_building, :body_mail, :email, :fk_exp_admin )");
         
         $stmt->bindParam(":description", $description, PDO::PARAM_STR);
         $stmt->bindParam(":fk_exp_building", $fk_exp_building, PDO::PARAM_INT);
@@ -110,21 +128,62 @@
     });
 
     /* OBETENER */
-    $app->get('/plain/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+    $app->post('/plain/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
         $stmt = $conn->prepare("SELECT id, description FROM EXP_NEWSLETTER WHERE fk_exp_admin = '".$fk_exp_admin."' ORDER BY ID DESC");
 
         if($stmt->execute()){
-            $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            //writeLN('Petición de tip_prop. Satisfactorio.');
-            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$tipProp)));
-            return $response;
+            $newsletter = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correctoddddd.", "data"=>$newsletter)));
         }else{
-            //writeLN('Petición de tip_prop. No satisfactorio.');
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
-            return $response;
         }
         
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/edit/{idadmin}/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $fk_exp_admin = $args['idadmin'];
+        $id = $args['id'];
+
+        $stmt = $conn->prepare("SELECT * FROM EXP_NEWSLETTER WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$id."' ");
+
+        if($stmt->execute()){
+            $newsletter = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$newsletter)));
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->put('/update', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $data = $request->getParsedBody();
+
+        $id = $data['id'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $description = $data['description'];
+        $fk_exp_building = $data['fk_exp_building'];
+        $body_mail = $data['body_mail'];
+        $email = $data['email'];
+
+        $stmt = $conn->prepare("UPDATE EXP_NEWSLETTER 
+                                SET 
+                                description = '".$description."',
+                                fk_exp_building = '".$fk_exp_building."',
+                                body_mail = '".$body_mail."',
+                                email = '".$email."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Registro actualizado con éxito.")));
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+
         return $response->withHeader('Content-Type', 'application/json');
     });
 

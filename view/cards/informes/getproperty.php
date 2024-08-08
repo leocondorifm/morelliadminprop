@@ -7,9 +7,9 @@
                         <div class="col-auto mt-4">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i data-feather="filter"></i></div>
-                                Prestadores de Servicios de urgencias
+                                Propiedades
                             </h1>
-                            <div class="page-header-subtitle">Disponibilizamos el listado de prestadores autorizados como prestadores de urgencias</div>
+                            <div class="page-header-subtitle">Listado completo de las propiedades habilitadas para la gestión</div>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
         <div class="container-xl px-4 mt-n10">
             <div class="card mb-4">
                 <div class="card-header">
-                    Profesionales y empresas habilitadas
+                    Propiedades habilitadas
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -42,10 +42,10 @@
     </main>
 
     <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreen" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
+        <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-4" id="exampleModalFullscreen">Full screen modal</h1>
+                <h1 class="modal-title fs-4" id="exampleModalFullscreen">Editar propiedad</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -60,19 +60,12 @@
                         </div>
                         <div class="mb-4">
                             
-                            <label for="newProperty"><a href="#" 
-                                data-toggle="modal" 
-                                data-target="#newProperty"
-                                style="text-decoration:none"
-                                ><i 
-                                class="fas fa-plus-circle fa-1x" 
-                               > 
-                            </i> Agregar tipo de propiedad</a></label>
+                            <label for="newProperty">Tipo de propiedad</label>
                             <select class="form-control" id="typeproperty">
                                 
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-1 mb-4">
                             <label for="street">Calle</label>
                             <input 
                                 class="form-control" 
@@ -81,24 +74,24 @@
                                 placeholder="Ejemplo: Pampa">
                         </div>
 
-                        <div class="mb-3">
-                            <div class="row g-3 align-items-center">
-                                <div class="col-auto">
+                        <div class="mb-4 row g-2">
+                            <div class="col-md">
+                                <div class="row align-items-center">
                                     <label for="numberaddress" class="col-form-label">Número</label>
+                                    <div class="col-auto">
+                                        <input type="number" id="numberaddress" class="form-control" aria-describedby="passwordHelpInline">
+                                    </div>
                                 </div>
-                                <div class="col-auto">
-                                    <input type="number" id="numberaddress" class="form-control" aria-describedby="passwordHelpInline">
-                                </div>
-
-                                <div class="col-auto">
+                            </div> 
+                            <div class="col-md">
+                                <div class="row align-items-center">
                                     <label for="cpaddress" class="col-form-label">CP</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="number" id="cpaddress" class="form-control" aria-describedby="passwordHelpInline">
+                                    <div class="col-auto">
+                                        <input type="number" id="cpaddress" class="form-control" aria-describedby="passwordHelpInline">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="province">Provincia</label>
                             <select class="form-control" id="province" onchange="getPartido()">
@@ -116,6 +109,25 @@
                             </select>  
                         </div>
                         
+                        <div class="mb-2">
+                            <div class="mb-4 row g-3 align-items-center">
+                                <div class="col-md">
+                                    <label for="num_floors" class="col-form-label">Cantidad de pisos</label>
+                                    <input type="number" id="num_floors" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+
+                                <div class="col-md">
+                                <label for="num_dep_start" class="col-form-label">Desde</label>
+                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="Desde">
+                                </div>
+
+                                <div class="col-md">
+                                    <label for="num_dep_end" class="col-form-label">Hasta</label>
+                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="Hasta">
+                                </div>
+                            </div>
+                        </div>
+
                         <hr class="sidebar-divider d-none d-md-block">
 
                         <div class="mb-4 row g-2" id="access_section">
@@ -128,7 +140,7 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                <input type="password" class="form-control" id="passbuild" placeholder="Defina una contraseña">
+                                <input type="text" class="form-control" id="passbuild" placeholder="Defina una contraseña">
                                 <label for="passbuild">Password</label>
                                 </div>
                             </div>
@@ -136,32 +148,13 @@
 
                         <hr class="sidebar-divider d-none d-md-block">
 
-                        <div class="mb-3">
-                            <div class="row g-3 align-items-center">
-                                <div class="col-auto">
-                                    <label for="num_floors" class="col-form-label">Cantidad de pisos</label>
-                                    <input type="number" id="num_floors" class="form-control" aria-describedby="passwordHelpInline">
-                                </div>
-
-                                <div class="col-auto">
-                                <label for="num_dep_start" class="col-form-label">Desde</label>
-                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="Desde">
-                                </div>
-
-                                <div class="col-auto">
-                                    <label for="num_dep_end" class="col-form-label">Hasta</label>
-                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="Hasta">
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <hr class="sidebar-divider d-none d-md-block">
-
-                        <div class="mb-4 space-alert">
+                        <!-- ID DE PROPIEDAD -->
+                        <input type="hidden" id="id_property" />
+                        
+                        <div class="mb-4 space-alert response">
 
                             <p class="text-end">
-                                <button type="button" onclick="saveData()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                                <button type="button" onclick="putProperty()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
                             </p>
                         </div>
                     </form>
@@ -174,10 +167,12 @@
     </div>
 
 </div>
-<script src="view/assets/js/property/getproperty.js?v=1.3"></script>
+<script src="view/assets/js/property/getproperty.js?v=2.2"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {
+        getProvincias();
+        setGetTipProp();
         getProperty();       
     });
 </script>

@@ -43,7 +43,7 @@
     $app->setBasePath($basepath);
     $app->addErrorMiddleware(true, true, true);
 
-    try {
+    try{
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // Establecer el modo de error de PDO a excepción
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -154,6 +154,52 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->put('/update', function (Request $request, Response $response, array $args) use ($conn) {
+        $data = $request->getParsedBody();
+
+        $id = $data['id_property'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $shortname = $data['shortname'];
+        $typeproperty = $data['typeproperty'];
+        $street = $data['street'];
+        $numberaddress = $data['numberaddress'];
+        $cpaddress = $data['cpaddress'];
+        $province = $data['province'];
+        $partido = $data['partido'];
+        $localidad = $data['localidad'];
+        $num_floors = $data['num_floors'];
+        $num_dep_start = $data['num_dep_start'];
+        $num_dep_end = $data['num_dep_end'];
+        $userbuild = $data['userbuild'];
+        $passbuild = $data['passbuild'];
+
+        $stmt = $conn->prepare("UPDATE EXP_BUILDING 
+                                SET 
+                                short_name = '".$shortname."',
+                                fk_exp_tip_pro = '".$typeproperty."',
+                                address = '".$street."',
+                                number = '".$numberaddress."',
+                                cp='".$cpaddress."',
+                                fk_sp_provincias='".$province."',
+                                fk_sp_partidos='".$partido."',
+                                fk_sp_localidades='".$localidad."',
+                                building_user='".$userbuild."',
+                                building_pass='".$passbuild."',
+                                num_floors='".$num_floors."',
+                                num_dep_start='".$num_dep_start."',
+                                num_dep_end = '".$num_dep_end."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Servicio actualizado con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+    });
 
     $app->run();
 ?>

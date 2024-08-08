@@ -225,7 +225,7 @@
             </div>
         </div>
         <script src="view/assets/js/documents/index.js?v=4.6"></script>
-        <script src="view/assets/js/send/index.js?v=3.6"></script>
+        <script src="view/assets/js/send/index.js?v=3.8"></script>
 
         <script>
             window.addEventListener('DOMContentLoaded', event => {

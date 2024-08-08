@@ -61,8 +61,8 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Informes:</h6>
             <a class="collapse-item" href="getproperty"><i class="fas fa-chart-pie"></i> /propiedades</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /newsletter</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /documentos</a>
+            <a class="collapse-item" href="getnewsletter"><i class="fas fa-chart-pie"></i> /newsletter</a>
+            <a class="collapse-item" href="getdocuments"><i class="fas fa-chart-pie"></i> /documentos</a>
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /envíos</a>
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /pagos</a>
             <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /publicaciones</a>

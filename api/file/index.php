@@ -233,6 +233,43 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $fk_exp_admin = $args['id'];
+        
+        $stmt = $conn->prepare("SELECT * FROM `EXP_FILES` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+        $files = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($stmt->execute()){
+            $files = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$files,"count"=>count($files))));
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->get('/edit/{id}/{idoc}', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $fk_exp_admin = $args['id'];
+        $idoc = $args['idoc'];
+        
+        $stmt = $conn->prepare("SELECT * FROM `EXP_FILES` WHERE fk_exp_admin = '".$fk_exp_admin."' and id = '".$idoc."' ");
+        $files = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($stmt->execute()){
+            $files = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$files,"count"=>count($files))));
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
     $app->run();
 
 ?>

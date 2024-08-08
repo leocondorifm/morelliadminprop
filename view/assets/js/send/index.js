@@ -65,7 +65,7 @@ function getListDist(){
             }else{
                 $("#newsletteradd").append('<option>Seleccionar newsletter</option>');
                 for(let i=0; i<count; i++){
-                    $("#newsletteradd").append('<option value="'+respObj.data[i].id+'" body-email="'+respObj.data[i].email+'" subjet-email="'+respObj.data[i].description+'">'+respObj.data[i].description+'</option>');
+                    $("#newsletteradd").append('<option value="'+respObj.data[i].id+'" body-email="'+respObj.data[i].body_mail+'" subjet-email="'+respObj.data[i].description+'">'+respObj.data[i].description+'</option>');
                 }
             } 
         }else{
@@ -102,7 +102,7 @@ function getNewsletter(){
             if(count===0){
                 //...vacío...
             }else{
-                let remitente = respObj.data[0].body_mail;
+                let remitente = respObj.data[0].email;
                 const rem = remitente.split(";");
                 var error = 0;
                 var ok = 0;
