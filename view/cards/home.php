@@ -78,6 +78,12 @@
                         include_once("informes/getnewsletter.php");
                     }else if($ruta==="getdocuments"){
                         include_once("informes/getdocuments.php");
+                    }else if($ruta==="getsend"){
+                        include_once("informes/getsend.php");
+                    }else if($ruta==="getpayings"){
+                        include_once("informes/getpayings.php");
+                    }else if($ruta==="getpublish"){
+                        include_once("informes/getpublish.php");
                     }else{
                         include_once("menu/dashboard.php");
                     }

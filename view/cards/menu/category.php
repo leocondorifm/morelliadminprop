@@ -63,16 +63,16 @@
             <a class="collapse-item" href="getproperty"><i class="fas fa-chart-pie"></i> /propiedades</a>
             <a class="collapse-item" href="getnewsletter"><i class="fas fa-chart-pie"></i> /newsletter</a>
             <a class="collapse-item" href="getdocuments"><i class="fas fa-chart-pie"></i> /documentos</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /envíos</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /pagos</a>
-            <a class="collapse-item" href="questions"><i class="fas fa-chart-pie"></i> /publicaciones</a>
+            <a class="collapse-item" href="getsend"><i class="fas fa-chart-pie"></i> /envíos</a>
+            <a class="collapse-item" href="getpayings"><i class="fas fa-chart-pie"></i> /pagos</a>
+            <a class="collapse-item" href="getpublish"><i class="fas fa-chart-pie"></i> /publicaciones</a>
             <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> /Servicios urgencia</a>
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
+<li class="nav-item" style="display:none">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
         aria-expanded="true" aria-controls="collapseTools">
         <i class="fas fa-cog"></i>

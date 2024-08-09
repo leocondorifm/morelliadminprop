@@ -147,7 +147,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/documents/index.js?v=0.4"></script>
+<script src="view/assets/js/documents/index.js?v=0.5"></script>
 <script>
     window.addEventListener('DOMContentLoaded', event => {
         setGetBuild();

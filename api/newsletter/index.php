@@ -187,5 +187,17 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->delete('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+        $id = $args['id'];
+        $stmt = $conn->prepare("DELETE FROM EXP_FILES WHERE id = '".$id."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Dato eliminado con éxito." )));
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
     $app->run();
 ?>

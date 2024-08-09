@@ -242,6 +242,24 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
+    $app->get('/data/{owner}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $id = $args['owner'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` WHERE fk_exp_admin = '".$id."' ");
+
+        if($stmt->execute()){
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$data, "count"=>count($data) )));
+
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    }); 
+
     $app->run();
 
 ?>

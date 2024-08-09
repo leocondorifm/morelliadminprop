@@ -45,8 +45,14 @@ function setGetPlain(){
     fetch($("#url_base").val()+"api/newsletter/plain/"+$("#fk_exp_u").val(), requestOptions)
     .then( resp => resp.json() )
     .then( respObj => {
+
+        console.log("Newsletter plain ===> "+respObj);
+        
         if(respObj.status == 0){
+            console.log(respObj.status);
+
             let count = respObj.data.length;
+            console.log(count);
             if(count===0){
                 $("#newsletterplain").append('<option>No hay planes disponibles</option>');
             }else{

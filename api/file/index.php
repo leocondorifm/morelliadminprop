@@ -58,8 +58,6 @@
     });
     //FIN TEST
 
-    /* GET */
-    /*ALTA*/
     $app->put('/', function (Request $request, Response $response, array $args) use ($conn) {
         
         $data = $request->getParsedBody();
@@ -237,7 +235,15 @@
         
         $fk_exp_admin = $args['id'];
         
-        $stmt = $conn->prepare("SELECT * FROM `EXP_FILES` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+        $stmt = $conn->prepare("SELECT 
+                                F.*,
+                                B.short_name as propiedadname,
+                                N.description as newsname
+                                FROM `EXP_FILES` F 
+                                JOIN EXP_BUILDING B on B.id = F.fk_exp_building
+                                JOIN EXP_NEWSLETTER N on N.id = F.fk_exp_newsletter
+                                WHERE F.fk_exp_admin = '".$fk_exp_admin."' ");
+
         $files = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($stmt->execute()){
@@ -257,6 +263,7 @@
         $idoc = $args['idoc'];
         
         $stmt = $conn->prepare("SELECT * FROM `EXP_FILES` WHERE fk_exp_admin = '".$fk_exp_admin."' and id = '".$idoc."' ");
+
         $files = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($stmt->execute()){
@@ -267,6 +274,37 @@
 
         }
         
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->put('/update', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $data = $request->getParsedBody();
+
+        $id = $data['id'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $description = $data['description'];
+        $fk_exp_building = $data['fk_exp_building'];
+        $fk_exp_newsletter = $data['fk_exp_newsletter'];
+        $month = $data['month'];
+        $year = $data['year'];
+
+        $stmt = $conn->prepare("UPDATE EXP_FILES 
+                                SET 
+                                description = '".$description."',
+                                fk_exp_building = '".$fk_exp_building."',
+                                fk_exp_newsletter = '".$fk_exp_newsletter."',
+                                month = '".$month."',
+                                year = '".$year."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Registro actualizado con éxito.")));
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+
         return $response->withHeader('Content-Type', 'application/json');
     });
 

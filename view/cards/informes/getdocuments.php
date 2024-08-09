@@ -44,6 +44,7 @@
     
     </main>
 
+    <!-- EDIT -->
     <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreen" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -139,16 +140,16 @@
                             </div>
                         </div>
 
-                        <div class="input-group mb-0">
+                        <!--<div class="input-group mb-0">
                             <label class="input-group-text" for="file">Subir</label>
                             <input type="file" class="form-control" id="file" name="file" accept=".zip">
-                        </div>
+                        </div>-->
 
                         <hr class="sidebar-divider d-none d-md-block t">
-
+                        <input type="hidden" id="id_doc">
                         <div class="mb-4 file-save-alert">
                             <p class="text-end file-save">
-                                <button type="button" onclick="postFileData()" class="btn btn-outline-primary">
+                                <button type="button" onclick="putData()" class="btn btn-outline-primary">
                                     <i class="fas fa-save"></i>
                                 </button>
                             </p>
@@ -162,8 +163,29 @@
             </div>
         </div>
     </div>
-    <script src="view/assets/js/documents/getdocuments.js?v=1.1"></script>
-    <script src="view/assets/js/documents/index.js?v=0.4"></script>
+
+    <!-- DELETE -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body confirm-del">
+            ¿Realmente desea borrar esta planificación? Esta acción no se podrá revertir.
+            <input type="hidden" id="id-del">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" onclick="delData()">Borrar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="view/assets/js/documents/getdocuments.js?v=3.0"></script>
+    <script src="view/assets/js/documents/index.js?v=0.5"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {
