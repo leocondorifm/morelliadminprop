@@ -99,7 +99,60 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/services/index.js?v=3.3"></script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar servicio</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row align-items-md-stretch">
+            <div class="col-md-12">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <form>
+                        <div class="mb-3">
+                            <label for="ser-url" class="form-label"><i class="fas fa-globe"></i> Imagen</label>
+                            <input type="text" class="form-control" id="ser-url-edit">
+                            <div id="emailHelp" class="form-text" style="display:none">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ser-tit" class="form-label"><i class="fas fa-wrench"></i> Servicio</label>
+                            <input type="text" class="form-control" id="ser-tit-edit">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ser-des" class="form-label"><i class="fas fa-quote-right"></i> Descripción</label>
+                            <input type="text"  class="form-control" id="ser-des-edit">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ser-con"  class="form-label"><i class="fas fa-user-check"></i> Contacto</label>
+                            <input type="text"  class="form-control" id="ser-con-edit">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ser-tel" class="form-label"><i class="fas fa-phone-volume"></i> Teléfono</label>
+                            <input type="text"  class="form-control" id="ser-tel-edit">
+                        </div>
+                        <input type="hidden" id="id_service_edit">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+      <section id="save-serviceUP"></section>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="updateService()" class="btn btn-primary"><i class="fas fa-save"></i> Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="view/assets/js/services/index.js?v=4.0"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

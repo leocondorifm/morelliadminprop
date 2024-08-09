@@ -130,8 +130,8 @@
     /* OBETENER */
     $app->post('/plain/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT id, description FROM EXP_NEWSLETTER WHERE fk_exp_admin = '".$fk_exp_admin."' ORDER BY ID DESC");
-
+        $stmt = $conn->prepare("SELECT N.*, B.short_name FROM `EXP_NEWSLETTER` N JOIN EXP_BUILDING B on N.fk_exp_building=B.id WHERE N.fk_exp_admin = '".$fk_exp_admin."' ");
+                                
         if($stmt->execute()){
             $newsletter = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$newsletter)));

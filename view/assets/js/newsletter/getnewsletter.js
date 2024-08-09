@@ -12,7 +12,9 @@ function getNewsletter(){
         if(respObj.status == 0){
             let count = respObj.data.length;
             for(let i=0; i<count; i++){
-                $("#getnewsletter").append('<tr><td>'+respObj.data[i].description+'</td>'+
+                $("#getnewsletter").append('<tr>'+
+                                            '<td>'+respObj.data[i].short_name+'</td>'+                       
+                                            '<td>'+respObj.data[i].description+'</td>'+
                                             '<td>'+
                                                 '<button class="btn btn-icon btn-transparent-dark" onclick="getNewsletterbyID('+respObj.data[i].id+')" data-view="'+respObj.data[i].id+'" data-bs-target="#exampleModalFullscreen" data-bs-toggle="modal">'+
                                                     '<i class="fas fa-edit"></i>'+

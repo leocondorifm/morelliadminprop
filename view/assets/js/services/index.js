@@ -45,6 +45,7 @@ function getService(){
                                 '<small class="text-body-secondary"><i class="fas fa-male"></i> '+respObj.data[i].contacto+'</small>'+
                                 '<hr class="sidebar-divider d-none d-md-block">'+
                                 '<button type="button" onclick="editService(\''+respObj.data[i].id+'\')" id="btn-'+respObj.data[i].id+'" class="btn btn-danger">Borrar</button>'+
+                                ' | <button type="button" onclick="getServiceById(\''+respObj.data[i].id+'\')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalService">Editar</button>'+
                                 '<span class="badge rounded-pill text-bg-success" style="display:none" id="success-ser-'+respObj.data[i].id+'"></span>'+
                             '</div>'+
                         '</div>'+
@@ -158,5 +159,76 @@ function getServicePublic(){
         }
     })
     .catch(error => console.error('Error al obtener los datos:', error));
+
+}
+
+function getServiceById(id){
+    console.log("===> " + id);
+$("#id_service_edit").val(id);
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+
+    fetch($("#url_base").val()+"api/services/getdata/"+id+"/"+$("#fk_exp_u").val(), requestOptions)
+    .then( resp => resp.json() )
+    .then( respObj => {
+    console.log(respObj);
+    console.log(respObj.data.url_image);
+    if(respObj.status == 0){
+        $("#ser-url-edit").val(respObj.data.url_image);
+        $("#ser-tit-edit").val(respObj.data.title);
+        $("#ser-des-edit").val(respObj.data.description);
+        $("#ser-con-edit").val(respObj.data.contacto);
+        $("#ser-tel-edit").val(respObj.data.telefono);
+
+    }else{
+        console.log("No hay nada que mostrar: " + respObj.message);
+    }
+    })
+    .catch((error) => console.error(error));
+}
+
+function updateService(){
+    console.log("actualizando..."+$("#id_service_edit").val());
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("url_image", $("#ser-url-edit").val());
+    urlencoded.append("title", $("#ser-tit-edit").val());
+    urlencoded.append("description", $("#ser-des-edit").val());
+    urlencoded.append("contacto", $("#ser-con-edit").val());
+    urlencoded.append("telefono", $("#ser-tel-edit").val());
+
+    const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+    };
+
+    fetch($("#url_base").val()+"api/services/setdata/"+$("#id_service_edit").val()+"/"+$("#fk_exp_u").val(), requestOptions)
+    .then( resp => resp.json() )
+    .then( respObj => {
+        console.log(respObj);
+        console.log(respObj.status);
+        if(respObj.status == 0){
+            $("#save-serviceUP").html('<div class="alert alert-success" role="alert">'+ respObj.message + '</div>');
+
+            window.setInterval(function(){
+                    location.href = 'services';
+            },3000);
+
+        }else{
+            $("#save-serviceUP").append('<div class="alert alert-warning" role="alert">'+ respObj.message + '</div>');
+        }
+
+    })
+    .catch((error) => {
+        $("#save-serviceUP").append('<div class="alert alert-danger" role="alert">'+ respObj.message + '</div>');
+        console.error(error)
+    });
 
 }

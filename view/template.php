@@ -28,7 +28,7 @@
     <meta name="author" content="">
 
     <title>Morelli - Admin</title>
-    <base href="http://localhost/morelliadminprop/" />
+    <base href="<?php echo $ruta_api;?>" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 
     <!-- Custom fonts for this template-->

@@ -132,6 +132,56 @@
 
     });
 
+    /* SERVICES */
+    $app->get('/getdata/{service}/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $fk_exp_admin = $args['id'];
+        $id_service = $args['service'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_SERVICE` WHERE fk_exp_admin = '".$fk_exp_admin."' AND status='0' and id='".$id_service."' ");
+
+        if($stmt->execute()){
+            $service = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$service)));
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->put('/setdata/{id}/{fk_exp_admin}', function (Request $request, Response $response, array $args) use ($conn) {
+        $data = $request->getParsedBody();
+
+        $id = $args['id'];
+        $fk_exp_admin = $args['fk_exp_admin'];
+        
+ 
+        
+        $url_image = $data['url_image'];
+        $title = $data['title'];
+        $description = $data['description'];
+        $contacto = $data['contacto'];
+        $telefono = $data['telefono'];
+
+        $stmt = $conn->prepare("UPDATE EXP_SERVICE SET 
+                                url_image = '".$url_image."',
+                                title = '".$title."',
+                                description = '".$description."',
+                                contacto = '".$contacto."',
+                                telefono = '".$telefono."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_admin."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Servicio actualizado con éxito.")));
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+
+        return $response->withHeader('Content-Type', 'application/json');
+
+    });
+
     $app->run();
 
 ?>

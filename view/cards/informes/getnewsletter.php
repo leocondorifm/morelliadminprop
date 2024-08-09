@@ -25,7 +25,8 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Descripcion</th>
+                                <th scope="col">Propiedad</th>    
+                                <th scope="col">Newsletter</th>
                                 <th scope="col">Editar</th>
                             </tr>
                         </thead>
@@ -102,7 +103,7 @@
             </div>
         </div>
     </div>
-    <script src="view/assets/js/newsletter/getnewsletter.js?v=2.1"></script>
+    <script src="view/assets/js/newsletter/getnewsletter.js?v=2.2"></script>
     <script src="view/assets/js/newsletter/index.js?v=0.0"></script>
 
 <script>
