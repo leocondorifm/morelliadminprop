@@ -154,7 +154,7 @@
                     $stmt->bindParam(":fk_exp_admin", $fk_exp_admin, PDO::PARAM_INT);//user
 
                     if($stmt->execute()){
-                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Newsletter creado con éxito.".$filenameWithoutExtension)));
+                        $response->getBody()->write(json_encode(array("status" => 0, "message" => "Newsletter creado con éxito.".$filenameWithoutExtension."=>".$directory)));
                     }else{
                         $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
                     }

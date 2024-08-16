@@ -31,6 +31,7 @@
                                 <th scope="col">UF</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Tipo</th>
+                                <th scope="col">Ver</th>
                             </tr>
                         </thead>
                         <tbody id="getpayings">
@@ -44,133 +45,51 @@
     
     </main>
 
-    <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreen" style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="viewDetallesDePagos" tabindex="-1" aria-labelledby="viewDetallesDePagos" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-4" id="exampleModalFullscreen">Editar propiedad</h1>
+                <h1 class="modal-title fs-4" id="exampleModalFullscreen"><i class="fas fa-eye"></i> Ver detalle de pagos</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form>
-                        <div class="mb-4">
-                            <label for="shortname">Nombre corto</label>
-                            <input 
-                                class="form-control" 
-                                id="shortname" 
-                                type="text" 
-                                placeholder="Ejemplo: Pampa233">
-                        </div>
-                        <div class="mb-4">
-                            
-                            <label for="newProperty">Tipo de propiedad</label>
-                            <select class="form-control" id="typeproperty">
-                                
-                            </select>
-                        </div>
-                        <div class="mb-1 mb-4">
-                            <label for="street">Calle</label>
-                            <input 
-                                class="form-control" 
-                                id="street" 
-                                type="text" 
-                                placeholder="Ejemplo: Pampa">
-                        </div>
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Propiedad</th>
+      <th scope="col">Piso</th>
+      <th scope="col">Depto</th>
+      <th scope="col">UF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Jujuy 449</th>
+      <td>1</td>
+      <td>C</td>
+      <td>76FR</td>
+    </tr>
+  </tbody>
+</table>
 
-                        <div class="mb-4 row g-2">
-                            <div class="col-md">
-                                <div class="row align-items-center">
-                                    <label for="numberaddress" class="col-form-label">Número</label>
-                                    <div class="col-auto">
-                                        <input type="number" id="numberaddress" class="form-control" aria-describedby="passwordHelpInline">
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="col-md">
-                                <div class="row align-items-center">
-                                    <label for="cpaddress" class="col-form-label">CP</label>
-                                    <div class="col-auto">
-                                        <input type="number" id="cpaddress" class="form-control" aria-describedby="passwordHelpInline">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="province">Provincia</label>
-                            <select class="form-control" id="province" onchange="getPartido()">
-                            </select>  
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="partido">Partido</label>
-                            <select class="form-control" id="partido" onchange="getLocalidad()">
-                            </select>  
-                        </div>
-                        <div class="mb-3">
-                            <label for="localidad">Localidad</label>
-                            <select class="form-control" id="localidad">
-                            </select>  
-                        </div>
-                        
-                        <div class="mb-2">
-                            <div class="mb-4 row g-3 align-items-center">
-                                <div class="col-md">
-                                    <label for="num_floors" class="col-form-label">Cantidad de pisos</label>
-                                    <input type="number" id="num_floors" class="form-control" aria-describedby="passwordHelpInline">
-                                </div>
-
-                                <div class="col-md">
-                                <label for="num_dep_start" class="col-form-label">Desde</label>
-                                    <input type="number" id="num_dep_start" class="form-control" aria-describedby="Desde">
-                                </div>
-
-                                <div class="col-md">
-                                    <label for="num_dep_end" class="col-form-label">Hasta</label>
-                                    <input type="number" id="num_dep_end" class="form-control" aria-describedby="Hasta">
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="sidebar-divider d-none d-md-block">
-
-                        <div class="mb-4 row g-2" id="access_section">
-                            <label for="access_section">Usuario único al sistema</label>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                <input type="text" class="form-control" id="userbuild" placeholder="pampa233" >
-                                <label for="userbuild">Usuario</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                <input type="text" class="form-control" id="passbuild" placeholder="Defina una contraseña">
-                                <label for="passbuild">Password</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="sidebar-divider d-none d-md-block">
-
-                        <!-- ID DE PROPIEDAD -->
-                        <input type="hidden" id="id_property" />
-                        
-                        <div class="mb-4 space-alert response">
-
-                            <p class="text-end">
-                                <button type="button" onclick="putProperty()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
-                            </p>
-                        </div>
-                    </form>
-            </div>
+<hr>
+    <h6><i class="fas fa-file-archive"></i> Archivos</h6>
+    <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+</ul>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
             </div>
         </div>
     </div>
 
 </div>
-<script src="view/assets/js/pay/getpayings.js?v=1.5"></script>
+<script src="view/assets/js/pay/getpayings.js?v=1.7"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

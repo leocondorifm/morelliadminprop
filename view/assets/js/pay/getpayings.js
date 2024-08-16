@@ -34,6 +34,7 @@ function getData(){
                                             '<td>'+respObj.data[i].ufun+'</td>'+
                                             '<td>'+respObj.data[i].last_modify+'</td>'+
                                             '<td>'+txt+'</td>'+
+                                            '<td><button type="button" class="btn btn-primary" data-bs-target="#viewDetallesDePagos" data-bs-toggle="modal"><i class="fas fa-eye"></i></button></td>'+
                                         '</tr>');
             }
 
