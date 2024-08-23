@@ -252,7 +252,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/publication/index.js?v=1.1"></script>
+<script src="view/assets/js/publication/index.js?v=1.2"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

@@ -82,34 +82,36 @@ function publishNow(){
     const myHeaders = new Headers();
     
     const formdata = new FormData();
-    formdata.append("fk_exp_u", "2");
-    formdata.append("description", "Monoambiente - Sum Y Pileta - Belgrano - Alquiler");
-    formdata.append("long_description", "Excelente Monoambiente de 30 metros, al lateral.\nMuy luminoso, con una amplia vista.\nCocina y horno eléctricos. Baño completo.\nCalefacción por aire acondicionado frío-calor.\nAgua caliente central.\nSin Muebles.\n\n\nExpensas $58.000\nABL $7.000\nEdificio de 10 pisos.\nCada piso cuenta con 3 unidades.\nSin cochera.\nApto profesional.\nAmenities: Piscina y SUM\n");
-    formdata.append("address", "Primera Junta");
-    formdata.append("numcalle", "9");
-    formdata.append("street_one", "Laferre");
-    formdata.append("street_two", "Santa fe");
-    formdata.append("province", "1");
-    formdata.append("partido", "1");
-    formdata.append("localidad", "1");
-    formdata.append("price", "10982");
-    formdata.append("currency", "1");
-    formdata.append("date_publish", "2024-07-25 02:54:10");
-    formdata.append("count_bedrooms", "1");
-    formdata.append("count_bathrooms", "1");
-    formdata.append("square_meter", "54");
-    formdata.append("amoblado", "Si");
-    formdata.append("ascensor", "Si");
-    formdata.append("terraza", "Si");
-    formdata.append("cocheras", "Si");
-    formdata.append("laundry", "Si");
-    formdata.append("pileta", "Si");
-    formdata.append("mascota", "Si");
-    formdata.append("bauleras", "Si");
-    formdata.append("aa", "Si");
-    formdata.append("ap", "Si");
-    formdata.append("barrioc", "Si");
-    formdata.append("sum", "Si");
+    formdata.append("fk_exp_u", $("#fk_exp_u").val());
+    formdata.append("description", $("#description").val());
+    formdata.append("long_description", $("#long_description").val());
+    formdata.append("address", $("#address").val());
+    formdata.append("numcalle", $("#numcalle").val());
+    formdata.append("street_one", $("#street_one").val());
+    formdata.append("street_two", $("#street_two").val());
+    formdata.append("province", $("#province").val());
+    formdata.append("partido", $("#partido").val());
+    formdata.append("localidad", $("#localidad").val());
+    formdata.append("price", $("#price").val());
+    formdata.append("currency", $("#currency").val());
+    formdata.append("date_publish", $("#date_publish").val());
+    formdata.append("square_meter", $("#square_meter").val());
+
+    formdata.append("count_bedrooms", $("#count_bedrooms").val());
+    formdata.append("count_bathrooms", $("#count_bathrooms").val());
+    
+    formdata.append("amoblado", $("#amoblado").val());
+    formdata.append("ascensor", $("#ascensor").val());
+    formdata.append("terraza", $("#terraza").val());
+    formdata.append("cocheras", $("#cocheras").val());
+    formdata.append("laundry", $("#laundry").val());
+    formdata.append("pileta", $("#pileta").val());
+    formdata.append("mascota", $("#mascota").val());
+    formdata.append("bauleras", $("#bauleras").val());
+    formdata.append("aa", $("#aa").val());
+    formdata.append("ap", $("#ap").val());
+    formdata.append("barrioc", $("#barrioc").val());
+    formdata.append("sum", $("#sum").val());
     formdata.append("filepublish", file);
     
     const requestOptions = {
