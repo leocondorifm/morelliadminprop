@@ -260,6 +260,26 @@
         return $response->withHeader('Content-Type', 'application/json');
     }); 
 
+    /* EDIT */
+    $app->get('/edit/{owner}/{idpub}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $id = $args['owner'];
+        $idpub = $args['idpub'];
+
+        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` WHERE fk_exp_admin = '".$id."' and id = '".$idpub."' ");
+
+        if($stmt->execute()){
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$data, "count"=>count($data) )));
+
+        }else{
+            $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    }); 
+
     $app->run();
 
 ?>
