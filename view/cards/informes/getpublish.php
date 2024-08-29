@@ -85,18 +85,17 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="street">Provincia</label>
+                        <label for="province">Provincia</label>
                         <select class="form-control" id="province" onchange="getPartido()">
                         </select>  
                     </div>
-
                     <div class="mb-3">
-                        <label for="street">Partido</label>
+                        <label for="partido">Partido</label>
                         <select class="form-control" id="partido" onchange="getLocalidad()">
                         </select>  
                     </div>
                     <div class="mb-4">
-                        <label for="street">Localidad</label>
+                        <label for="localidad">Localidad</label>
                         <select class="form-control" id="localidad">
                         </select>  
                     </div>
@@ -146,88 +145,88 @@
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Amoblado</label>
                             <select class="form-control" id="amoblado">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Ascensor</label>
                             <select class="form-control" id="ascensor">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Terraza</label>
                             <select class="form-control" id="terraza">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Cocheras</label>
                             <select class="form-control" id="cocheras">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Laundry</label>
                             <select class="form-control" id="laundry">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
                             <label for="typeproperty">Pileta</label>
                             <select class="form-control" id="pileta">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="row gx-3 md-4 mb-4">
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">Admite mascotas: </label>
+                            <label for="typeproperty" style="font-size:12px">Admite mascotas: </label>
                             <select class="form-control" id="mascota">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">Bauleras</label>
+                            <label for="typeproperty" style="font-size:12px">Bauleras</label>
                             <select class="form-control" id="bauleras">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">Aire acond.</label>
+                            <label for="typeproperty" style="font-size:12px">Aire acond.</label>
                             <select class="form-control" id="aa">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">Apto profesional</label>
+                            <label for="typeproperty" style="font-size:12px">Apto profesional</label>
                             <select class="form-control" id="ap">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">Barrio cerrado</label>
+                            <label for="typeproperty" style="font-size:12px">Barrio cerrado</label>
                             <select class="form-control" id="barrioc">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-md-0">
-                            <label for="typeproperty">SUM</label>
+                            <label for="typeproperty" style="font-size:12px">SUM</label>
                             <select class="form-control" id="sum">
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                     </div>
@@ -240,12 +239,12 @@
                     </div>
 
                     <hr class="sidebar-divider d-none d-md-block">
-                    
-                    <section id="save-publish"></section>
+                    <input type="hidden" id="id_pub">
+                    <section id="save-upDatePublish"></section>
                     
                     <div class="mb-4">
                         <p class="text-end">
-                            <button type="button" onclick="publishNow()" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                            <button type="button" onclick="updatePropertyById()" class="btn btn-outline-primary" id="btn-updateProp"><i class="fas fa-save"></i></button>
                         </p>
                     </div>
 
@@ -254,17 +253,21 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-mod-updatePro">Close</button>
             </div>
             </div>
         </div>
     </div>
 
 </div>
-<script src="view/assets/js/publication/getpublish.js?v=1.5"></script>
+<script src="view/assets/js/publication/getpublish.js?v=3.3"></script>
+<script src="view/assets/js/publication/index.js?v=1.0"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {
+        //Traigo las provincias
+        getProvincias();
         getData();
+        getCurrency();
     });
 </script>

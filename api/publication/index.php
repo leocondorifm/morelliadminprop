@@ -280,6 +280,86 @@
         return $response->withHeader('Content-Type', 'application/json');
     }); 
 
+
+    $app->put('/update', function (Request $request, Response $response, array $args) use ($conn) {
+        $data = $request->getParsedBody();
+
+        $id = $data['id_pub'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $description = $data['description'];
+        $long_description = $data['long_description'];
+        $address = $data['address'];
+        $numcalle = $data['numcalle'];
+        $street_one = $data['street_one'];
+        $street_two = $data['street_two'];
+
+        $province = $data['province'];
+        $partido = $data['partido'];
+        $localidad = $data['localidad'];
+
+        $price = $data['price'];
+        $currency = $data['currency'];
+        $date_publish = $data['date_publish'];
+        $square_meter = $data['square_meter'];
+        $count_bedrooms = $data['count_bedrooms'];
+        $count_bathrooms = $data['count_bathrooms'];
+
+        $amoblado = $data['amoblado'];
+        $ascensor = $data['ascensor'];
+        $terraza = $data['terraza'];
+        $cocheras = $data['cocheras'];
+        $laundry = $data['laundry'];
+        $pileta = $data['pileta'];
+        $mascota = $data['mascota'];
+        $bauleras = $data['bauleras'];
+        $aa = $data['aa'];
+        $ap = $data['ap'];
+        $barrioc = $data['barrioc'];
+        $sum = $data['sum'];
+
+        $stmt = $conn->prepare("UPDATE EXP_PROPERTY 
+                                SET 
+                                description = '".$description."',
+                                long_description = '".$long_description."',
+                                address = '".$address."',
+                                number = '".$numcalle."',
+                                street_one='".$street_one."',
+                                street_two='".$street_two."',
+                                fk_sp_provincia='".$province."',
+                                fk_sp_partido='".$partido."',
+                                fk_sp_localidad='".$localidad."',
+                                price='".$price."',
+                                currency='".$currency."',
+                                date_publish='".$date_publish."',
+                                square_meter='".$square_meter."',
+                                count_bedrooms = '".$count_bedrooms."',
+                                count_bathrooms = '".$count_bathrooms."',
+                                amoblado = '".$amoblado."',
+                                ascensor = '".$ascensor."',
+                                terraza = '".$terraza."',
+                                cocheras = '".$cocheras."',
+                                laundry = '".$laundry."',
+                                pileta = '".$pileta."',
+                                mascota = '".$mascota."',
+                                bauleras = '".$bauleras."',
+                                aa = '".$aa."',
+                                ap = '".$ap."',
+                                barrioc = '".$barrioc."',
+                                sum = '".$sum."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Publicación actualizada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+    });
+
+
     $app->run();
 
 ?>

@@ -71,18 +71,18 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="street">Provincia</label>
+                            <label for="province">Provincia</label>
                             <select class="form-control" id="province" onchange="getPartido()">
                             </select>  
                         </div>
 
                         <div class="mb-3">
-                            <label for="street">Partido</label>
+                            <label for="partido">Partido</label>
                             <select class="form-control" id="partido" onchange="getLocalidad()">
                             </select>  
                         </div>
                         <div class="mb-4">
-                            <label for="street">Localidad</label>
+                            <label for="localidad">Localidad</label>
                             <select class="form-control" id="localidad">
                             </select>  
                         </div>
