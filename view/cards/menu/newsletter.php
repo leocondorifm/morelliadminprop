@@ -69,7 +69,7 @@
 
                         <div class="mb-0">
                             <label for="emails">Agregar email destinatarios (separados por ;) </label>
-                            <textarea class="form-control" id="emails" rows="3">lcondori@gmail.com;dmorelli@gmail.com</textarea>
+                            <textarea class="form-control" id="emails" rows="3">diegoemorelli@gmail.com</textarea>
                         </div>
 
                         <hr class="sidebar-divider d-none d-md-block">
