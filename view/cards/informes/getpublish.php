@@ -28,6 +28,7 @@
                                 <th scope="col">Propiedad</th>
                                 <th scope="col">Direccion</th>
                                 <th scope="col">Editar</th>
+                                <th scope="col">Fotos</th>
                             </tr>
                         </thead>
                         <tbody id="getpublish">
@@ -41,6 +42,7 @@
     
     </main>
 
+    <!-- ATRIBUTOS -->
     <div class="modal fade" id="ModalPropertyEdit" tabindex="-1" aria-labelledby="ModalPropertyEdit" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -259,8 +261,41 @@
         </div>
     </div>
 
+    <!-- IMAGES -->
+    <div class="modal fade" id="ModalImagesEdit" tabindex="-1" aria-labelledby="ModalImagesEdit" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="exampleModalFullscreen">Seleccionar foto principal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body" id="form-img">
+
+                </div>
+
+                <section id="save-upDatePublishImg"></section>
+
+                <div class="mb-8" style="margin-top:10px">
+                    <p class="text-center">
+                        <button type="button" onclick="setPicture()" class="btn btn-outline-primary" id="btn-updateProp"><i class="fas fa-save"></i></button>
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-mod-updatePro">Cerrar</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
 </div>
-<script src="view/assets/js/publication/getpublish.js?v=3.3"></script>
+<script src="view/assets/js/publication/getpublish.js?v=5.3"></script>
 <script src="view/assets/js/publication/index.js?v=1.0"></script>
 
 <script>

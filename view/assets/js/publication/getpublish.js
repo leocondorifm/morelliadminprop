@@ -45,6 +45,11 @@ function getData(){
                                                   '<i class="fas fa-edit"></i>'+
                                               '</button>'+
                                             '</td>'+
+                                            '<td>'+
+                                              '<button class="btn btn-icon btn-transparent-dark" onclick="getPicturesByFolder(\''+respObj.data[i].path+'\','+respObj.data[i].id+',\''+respObj.data[i].pic_primary+'\')" data-view="'+respObj.data[i].id+'" data-bs-target="#ModalImagesEdit" data-bs-toggle="modal">'+
+                                                '<i class="fa-solid fa-image"></i>'+
+                                              '</button>'+
+                                            '</td>'+
                                         '</tr>');
             }
 
@@ -203,4 +208,82 @@ function updatePropertyById(){
       console.error(error);
       $("#btn-updateProp").show();
     });
-  }
+}
+
+function getPicturesByFolder(folder,idpub,pic_primary){
+  
+  //console.log(folder);
+
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow"
+  };
+  let checked = null;
+
+  fetch($("#url_base").val()+"api/publication/scan/"+folder, requestOptions)
+    .then(resp => resp.json())
+    .then(respObj => {
+      //console.log(respObj);
+      let count = respObj.data.length;
+      for(let i=0; i<count; i++){
+
+        if(pic_primary===respObj.data[i]){checked = "checked"; }else{checked = "";}
+
+        //console.log(respObj.data[i]);
+        $("#form-img").append('<div class="text-center form-check">' +
+                                '<img src="'+$("#url_base").val()+'api/publication/public/'+folder+'/'+respObj.data[i]+'" class="rounded" style="width:200px; margin-top:5px" alt="'+respObj.data[i]+'">'+
+                                '<input class="form-check-input" type="radio" name="flexRadioDefault" id="'+respObj.data[i]+'" idpub="'+idpub+'" '+checked+'>'+
+                              '</div>')
+      }
+
+    })
+    .catch((error) => console.error(error));
+
+}
+
+function setPicture(){
+  //console.log('Set pictures...');
+  //console.log($('input[name=flexRadioDefault]:checked','#form-img').val());
+  //console.log($('input[name=flexRadioDefault]:checked','#form-img').attr('id'));
+  //console.log('idpub: '+$('input[name=flexRadioDefault]:checked','#form-img').attr('idpub'));
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  
+  const urlencoded = new URLSearchParams();
+  urlencoded.append("id_pub", $('input[name=flexRadioDefault]:checked','#form-img').attr('idpub'));
+  urlencoded.append("fk_exp_u", $("#fk_exp_u").val());
+  urlencoded.append("pic_primary", $('input[name=flexRadioDefault]:checked','#form-img').attr('id'));
+  
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+  };
+  
+  fetch($("#url_base").val()+"api/publication/update/picture", requestOptions)
+    .then(resp => resp.json())
+    .then(respObj => {
+
+          if(respObj.status == 0){
+            $("#save-upDatePublishImg").html('<div class="alert alert-success" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+            setTimeout(function(){
+              $("#btn-updateProp").trigger('click');
+              location.href = 'getpublish';
+            }, 2000);
+
+          }else{
+            $("#save-upDatePublishImg").html('<div class="alert alert-error" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+          }
+
+    })
+    .catch((error) => console.error(error));
+
+
+}

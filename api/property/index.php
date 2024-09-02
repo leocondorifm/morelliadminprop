@@ -201,5 +201,33 @@
 
     });
 
+    $app->get('/scan/{folder}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $folder = $args['folder'];
+        // Ruta del directorio que quieres explorar
+        $dir = __DIR__ . '/uploads/'.$folder;
+        
+        // Comprobar si la ruta es un directorio válido
+        if (is_dir($dir)) {
+            $storage = [];
+            // Obtener el contenido del directorio
+            $files = scandir($dir);
+
+            // Recorrer y mostrar el contenido del directorio
+            foreach ($files as $file) {
+                // Omitir los elementos '.' y '..'
+                if ($file != "." && $file != ".." && $file != "__MACOSX") {
+                    array_push($storage, $file);
+                }
+            }
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Acceso correcto", "data"=>$storage, "base"=>$folder, "count"=>count($storage))));
+        } else {
+            $response->getBody()->write(json_encode( array ("status" => 1, "message" => "La ruta especificada no es un directorio válido") ));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
     $app->run();
 ?>

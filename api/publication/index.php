@@ -51,14 +51,12 @@
         //echo "Connection failed: " . $e->getMessage();
     }
 
-
     $app->get('/hello/{name}', function (Request $request, Response $response, array $args) use ($conn) {
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
         return $response;
     });
     //FIN TEST
-
 
     /*ALTA*/
     $app->post('/create', function (Request $request, Response $response, array $args) use ($conn) {
@@ -280,7 +278,6 @@
         return $response->withHeader('Content-Type', 'application/json');
     }); 
 
-
     $app->put('/update', function (Request $request, Response $response, array $args) use ($conn) {
         $data = $request->getParsedBody();
 
@@ -359,6 +356,56 @@
 
     });
 
+    //SETEAR PICTURES PRIMARY
+    $app->put('/update/picture', function (Request $request, Response $response, array $args) use ($conn) {
+        $data = $request->getParsedBody();
+        $id = $data['id_pub'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $pic_primary = $data['pic_primary'];
+
+        $stmt = $conn->prepare("UPDATE EXP_PROPERTY 
+                                SET 
+                                pic_primary = '".$pic_primary."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Publicación actualizada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+    });
+    //FIN SETEAR PICTURES PRIMARY
+
+    $app->get('/scan/{folder}', function (Request $request, Response $response, array $args) use ($conn) {
+
+        $folder = $args['folder'];
+        // Ruta del directorio que quieres explorar
+        $dir = __DIR__ . '/public/'.$folder;
+        
+        // Comprobar si la ruta es un directorio válido
+        if (is_dir($dir)) {
+            $storage = [];
+            // Obtener el contenido del directorio
+            $files = scandir($dir);
+
+            // Recorrer y mostrar el contenido del directorio
+            foreach ($files as $file) {
+                // Omitir los elementos '.' y '..'
+                if ($file != "." && $file != ".." && $file != "__MACOSX") {
+                    array_push($storage, $file);
+                }
+            }
+
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Acceso correcto", "data"=>$storage, "base"=>$folder, "count"=>count($storage))));
+        } else {
+            $response->getBody()->write(json_encode( array ("status" => 1, "message" => "La ruta especificada no es un directorio válido") ));
+        }
+        
+        return $response->withHeader('Content-Type', 'application/json');
+    });
 
     $app->run();
 
