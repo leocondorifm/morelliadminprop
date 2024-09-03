@@ -245,6 +245,62 @@
                     <section id="save-upDatePublish"></section>
                     
                     <div class="mb-4">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="setStatus">
+                            <label class="form-check-label" for="setStatus">
+                                Activo
+                            </label>
+                        </div>
+
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type" id="type1" value="1">
+                            <label class="form-check-label" for="type1">
+                                Alquiler
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type" id="type2" value="2">
+                            <label class="form-check-label" for="type2">
+                                Venta
+                            </label>
+                        </div>
+                        
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modo" id="modo0" value="0">
+                            <label class="form-check-label" for="modo0">
+                                Disponible
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modo" id="modo1" value="1">
+                            <label class="form-check-label" for="modo1">
+                                Reservado
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modo" id="modo2" value="2">
+                            <label class="form-check-label" for="modo2">
+                                Vendido
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modo" id="modo3" value="3">
+                            <label class="form-check-label" for="modo3">
+                                Alquilado
+                            </label>
+                        </div>
+
+                    </div>
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-4">
                         <p class="text-end">
                             <button type="button" onclick="updatePropertyById()" class="btn btn-outline-primary" id="btn-updateProp"><i class="fas fa-save"></i></button>
                         </p>
@@ -295,7 +351,7 @@
 
 
 </div>
-<script src="view/assets/js/publication/getpublish.js?v=5.3"></script>
+<script src="view/assets/js/publication/getpublish.js?v=6.7"></script>
 <script src="view/assets/js/publication/index.js?v=1.0"></script>
 
 <script>
@@ -304,5 +360,36 @@
         getProvincias();
         getData();
         getCurrency();
+        let setstatus = null;
+
+        $('#modo0, #modo1, #modo2, #modo3').change(function() {
+            if ($(this).is(':checked')) {
+                var valor = $(this).val();
+                setModoProp(valor);
+            }else{
+                setTypeProp(0);
+            }
+        });
+
+
+        $('#type1, #type2').change(function() {
+            if ($(this).is(':checked')) {
+                var valor = $(this).val();
+                setTypeProp(valor);
+            }else{
+                setTypeProp(0);
+            }
+        });
+
+        $('#setStatus').change(function() {
+            if ($(this).is(':checked')) {
+                var valor = $(this).val();
+                setStatusProp(1);
+            } else {
+                setStatusProp(0);
+                //console.log("El checkbox no está marcado.");
+            }
+        });
+
     });
 </script>

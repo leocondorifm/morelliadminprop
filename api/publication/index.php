@@ -204,7 +204,7 @@
 
         $fk_exp_admin = $args['id'];
 
-        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` WHERE fk_exp_admin = '".$fk_exp_admin."' ");
+        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` P JOIN EXP_CURRENCY C on P.currency = C.id WHERE P.fk_exp_admin = '".$fk_exp_admin."' ");
 
         if($stmt->execute()){
             $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -405,6 +405,75 @@
         }
         
         return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    //SETEAR STATUS
+    $app->put('/update/status', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $data = $request->getParsedBody();
+        $id = $data['id_pub'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $status = $data['status'];
+
+        $stmt = $conn->prepare("UPDATE EXP_PROPERTY 
+                                SET 
+                                status = '".$status."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Publicación actualizada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+    });
+
+    //SETEAR TYPE
+    $app->put('/update/type', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $data = $request->getParsedBody();
+        $id = $data['id_pub'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $type = $data['type'];
+
+        $stmt = $conn->prepare("UPDATE EXP_PROPERTY 
+                                SET 
+                                type = '".$type."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Publicación actualizada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
+    });
+
+    //SETEAR TYPE
+    $app->put('/update/modo', function (Request $request, Response $response, array $args) use ($conn) {
+        
+        $data = $request->getParsedBody();
+        $id = $data['id_pub'];
+        $fk_exp_u = $data['fk_exp_u'];
+
+        $modo = $data['modo'];
+
+        $stmt = $conn->prepare("UPDATE EXP_PROPERTY 
+                                SET 
+                                modo = '".$modo."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Publicación actualizada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
     });
 
     $app->run();

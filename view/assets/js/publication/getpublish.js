@@ -130,6 +130,36 @@ function getPublishByID(idpub){
 
       $("#id_pub").val(respObj.data.id);
 
+      if(respObj.data.status){
+        $('#setStatus').prop('checked', true);
+      }else{
+        $('#setStatus').prop('checked', false);
+      }
+
+      if(respObj.data.type===1){
+        $('#type1').prop('checked', true);
+      }else if(respObj.data.type===2){
+        $('#type2').prop('checked', true);
+      }else{
+        $('#type1').prop('checked', false);
+        $('#type2').prop('checked', false);
+      }
+
+      if(respObj.data.modo===0){
+        $('#modo0').prop('checked', true);
+      }else if(respObj.data.type===1){
+        $('#modo1').prop('checked', true);
+      }else if(respObj.data.type===2){
+        $('#modo2').prop('checked', true);
+      }else if(respObj.data.type===3){
+        $('#modo3').prop('checked', true);
+      }else{
+        $('#modo0').prop('checked', true);
+        $('#modo1').prop('checked', false);
+        $('#modo2').prop('checked', false);
+        $('#modo3').prop('checked', false);
+      }      
+
     }else{
         console.log("No hay nada que mostrar: " + respObj.message);
     }
@@ -213,6 +243,8 @@ function updatePropertyById(){
 function getPicturesByFolder(folder,idpub,pic_primary){
   
   //console.log(folder);
+  
+  $("#form-img").empty();
 
   const requestOptions = {
     method: "GET",
@@ -287,3 +319,137 @@ function setPicture(){
 
 
 }
+
+function setStatusProp(status){
+  //console.log('...');
+  //console.log($("#setStatus").val());
+  console.log(status);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  const urlencoded = new URLSearchParams();
+  urlencoded.append("id_pub", $("#id_pub").val() );
+  urlencoded.append("fk_exp_u", $("#fk_exp_u").val());
+  urlencoded.append("status", status);
+  
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+  };
+  
+  fetch($("#url_base").val()+"api/publication/update/status", requestOptions)
+    .then(resp => resp.json())
+    .then(respObj => {
+
+          if(respObj.status == 0){
+            $("#save-upDatePublish").html('<div class="alert alert-success" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }else{
+
+            $("#save-upDatePublish").html('<div class="alert alert-error" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }
+
+          setTimeout(function(){
+           $("#save-upDatePublish").html('');
+          }, 2000);
+
+    })
+    .catch((error) => console.error(error));
+
+}
+
+function setTypeProp(type){
+  //console.log('...');
+  //console.log($("#setStatus").val());
+  console.log(type);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  const urlencoded = new URLSearchParams();
+  urlencoded.append("id_pub", $("#id_pub").val() );
+  urlencoded.append("fk_exp_u", $("#fk_exp_u").val());
+  urlencoded.append("type", type);
+  
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+  };
+  
+  fetch($("#url_base").val()+"api/publication/update/type", requestOptions)
+    .then(resp => resp.json())
+    .then(respObj => {
+
+          if(respObj.status == 0){
+            $("#save-upDatePublish").html('<div class="alert alert-success" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }else{
+
+            $("#save-upDatePublish").html('<div class="alert alert-error" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }
+
+          setTimeout(function(){
+           $("#save-upDatePublish").html('');
+          }, 2000);
+
+    })
+    .catch((error) => console.error(error));
+
+}
+
+function setModoProp(modo){
+
+  console.log(modo);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  const urlencoded = new URLSearchParams();
+  urlencoded.append("id_pub", $("#id_pub").val() );
+  urlencoded.append("fk_exp_u", $("#fk_exp_u").val());
+  urlencoded.append("modo", modo);
+  
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+  };
+  
+  fetch($("#url_base").val()+"api/publication/update/modo", requestOptions)
+    .then(resp => resp.json())
+    .then(respObj => {
+
+          if(respObj.status == 0){
+            $("#save-upDatePublish").html('<div class="alert alert-success" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }else{
+
+            $("#save-upDatePublish").html('<div class="alert alert-error" role="alert">'+
+              ' '+respObj.message+' '+
+            '</div>');
+
+          }
+
+          setTimeout(function(){
+           $("#save-upDatePublish").html('');
+          }, 2000);
+
+    })
+    .catch((error) => console.error(error));
+
+} 
