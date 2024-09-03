@@ -147,11 +147,11 @@ function getPublishByID(idpub){
 
       if(respObj.data.modo===0){
         $('#modo0').prop('checked', true);
-      }else if(respObj.data.type===1){
+      }else if(respObj.data.modo===1){
         $('#modo1').prop('checked', true);
-      }else if(respObj.data.type===2){
+      }else if(respObj.data.modo===2){
         $('#modo2').prop('checked', true);
-      }else if(respObj.data.type===3){
+      }else if(respObj.data.modo===3){
         $('#modo3').prop('checked', true);
       }else{
         $('#modo0').prop('checked', true);

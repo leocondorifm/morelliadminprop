@@ -204,7 +204,7 @@
 
         $fk_exp_admin = $args['id'];
 
-        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` P JOIN EXP_CURRENCY C on P.currency = C.id WHERE P.fk_exp_admin = '".$fk_exp_admin."' ");
+        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` P JOIN EXP_CURRENCY C on P.currency = C.id WHERE P.fk_exp_admin = '".$fk_exp_admin."' and status='1' ");
 
         if($stmt->execute()){
             $service = $stmt->fetchAll(PDO::FETCH_ASSOC);

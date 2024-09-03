@@ -351,7 +351,7 @@
 
 
 </div>
-<script src="view/assets/js/publication/getpublish.js?v=6.7"></script>
+<script src="view/assets/js/publication/getpublish.js?v=6.8"></script>
 <script src="view/assets/js/publication/index.js?v=1.0"></script>
 
 <script>
