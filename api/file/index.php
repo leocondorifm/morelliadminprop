@@ -125,7 +125,7 @@
             $fileSize = $uploadedFile->getSize();
             $fileType = $uploadedFile->getClientMediaType();
             $fileFullName = $uploadedFile->getClientFilename();
-
+            $fileFullName = preg_replace("/[^a-zA-Z0-9.]/", "", $fileFullName);
 
             if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
                 //$fileFullName = $uploadedFile->getClientFilename();
@@ -231,24 +231,31 @@
         return $response->withHeader('Content-Type', 'application/json');
     });
 
-    $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
+    $app->get('/{id}/{filter}', function (Request $request, Response $response, array $args) use ($conn) {
         
         $fk_exp_admin = $args['id'];
+        $filter = $args['filter'];
+
+        if($filter==="all"){
+            $filtro = "F.fk_exp_admin = '".$fk_exp_admin."' ";
+        }else{
+            $filtro = "F.fk_exp_admin = '".$fk_exp_admin."' and F.fk_exp_building = '".$filter."' ";
+        }
         
         $stmt = $conn->prepare("SELECT 
                                 F.*,
                                 B.short_name as propiedadname,
                                 N.description as newsname
                                 FROM `EXP_FILES` F 
-                                JOIN EXP_BUILDING B on B.id = F.fk_exp_building
-                                JOIN EXP_NEWSLETTER N on N.id = F.fk_exp_newsletter
-                                WHERE F.fk_exp_admin = '".$fk_exp_admin."' ");
+                                LEFT JOIN EXP_BUILDING B on B.id = F.fk_exp_building
+                                LEFT JOIN EXP_NEWSLETTER N on N.id = F.fk_exp_newsletter
+                                WHERE ".$filtro);
 
         $files = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($stmt->execute()){
             $files = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.", "data"=>$files,"count"=>count($files))));
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Query correcto.".$filtro, "data"=>$files, "count"=>count($files))));
         }else{
             $response->getBody()->write(json_encode( array("status" => 1, "message" => $stmt->errorInfo())));
 

@@ -85,7 +85,7 @@
                     }else if($ruta==="getpublish"){
                         include_once("informes/getpublish.php");
                     }else{
-                        include_once("menu/dashboard.php");
+                        include_once("menu/payings.php");
                     }
                 ?>
             </div>

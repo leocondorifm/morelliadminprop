@@ -126,7 +126,7 @@
 
                         <div class="input-group mb-4">
                             <label class="input-group-text" for="filepay">Subir</label>
-                            <input type="file" class="form-control" id="filepay">
+                            <input type="file" class="form-control" id="filepay" accept="image/*">
                         </div>
 
                         <div class="mb-4">
@@ -160,7 +160,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<script src="view/assets/js/pay/index.js?v=1.4"></script>
+<script src="view/assets/js/pay/index.js?v=2.0"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

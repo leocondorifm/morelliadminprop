@@ -204,7 +204,7 @@
 
         $fk_exp_admin = $args['id'];
 
-        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` P JOIN EXP_CURRENCY C on P.currency = C.id WHERE P.fk_exp_admin = '".$fk_exp_admin."' and status='1' ");
+        $stmt = $conn->prepare("SELECT  P.*, C.simbolo as simbolo, C.iso as iso FROM `EXP_PROPERTY` P JOIN EXP_CURRENCY C on P.currency = C.id WHERE P.fk_exp_admin = '".$fk_exp_admin."' and status='1' ");
 
         if($stmt->execute()){
             $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -264,7 +264,19 @@
         $id = $args['owner'];
         $idpub = $args['idpub'];
 
-        $stmt = $conn->prepare("SELECT * FROM `EXP_PROPERTY` WHERE fk_exp_admin = '".$id."' and id = '".$idpub."' ");
+        $stmt = $conn->prepare("SELECT
+                                PR.*,
+                                P.descripcion as provincia_des,
+                                PA.descripcion as partido_des,
+                                PV.descripcion as localidad_des,
+                                C.simbolo,
+                                C.iso
+                                FROM `EXP_PROPERTY` PR
+                                JOIN sp_provincias P on PR.fk_sp_provincia = P.id
+                                JOIN sp_partidos PA on PR.fk_sp_partido = PA.id
+                                JOIN sp_localidades PV on PR.fk_sp_localidad = PV.id
+                                JOIN EXP_CURRENCY C on PR.currency = C.id
+                                WHERE PR.fk_exp_admin = '".$id."' and PR.id = '".$idpub."' ");
 
         if($stmt->execute()){
             $data = $stmt->fetch(PDO::FETCH_ASSOC);

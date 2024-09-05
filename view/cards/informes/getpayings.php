@@ -64,23 +64,19 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Jujuy 449</th>
-      <td>1</td>
-      <td>C</td>
-      <td>76FR</td>
+      <th scope="row" id="address_pagos">Jujuy 449</th>
+      <td id="piso_pagos">1</td>
+      <td id="depto_pagos">C</td>
+      <td id="uf_pagos">76FR</td>
     </tr>
   </tbody>
 </table>
 
 <hr>
     <h6><i class="fas fa-file-archive"></i> Archivos</h6>
-    <ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-</ul>
+    <ul class="list-group" id="file-pagos">
+       
+    </ul>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
@@ -89,7 +85,7 @@
     </div>
 
 </div>
-<script src="view/assets/js/pay/getpayings.js?v=1.7"></script>
+<script src="view/assets/js/pay/getpayings.js?v=2.6"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', event => {

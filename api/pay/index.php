@@ -100,7 +100,7 @@
             $fileSize = $uploadedFile->getSize();
             $fileType = $uploadedFile->getClientMediaType();
             $fileFullName = $uploadedFile->getClientFilename();
-
+            $fileFullName = preg_replace("/[^a-zA-Z0-9.]/", "", $fileFullName);
 
             if($fileType=="application/zip"){
                 if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
@@ -121,6 +121,15 @@
 
                         $stmt = $conn->prepare("INSERT INTO EXP_PAY (month, year, fk_exp_building, pay_method, num_floor, num_dep, ufun, patch_file, typemime, comment, fk_exp_admin ) VALUES (:month, :year, :fk_exp_building, :pay_method, :num_floor, :num_dep, :ufun, :patch_file, :typemime, :comment, :fk_exp_admin )");
             
+                        // Cadena original con caracteres especiales y espacios
+                        //$cadena = "Hola Mundo! ¿Cómo estás? 2024@";
+
+                        // Reemplazar caracteres especiales y espacios, dejando solo letras y números
+                        //$name_path = preg_replace("/[^a-zA-Z0-9]/", "", $fileFullName);
+
+                        // Mostrar la cadena resultante
+                        //echo $cadenaLimpia; // Salida: HolaMundoComoestas2024
+
                         $stmt->bindParam(":month", $month, PDO::PARAM_INT);
                         $stmt->bindParam(":year", $year, PDO::PARAM_INT);
                         $stmt->bindParam(":fk_exp_building", $payproperty, PDO::PARAM_INT);
@@ -128,7 +137,7 @@
                         $stmt->bindParam(":num_floor", $floors, PDO::PARAM_STR);
                         $stmt->bindParam(":num_dep", $depto, PDO::PARAM_STR);
                         $stmt->bindParam(":ufun", $ufun, PDO::PARAM_STR);
-                        $stmt->bindParam(":patch_file", $filenameWithoutExtension, PDO::PARAM_STR);
+                        $stmt->bindParam(":patch_file", $fileFullName, PDO::PARAM_STR);
                         $stmt->bindParam(":typemime", $fileType, PDO::PARAM_STR);
                         $stmt->bindParam(":comment", $paynote, PDO::PARAM_STR);
                         $stmt->bindParam(":fk_exp_admin", $fk_exp_admin, PDO::PARAM_INT);//user
@@ -150,6 +159,7 @@
                 // Verificar si la subida fue exitosa
                 if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
                     $uploadFileName = $uploadedFile->getClientFilename();
+                    $uploadFileName = preg_replace("/[^a-zA-Z0-9.]/", "", $uploadFileName);
                     $uploadedFile->moveTo($directory.'/'.$uploadFileName);
                     //$response->getBody()->write('File uploaded successfully');
                     //return $response->withStatus(200);
@@ -188,16 +198,25 @@
         return $response;
     });
 
-    $app->get('/data/{owner}', function (Request $request, Response $response, array $args) use ($conn) {
+    $app->get('/data/{owner}/{filter}', function (Request $request, Response $response, array $args) use ($conn) {
 
         $id = $args['owner'];
+
+        $filter = $args['filter'];
+
+        if($filter==="all"){
+            $filtro = " WHERE P.fk_exp_admin = '".$id."' ";
+        }else{
+            $filtro = " WHERE P.fk_exp_admin = '".$id."' and P.fk_exp_building = '".$filter."' ";
+        }
+
 
         $stmt = $conn->prepare("SELECT
                                     B.short_name,
                                     P.*
                                     FROM `EXP_PAY` P
-                                    JOIN `EXP_BUILDING`B on B.id=P.fk_exp_building
-                                    WHERE P.fk_exp_admin = '".$id."' ");
+                                    JOIN `EXP_BUILDING`B on B.id=P.fk_exp_building".
+                                    $filtro);
 
         if($stmt->execute()){
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -25,6 +25,8 @@
             <?php }else{ ?>
                 <a class="collapse-item" href="payings"><i class="fas fa-file-invoice-dollar"></i> Gestión de pagos</a>
                 <a class="collapse-item" href="urgencias"><i class="fas fa-chart-pie"></i> Servicios Urgencia</a>
+                <a class="collapse-item" href="getdocuments"><i class="fas fa-chart-pie"></i> /documentos</a>
+                <a class="collapse-item" href="getpayings"><i class="fas fa-chart-pie"></i> /pagos</a>
             <?php } ?>
         </div>
     </div>

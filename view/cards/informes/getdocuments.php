@@ -30,7 +30,7 @@
                                 <th scope="col">Newsletter</th>
                                 <th scope="col">Mes</th>
                                 <th scope="col">Año</th>
-                                <th scope="col">Editar</th>
+                                <th scope="col">Ver</th>
                             </tr>
                         </thead>
                         <tbody id="getdocuments">
@@ -61,35 +61,21 @@
                                 class="form-control" 
                                 id="namefiles" 
                                 type="text" 
-                                placeholder="Ejemplo: expensas_agosto24.zip">
+                                placeholder="Ejemplo: expensas_agosto24.zip" disabled>
                         </div>
 
                         <div class="mb-4">
                             
-                            <label for="propertyfile">
-                                <a href="property" 
-                                style="text-decoration:none"
-                                >
-                                <i 
-                                class="fas fa-plus-circle fa-1x" 
-                                > 
-                            </i> Agregar propiedad</a></label>
-                            <select class="form-control" id="propertyfile">
+                            <label for="propertyfile">Propiedad</label>
+                            <select class="form-control" id="propertyfile" disabled>
 
                             </select>
                         </div>
                         
                         <div class="mb-4">
                             
-                            <label for="newsletterplain">
-                                <a href="newsletter" 
-                                style="text-decoration:none"
-                                >
-                                <i 
-                                class="fas fa-plus-circle fa-1x" 
-                                > 
-                            </i> Agregar newsletter</a></label>
-                            <select class="form-control" id="newsletterplain">
+                            <label for="newsletterplain">Newsletter</label>
+                            <select class="form-control" id="newsletterplain" disabled>
                             </select>
                         </div>
 
@@ -99,7 +85,7 @@
                                     <label for="month" class="col-form-label">Mes</label>
                                 </div>
                                 <div class="col-auto">
-                                    <select class="form-control" id="month">
+                                    <select class="form-control" id="month" disabled>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -119,7 +105,7 @@
                                     <label for="anio" class="col-form-label">Año</label>
                                 </div>
                                 <div class="col-auto">
-                                <select class="form-control" id="year">
+                                <select class="form-control" id="year" disabled>
                                         <option value="2010">2010</option>
                                         <option value="2011">2011</option>
                                         <option value="2012">2012</option>
@@ -147,7 +133,13 @@
 
                         <hr class="sidebar-divider d-none d-md-block t">
                         <input type="hidden" id="id_doc">
-                        <div class="mb-4 file-save-alert">
+
+                        <h6><i class="fas fa-file-archive"></i> Archivos</h6>
+                            <ul class="list-group" id="detalle-pagos">
+                            </ul>
+
+
+                        <div class="mb-4 file-save-alert" style="display:none">
                             <p class="text-end file-save">
                                 <button type="button" onclick="putData()" class="btn btn-outline-primary">
                                     <i class="fas fa-save"></i>
@@ -184,7 +176,7 @@
     </div>
     </div>
 
-    <script src="view/assets/js/documents/getdocuments.js?v=3.0"></script>
+    <script src="view/assets/js/documents/getdocuments.js?v=3.9"></script>
     <script src="view/assets/js/documents/index.js?v=0.5"></script>
 
 <script>
