@@ -199,7 +199,7 @@
         
         return $response->withHeader('Content-Type', 'application/json');
     });
-
+ 
     $app->put('/delete/{folder}/{data}', function (Request $request, Response $response, array $args) use ($conn) {
         $folder = $args['folder'];
         $file = $args['data'];

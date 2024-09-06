@@ -29,7 +29,7 @@ function setGetBuild(){
     })
     .catch((error) => console.error(error));
 }
-
+ 
 function setGetPlain(){
     
     $("#newsletterplain").empty();

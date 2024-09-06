@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-
+ 
 </div>
 <script src="view/assets/js/pay/getpayings.js?v=2.6"></script>
 

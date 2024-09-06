@@ -43,7 +43,7 @@ function getData(){
       })
         .catch((error) => console.error(error));
 }
-
+ 
 function getDataById(id){
     //console.log('getdocuments by ID...' + id);
 

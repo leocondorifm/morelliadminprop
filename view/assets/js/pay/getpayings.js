@@ -6,7 +6,7 @@ function getData(){
         method: "GET",
         redirect: "follow"
       };
-      
+       
       fetch($("#url_base").val()+"api/pay/data/"+$("#fk_exp_u").val()+"/"+filter, requestOptions)
       .then( resp => resp.json() )
       .then( respObj => {

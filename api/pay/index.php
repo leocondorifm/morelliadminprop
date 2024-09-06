@@ -203,7 +203,7 @@
         $id = $args['owner'];
 
         $filter = $args['filter'];
-
+ 
         if($filter==="all"){
             $filtro = " WHERE P.fk_exp_admin = '".$id."' ";
         }else{

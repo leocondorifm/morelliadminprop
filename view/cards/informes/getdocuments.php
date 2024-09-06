@@ -44,7 +44,7 @@
     
     </main>
 
-    <!-- EDIT -->
+    <!-- EDIT --> 
     <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreen" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -66,7 +66,7 @@ function setFloors(){
         $("#floors").append('<option value="'+i+'">'+i+'</option>');
     }
 }
-
+ 
 function savePay(){
 
     const myHeaders = new Headers();
