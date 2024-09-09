@@ -127,3 +127,53 @@ function putProperty(){
         console.error(error)
     });
 }
+
+//Borrar Propiedad
+function setDeleteProp(){
+    //let id_prop = $("#id_property").val();
+    //console.log($("#id_property").val());
+    //console.log(id_prop);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    const urlencoded = new URLSearchParams();
+
+    urlencoded.append("id_property", $("#id_property").val() );
+    urlencoded.append("fk_exp_u", $("#fk_exp_u").val());
+    urlencoded.append("status", 1);
+    
+    const requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow"
+    };
+    
+    fetch($("#url_base").val()+"api/property/update/delete", requestOptions)
+      .then(resp => resp.json())
+      .then(respObj => {
+  
+            if(respObj.status == 0){
+              $("#save-updateDelete").html('<div class="alert alert-success" role="alert">'+
+                ' '+respObj.message+' '+
+              '</div>');
+
+                window.setInterval(function(){
+                    location.href = 'getproperty';
+                }, 2000);
+
+            }else{
+  
+              $("#save-updateDelete").html('<div class="alert alert-error" role="alert">'+
+                ' '+respObj.message+' '+
+              '</div>');
+  
+            }
+  
+            setTimeout(function(){
+             $("#save-updateDelete").html('');
+            }, 2000);
+  
+      })
+      .catch((error) => console.error(error));
+  
+}

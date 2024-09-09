@@ -215,7 +215,8 @@
                                     B.short_name,
                                     P.*
                                     FROM `EXP_PAY` P
-                                    JOIN `EXP_BUILDING`B on B.id=P.fk_exp_building".
+                                    JOIN `EXP_BUILDING`B on B.id=P.fk_exp_building
+                                    WHERE B.status = '0' ".
                                     $filtro);
 
         if($stmt->execute()){

@@ -136,7 +136,7 @@
                 $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario admin existente.")));
                 return $response;
             }else{//Entro acá porque el admin no lo encontré, quizá sea uno del consorcio.
-                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user");
+                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user and status='0' ");
                 $stmt -> bindParam(":building_user", $user, PDO::PARAM_STR);
                 
                 if($stmt->execute()){
@@ -207,7 +207,7 @@
                 $response->getBody()->write(json_encode(array("status" => 0, "message" => "Usuario existente.")));
                 return $response;
             }else{//Entro acá porque el admin no lo encontré
-                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user and building_pass = :building_pass");
+                $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE building_user = :building_user and building_pass = :building_pass and status='0' ");
                 $stmt -> bindParam(":building_user", $data['user'], PDO::PARAM_STR);
                 $stmt -> bindParam(":building_pass", $data['pass'], PDO::PARAM_STR);
                 if($stmt->execute()){

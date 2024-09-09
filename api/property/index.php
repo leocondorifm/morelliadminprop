@@ -122,7 +122,7 @@
     /* OBETENER */
     $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' ORDER BY ID DESC");
+        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and status='0' ORDER BY ID DESC");
 
         if($stmt->execute()){
             $getProperty = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -140,7 +140,7 @@
     $app->get('/{id}/{idprop}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
         $idprop = $args['idprop'];
-        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$idprop."' ORDER BY ID DESC");
+        $stmt = $conn->prepare("SELECT * FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$idprop."' and status='0' ORDER BY ID DESC");
 
         if($stmt->execute()){
             $getProperty = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -227,6 +227,28 @@
         }
         
         return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->put('/update/delete', function (Request $request, Response $response, array $args) use ($conn) {
+        $data = $request->getParsedBody();
+
+        $id = $data['id_property'];
+        $fk_exp_u = $data['fk_exp_u'];
+        $status = $data['status'];
+
+        $stmt = $conn->prepare("UPDATE EXP_BUILDING 
+                                SET 
+                                status = '".$status."'
+                                WHERE id='".$id."' and fk_exp_admin = '".$fk_exp_u."' ");
+
+        if($stmt->execute()){
+            $response->getBody()->write(json_encode(array("status" => 0, "message" => "Propiedad eliminada con éxito.")));
+            return $response;
+        }else{
+            $response->getBody()->write(json_encode(array("status" => 1, "message" => $stmt->errorInfo())));
+            return $response;
+        }
+
     });
 
     $app->run();

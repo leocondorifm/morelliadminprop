@@ -62,7 +62,7 @@
     /* GET */
     $app->get('/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT id, short_name FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' ORDER BY ID ASC");
+        $stmt = $conn->prepare("SELECT id, short_name FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and status='0' ORDER BY ID ASC");
         $property = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($stmt->execute()){
@@ -81,7 +81,7 @@
         $fk_exp_admin = $args['idadmin'];
         $id = $args['id'];
 
-        $stmt = $conn->prepare("SELECT id, short_name FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$id."' ORDER BY ID ASC");
+        $stmt = $conn->prepare("SELECT id, short_name FROM EXP_BUILDING WHERE fk_exp_admin = '".$fk_exp_admin."' and id='".$id."' and status='0' ORDER BY ID ASC");
         $property = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($stmt->execute()){
@@ -130,7 +130,7 @@
     /* OBETENER */
     $app->post('/plain/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT N.*, B.short_name FROM `EXP_NEWSLETTER` N JOIN EXP_BUILDING B on N.fk_exp_building=B.id WHERE N.fk_exp_admin = '".$fk_exp_admin."' ");
+        $stmt = $conn->prepare("SELECT N.*, B.short_name FROM `EXP_NEWSLETTER` N JOIN EXP_BUILDING B on N.fk_exp_building=B.id WHERE N.fk_exp_admin = '".$fk_exp_admin."' and B.status='0' ");
                                 
         if($stmt->execute()){
             $newsletter = $stmt->fetchAll(PDO::FETCH_ASSOC);

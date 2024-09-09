@@ -61,7 +61,7 @@
     /* OBETENER */
     $app->get('/property/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT f.*, b.* FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' GROUP BY f.fk_exp_building");
+        $stmt = $conn->prepare("SELECT f.*, b.* FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."'  and b.status='0' GROUP BY f.fk_exp_building");
 
         if($stmt->execute()){
             $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -79,7 +79,7 @@
 
     $app->get('/file/{id}', function (Request $request, Response $response, array $args) use ($conn) {
         $fk_exp_admin = $args['id'];
-        $stmt = $conn->prepare("SELECT f.fk_exp_building, b.short_name  FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' GROUP BY f.fk_exp_building");
+        $stmt = $conn->prepare("SELECT f.fk_exp_building, b.short_name  FROM `EXP_FILES` f JOIN EXP_BUILDING b on f.fk_exp_building=b.id WHERE f.fk_exp_admin = '".$fk_exp_admin."' and status='0' GROUP BY f.fk_exp_building");
 
         if($stmt->execute()){
             $tipProp = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -168,7 +168,7 @@
                                 JOIN `EXP_BUILDING` B on B.id=P.fk_exp_property
                                 JOIN `EXP_NEWSLETTER` N on N.id=P.fk_exp_newsletter
                                 JOIN `EXP_FILES` F on F.id=P.fk_exp_files
-                                WHERE P.fk_exp_admin = '".$id."' ");
+                                WHERE P.fk_exp_admin = '".$id."' and B.status='0' ");
 
         if($stmt->execute()){
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
